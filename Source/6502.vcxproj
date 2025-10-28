@@ -47,6 +47,7 @@
     <OutDir>.\Static\</OutDir>
     <IntDir>.\Static/Out\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Debug\</OutDir>

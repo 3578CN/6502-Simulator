@@ -1,3 +1,11 @@
 .vs
 debug
 outdbg
+outen
+outpl
+*.pdb
+*.recipe
+*.log
+*.tlog
+Source/Static
+Source/ResDll/Static

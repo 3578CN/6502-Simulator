@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -18,11 +18,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 -----------------------------------------------------------------------------*/
 
-// Asembler dla mikroprocesorów M65XX i M65C02
+// Asembler dla mikroprocesorÃ³w M65XX i M65C02
 
 #include "stdafx.h"
 #include "resource.h"
-#include "typeinfo.h"
+#include <typeinfo>
 #include "MarkArea.h"
 #include "IOWindow.h"	// this is sloppy, but right now there's no mechanism to let framework know about requested new terminal wnd size
 
@@ -51,15 +51,15 @@ CLeksem::CLeksem(const CLeksem &leks) : type(leks.type)
 CLeksem & CLeksem::operator = (const CLeksem &leks)
 {
 //  ASSERT(type == leks.type);
-	if (type==L_STR || type==L_IDENT || type==L_IDENT_N)	// leksem docelowy zawiera ³añcuch znaków?
+	if (type==L_STR || type==L_IDENT || type==L_IDENT_N)	// leksem docelowy zawiera Â³aÃ±cuch znakÃ³w?
 	{
 		delete str;
 		str = NULL;
 	}
 //  type = leks.type;
-	memcpy(this,&leks,sizeof *this);	// skopiowanie ca³ej unii i pola typu
-	if (leks.type==L_STR || leks.type==L_IDENT || leks.type==L_IDENT_N)	// leksem Ÿród³owy zawiera ³añcuch znaków?
-		str = new CLString(*leks.str);	// zdublowanie ³añcucha znaków
+	memcpy(this,&leks,sizeof *this);	// skopiowanie caÂ³ej unii i pola typu
+	if (leks.type==L_STR || leks.type==L_IDENT || leks.type==L_IDENT_N)	// leksem Å¸rÃ³dÂ³owy zawiera Â³aÃ±cuch znakÃ³w?
+		str = new CLString(*leks.str);	// zdublowanie Â³aÃ±cucha znakÃ³w
 	return *this;
 }
 
@@ -75,7 +75,7 @@ CLeksem::~CLeksem()
 		{
 #ifdef _DEBUG
 			if (str->GetLength())
-				str->SetAt(0,'X');		// zmiana tekstu dla ew. wisz¹cych odwo³añ
+				str->SetAt(0,'X');		// zmiana tekstu dla ew. wiszÂ¹cych odwoÂ³aÃ±
 #endif
 			delete str;
 		}
@@ -88,14 +88,14 @@ CLeksem::~CLeksem()
 bool CIdentTable::insert(const CString &str, CIdent &ident)
 {
 	CIdent &val= this->operator[](str);
-	if (val.info==CIdent::I_INIT)	// true -> nowy element, false -> ju¿ by³
+	if (val.info==CIdent::I_INIT)	// true -> nowy element, false -> juÂ¿ byÂ³
 	{
 		val = ident;	// wpisanie nowego elementu
 		return true;
 	}
 	else
 	{
-		ident = val;	// zwrócenie starego elementu
+		ident = val;	// zwrÃ³cenie starego elementu
 		return false;
 	}
 }
@@ -104,7 +104,7 @@ bool CIdentTable::insert(const CString &str, CIdent &ident)
 bool CIdentTable::replace(const CString &str, const CIdent &ident)
 {
 	CIdent &val= this->operator[](str);
-	if (val.info==CIdent::I_INIT)	// true -> nowy element, false -> ju¿ by³
+	if (val.info==CIdent::I_INIT)	// true -> nowy element, false -> juÂ¿ byÂ³
 	{
 		val = ident;	// wpisanie nowego elementu
 	}
@@ -112,19 +112,19 @@ bool CIdentTable::replace(const CString &str, const CIdent &ident)
 	{
 		if ((val.variable || val.info==CIdent::I_UNDEF) && ident.variable)
 		{
-			val = ident;	// zast¹pienie nowym elementem starej wartoœci zmiennej
+			val = ident;	// zastÂ¹pienie nowym elementem starej wartoÅ“ci zmiennej
 			return true;
 		}
 		else if (val.variable || ident.variable)	// tutaj spr. albo, albo
 		{
-			return false;	// niedozwolone przedefiniowanie (zmiana typu ze sta³ej na zmienn¹ lub odwrotnie)
+			return false;	// niedozwolone przedefiniowanie (zmiana typu ze staÂ³ej na zmiennÂ¹ lub odwrotnie)
 		}
-		else if (val.info!=CIdent::I_UNDEF)	// stary element ju¿ zdefiniowany?
+		else if (val.info!=CIdent::I_UNDEF)	// stary element juÂ¿ zdefiniowany?
 		{
-			val = ident;	// zast¹pienie nowym elementem starego
-			return false;	// zg³oszenie redefinicji
+			val = ident;	// zastÂ¹pienie nowym elementem starego
+			return false;	// zgÂ³oszenie redefinicji
 		}
-		val = ident;	// zast¹pienie nowym elementem starego, niezdefiniowanego
+		val = ident;	// zastÂ¹pienie nowym elementem starego, niezdefiniowanego
 	}
 	return true;		// OK
 }
@@ -274,7 +274,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 		return CLeksem(CLeksem::L_FIN);
 
 	case '$':
-		if (!_istxdigit(*ptr))	// znak '$' na koñcu parametru makra?
+		if (!_istxdigit(*ptr))	// znak '$' na koÃ±cu parametru makra?
 			return CLeksem(CLeksem::L_STR_ARG);
 		break;
 	case ';':
@@ -282,7 +282,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 	case ':':
 		return CLeksem(CLeksem::L_LABEL);
 	case '=':
-		if (*ptr=='=')	// operator '==' równe?
+		if (*ptr=='=')	// operator '==' rÃ³wne?
 		{
 			ptr++;
 			return CLeksem(O_EQ);
@@ -305,24 +305,24 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 		return CLeksem(CLeksem::L_EXPR_BRACKET_R);
 
 	case '>':
-		if (*ptr=='>')		// operator '>>' przesuniêcia?
+		if (*ptr=='>')		// operator '>>' przesuniÃªcia?
 		{
 			ptr++;
 			return CLeksem(O_SHR);
 		}
-		else if (*ptr=='=')	// operator '>=' wiêksze równe?
+		else if (*ptr=='=')	// operator '>=' wiÃªksze rÃ³wne?
 		{
 			ptr++;
 			return CLeksem(O_GTE);
 		}
 		return CLeksem(O_GT);
 	case '<':
-		if (*ptr=='<')		// operator '<<' przesuniêcia?
+		if (*ptr=='<')		// operator '<<' przesuniÃªcia?
 		{
 			ptr++;
 			return CLeksem(O_SHL);
 		}
-		else if (*ptr=='=')	// operator '<=' mniejsze równe?
+		else if (*ptr=='=')	// operator '<=' mniejsze rÃ³wne?
 		{
 			ptr++;
 			return CLeksem(O_LTE);
@@ -362,7 +362,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 	case '~':
 		return CLeksem(O_B_NOT);
 	case '!':
-		if (*ptr=='=')	// operator '!=' ro¿ne?
+		if (*ptr=='=')	// operator '!=' roÂ¿ne?
 		{
 			ptr++;
 			return CLeksem(O_NE);
@@ -387,12 +387,12 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 
 	if (_istspace(c))
 	{
-		if (!nospace)		// zwróciæ leksem L_SPACE?
+		if (!nospace)		// zwrÃ³ciÃ¦ leksem L_SPACE?
 			return eat_space();
 		eat_space();
 		return next_leks();
 	}
-	else if (_istdigit(c))	// cyfra dziesiêtna?
+	else if (_istdigit(c))	// cyfra dziesiÃªtna?
 	{
 		ptr--;
 		return get_dec_num();
@@ -408,7 +408,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 		CLeksem::CLString* pStr= get_ident();
 		if (pStr == NULL)
 			return CLeksem(CLeksem::ERR_BAD_CHR);
-		if (c=='.')				// to mo¿e byæ dyrektywa
+		if (c=='.')				// to moÂ¿e byÃ¦ dyrektywa
 		{
 			InstrType it;
 			if (asm_instr(*pStr,it))
@@ -417,7 +417,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 				return CLeksem(it);
 			}
 		}
-		else if (pStr->GetLength()==3)	// to mo¿e byæ instrukcja
+		else if (pStr->GetLength()==3)	// to moÂ¿e byÃ¦ instrukcja
 		{
 			OpCode code;
 			if (proc_instr(*pStr,code))
@@ -426,7 +426,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 				return CLeksem(code);
 			}
 		}
-		if (*ptr == '#')			// znak '#' na koñcu etykiety?
+		if (*ptr == '#')			// znak '#' na koÃ±cu etykiety?
 		{
 			ptr++;
 			return CLeksem(pStr,1L);	// identyfikator numerowany (po '#' oczekiwana liczba)
@@ -434,7 +434,7 @@ CLeksem CAsm6502::next_leks(bool nospace)		// pobranie kolejnego symbolu
 		return CLeksem(pStr,1);	// L_IDENT
 	}
 
-	return CLeksem(CLeksem::L_UNKNOWN);	// niesklasyfikowany znak - b³¹d
+	return CLeksem(CLeksem::L_UNKNOWN);	// niesklasyfikowany znak - bÂ³Â¹d
 }
 
 
@@ -473,7 +473,7 @@ CLeksem CAsm6502::get_hex_num()		// interpretacja liczby szesnastkowej
 
 
 
-CLeksem CAsm6502::get_dec_num()		// interpretacja liczby dziesiêtnej
+CLeksem CAsm6502::get_dec_num()		// interpretacja liczby dziesiÃªtnej
 {
 	UINT32 val= 0;
 	const TCHAR *tmp= ptr;
@@ -502,7 +502,7 @@ CLeksem CAsm6502::get_dec_num()		// interpretacja liczby dziesiêtnej
 
 
 
-CLeksem CAsm6502::get_bin_num()		// interpretacja liczby dwójkowej
+CLeksem CAsm6502::get_bin_num()		// interpretacja liczby dwÃ³jkowej
 {
 	UINT32 val= 0;
 	const TCHAR *tmp= ptr;
@@ -532,7 +532,7 @@ CLeksem CAsm6502::get_bin_num()		// interpretacja liczby dwójkowej
 
 
 
-CLeksem CAsm6502::get_char_num()		// interpretacja sta³ej znakowej
+CLeksem CAsm6502::get_char_num()		// interpretacja staÂ³ej znakowej
 {
 	TCHAR c1= *ptr++;	// pierwszy znak w apostrofie
 
@@ -544,12 +544,12 @@ CLeksem CAsm6502::get_char_num()		// interpretacja sta³ej znakowej
 			err_start = ptr-2;  
 			return CLeksem(CLeksem::ERR_NUM_CHR);
 		}
-		ptr++;		// ominiêcie zamykaj¹cego apostrofu
+		ptr++;		// ominiÃªcie zamykajÂ¹cego apostrofu
 		return CLeksem(CLeksem::N_CHR2,((c2 & 0xFF)<<8)+(c1 & 0xFF));
 	}
 	else
 	{
-		ptr++;		// ominiêcie zamykaj¹cego apostrofu
+		ptr++;		// ominiÃªcie zamykajÂ¹cego apostrofu
 		return CLeksem(CLeksem::N_CHR,c1 & 0xFF);
 	}
 }
@@ -557,7 +557,7 @@ CLeksem CAsm6502::get_char_num()		// interpretacja sta³ej znakowej
 
 
 //CLeksem
-CLeksem::CLString* CAsm6502::get_ident()	// wyodrêbnienie napisu
+CLeksem::CLString* CAsm6502::get_ident()	// wyodrÃªbnienie napisu
 {
 	const TCHAR *start= ptr;
 	TCHAR c= *ptr++;			// pierwszy znak
@@ -572,7 +572,7 @@ CLeksem::CLString* CAsm6502::get_ident()	// wyodrêbnienie napisu
 		ptr++;
 
 	CLeksem::CLString *pstr= new CLeksem::CLString(start,ptr-start);
-	ident_start = start;		// zapamiêtanie po³o¿enia identyfikatora w wierszu
+	ident_start = start;		// zapamiÃªtanie poÂ³oÂ¿enia identyfikatora w wierszu
 	ident_fin = ptr;
 
 //  return CLeksem(pstr,0);
@@ -581,7 +581,7 @@ CLeksem::CLString* CAsm6502::get_ident()	// wyodrêbnienie napisu
 
 
 
-CLeksem CAsm6502::get_string(TCHAR lim)		// wyodrêbnienie ³añcucha znaków
+CLeksem CAsm6502::get_string(TCHAR lim)		// wyodrÃªbnienie Â³aÃ±cucha znakÃ³w
 {
 	const TCHAR *fin= _tcschr(ptr,lim);
   
@@ -599,11 +599,11 @@ CLeksem CAsm6502::get_string(TCHAR lim)		// wyodrêbnienie ³añcucha znaków
 }
 
 
-CLeksem CAsm6502::eat_space()			// ominiêcie odstêpu
+CLeksem CAsm6502::eat_space()			// ominiÃªcie odstÃªpu
 {
 	ptr--;
 	while ( _istspace(*++ptr) && *ptr!=_T('\n') && *ptr!=_T('\r') )
-		;		// "bia³e" znaki (ale nie CR)
+		;		// "biaÂ³e" znaki (ale nie CR)
 	return CLeksem(CLeksem::L_SPACE);
 }
 
@@ -901,9 +901,9 @@ int __cdecl CAsm6502::asm_str_key_cmp(const void *elem1, const void *elem2)
 
 
 bool CAsm6502::asm_instr(const CString &str, InstrType &it)
-{				// spr. czy 'str' jest dyrektyw¹ asemblera
+{				// spr. czy 'str' jest dyrektywÂ¹ asemblera
 	static const ASM_STR_KEY instr[]=
-	{		// dyrektywy asemblera w porz¹dku alfabetycznym
+	{		// dyrektywy asemblera w porzÂ¹dku alfabetycznym
 		".ASCII",	I_DB,		// def byte
 		".ASCIS",	I_ASCIS,	// ascii + $80 ostatni bajt
 		".BYTE",	I_DB,
@@ -914,24 +914,24 @@ bool CAsm6502::asm_instr(const CString &str, InstrType &it)
 		".DS",		I_RS,		// reserve space (define space)
 		".DW",		I_DW,		// def word
 		".ELSE",	I_ELSE,
-		".END",		I_END,		// zakoñczenie programu (pliku)
+		".END",		I_END,		// zakoÃ±czenie programu (pliku)
 		".ENDIF",	I_ENDIF,	// koniec .IF
 		".ENDM",	I_ENDM,		// koniec .MACRO
 		".ENDR",	I_ENDR,		// koniec .REPEAT
-		".ERROR",	I_ERROR,	// zg³oszenie b³êdu
-		".EXITM",	I_EXITM,	// zakoñczenie rozwijania makra
+		".ERROR",	I_ERROR,	// zgÂ³oszenie bÂ³Ãªdu
+		".EXITM",	I_EXITM,	// zakoÃ±czenie rozwijania makra
 		".IF",		I_IF,		// asemblacja warunkowa
-		".INCLUDE",	I_INCLUDE,	// w³¹czenie pliku do asemblacji
+		".INCLUDE",	I_INCLUDE,	// wÂ³Â¹czenie pliku do asemblacji
 		".IO_WND",	I_IO_WND,	// I/O terminal window size
 		".MACRO",	I_MACRO,	// makrodefinicja
 		".OPT",		I_OPT,		// opcje asemblera
 		".ORG",		I_ORG,		// origin
-		".REPEAT",	I_REPEAT,	// powtórka
+		".REPEAT",	I_REPEAT,	// powtÃ³rka
 		".REPT",	I_REPEAT,
 		".ROM_AREA",I_ROM_AREA,	// protected memory area
 		".RS",		I_RS,		// reserve space
-		".SET",		I_SET,		// przypisanie wartoœci
-		".START",	I_START,	// pocz¹tek programu (dla symulatora)
+		".SET",		I_SET,		// przypisanie wartoÅ“ci
+		".START",	I_START,	// poczÂ¹tek programu (dla symulatora)
 		".STR",		I_DS,		// def string
 		".STRING",	I_DS,		// def string
 		".WORD",	I_DW
@@ -952,7 +952,7 @@ bool CAsm6502::asm_instr(const CString &str, InstrType &it)
 }
 
 
-	// interpretacja argumentów rozkazu procesora
+	// interpretacja argumentÃ³w rozkazu procesora
 CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &expr,
 					   Expr &expr_bit, Expr &expr_zpg)
 {
@@ -965,10 +965,10 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 	case CLeksem::L_BRACKET_L:			// nawias '('
 		leks = next_leks();		// kolejny niepusty leksem
 		ret = expression(leks,expr);
-		if (ret)				// niepoprawne wyra¿enie?
+		if (ret)				// niepoprawne wyraÂ¿enie?
 			return ret;
 		if (expr.inf==Expr::EX_LONG)
-			return ERR_NUM_LONG;		// za du¿a liczba, max $FFFF
+			return ERR_NUM_LONG;		// za duÂ¿a liczba, max $FFFF
 		switch (leks.type)
 		{
 		case CLeksem::L_SPACE:
@@ -977,7 +977,7 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 
 		case CLeksem::L_COMMA:
 			if (bProc6502 && expr.inf!=Expr::EX_BYTE && expr.inf!=Expr::EX_UNDEF)
-				return ERR_NUM_NOT_BYTE;	// za du¿a liczba, max $FF
+				return ERR_NUM_NOT_BYTE;	// za duÂ¿a liczba, max $FF
 			leks = next_leks();		// kolejny niepusty leksem
 			if (leks.type!=CLeksem::L_IDENT)
 				return ERR_IDX_REG_X_EXPECTED;
@@ -1003,10 +1003,10 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 			{
 				switch (expr.inf)
 				{
-				case Expr::EX_UNDEF:		// nieokreœlona wartoœæ wyra¿enia?
+				case Expr::EX_UNDEF:		// nieokreÅ“lona wartoÅ“Ã¦ wyraÂ¿enia?
 					mode = A_ABSI_OR_ZPGI;		// niezdeterminowany tryb adresowania
 					break;
-				case Expr::EX_BYTE:		// wyra¿enie < 256 ?
+				case Expr::EX_BYTE:		// wyraÂ¿enie < 256 ?
 					mode = A_ZPGI;
 					break;
 				case Expr::EX_WORD:
@@ -1037,28 +1037,28 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 	case CLeksem::L_HASH:			// argument natychmiastowy '#'
 		leks = next_leks();		// kolejny niepusty leksem
 		ret = expression(leks,expr);
-		if (ret)				// niepoprawne wyra¿enie?
+		if (ret)				// niepoprawne wyraÂ¿enie?
 			return ret;
 
 		if (expr.inf!=Expr::EX_BYTE && expr.inf!=Expr::EX_UNDEF)
-			return ERR_NUM_NOT_BYTE;	// za du¿a liczba, max $FF
+			return ERR_NUM_NOT_BYTE;	// za duÂ¿a liczba, max $FF
 		mode = A_IMM;
-		if (!bProc6502 && leks.type==CLeksem::L_COMMA)	// przecinek po wyra¿eniu?
+		if (!bProc6502 && leks.type==CLeksem::L_COMMA)	// przecinek po wyraÂ¿eniu?
 		{
 			leks = next_leks();		// kolejny niepusty leksem
 			if (expr.inf == Expr::EX_BYTE && abs(expr.value) > 7)
-				return ERR_NOT_BIT_NUM;	// z³y numer bitu
+				return ERR_NOT_BIT_NUM;	// zÂ³y numer bitu
 			ret = expression(leks,expr_zpg);
-			if (ret)				// niepoprawne wyra¿enie?
+			if (ret)				// niepoprawne wyraÂ¿enie?
 				return ret;
-			expr_bit = expr;		// wyra¿enie - numer bitu
+			expr_bit = expr;		// wyraÂ¿enie - numer bitu
 			if (expr_zpg.inf!=Expr::EX_BYTE && expr_zpg.inf!=Expr::EX_UNDEF)
-				return ERR_NUM_NOT_BYTE;	// za du¿a liczba, max $FF
-			if (leks.type==CLeksem::L_COMMA)	// przecinek po wyra¿eniu?
+				return ERR_NUM_NOT_BYTE;	// za duÂ¿a liczba, max $FF
+			if (leks.type==CLeksem::L_COMMA)	// przecinek po wyraÂ¿eniu?
 			{
 				leks = next_leks();		// kolejny niepusty leksem
 				ret = expression(leks,expr);
-				if (ret)				// niepoprawne wyra¿enie?
+				if (ret)				// niepoprawne wyraÂ¿enie?
 					return ret;
 				mode = A_ZREL;		// tryb adr. dla BBS i BBR
 			}
@@ -1068,27 +1068,27 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 		return OK;
 
 
-	default:					// wyra¿enie lub nic
-		if (!is_expression(leks))		// pocz¹tek wyra¿enia?
+	default:					// wyraÂ¿enie lub nic
+		if (!is_expression(leks))		// poczÂ¹tek wyraÂ¿enia?
 		{
 			mode = A_IMP_OR_ACC;
 			return OK;
 		}
 		ret = expression(leks,expr);
-		if (ret)				// niepoprawne wyra¿enie?
+		if (ret)				// niepoprawne wyraÂ¿enie?
 			return ret;
 		if (expr.inf==Expr::EX_LONG)
 			return ERR_NUM_LONG;
 		//      if (leks.type==CLeksem::L_SPACE)
 		//        leks = next_leks();
-		if (leks.type!=CLeksem::L_COMMA)	// nia ma przecinka po wyra¿eniu?
+		if (leks.type!=CLeksem::L_COMMA)	// nia ma przecinka po wyraÂ¿eniu?
 		{
 			switch (expr.inf)
 			{
-			case Expr::EX_UNDEF:		// nieokreœlona wartoœæ?
+			case Expr::EX_UNDEF:		// nieokreÅ“lona wartoÅ“Ã¦?
 				mode = A_ABS_OR_ZPG;	// niezdeterminowany tryb adresowania
 				break;
-			case Expr::EX_BYTE:		// wyra¿enie < 256 ?
+			case Expr::EX_BYTE:		// wyraÂ¿enie < 256 ?
 				mode = A_ZPG;
 				break;
 			case Expr::EX_WORD:
@@ -1111,10 +1111,10 @@ CAsm6502::Stat CAsm6502::proc_instr_syntax(CLeksem &leks, CodeAdr &mode, Expr &e
 
 		switch (expr.inf)
 		{
-		case Expr::EX_UNDEF:		// nieokreœlona wartoœæ wyra¿enia?
+		case Expr::EX_UNDEF:		// nieokreÅ“lona wartoÅ“Ã¦ wyraÂ¿enia?
 			mode = reg_x ? A_ABSX_OR_ZPGX : A_ABSY_OR_ZPGY;	// niezdeterminowany tryb adresowania
 			break;
-		case Expr::EX_BYTE:		// wyra¿enie < 256 ?
+		case Expr::EX_BYTE:		// wyraÂ¿enie < 256 ?
 			mode = reg_x ? A_ZPG_X : A_ZPG_Y;
 			break;
 		case Expr::EX_WORD:
@@ -1141,16 +1141,16 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_ORG:		// origin
 		{
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane s³owo
+			ret = expression(leks,expr);	// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			if (expr.value < 0)
-				return ERR_NUM_NEGATIVE;	// oczekiwana wartoœæ nieujemna
-			if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;	// oczekiwana wartoÅ“Ã¦ nieujemna
+			if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
-			if (program_start==~0u)		// pocz¹tek programu jeszcze nie zdefiniowany?
+			if (program_start==~0u)		// poczÂ¹tek programu jeszcze nie zdefiniowany?
 			{
 				program_start = origin = expr.value & mem_mask;
 				if (markArea && pass==2)
@@ -1169,19 +1169,19 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			break;
 		}
 
-	case I_START:	// pocz¹tek programu dla symulatora
+	case I_START:	// poczÂ¹tek programu dla symulatora
 		{
 			if (pLabel)			// jest etykieta przed .START ?
 				return ERR_LABEL_NOT_ALLOWED;
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane s³owo
+			ret = expression(leks,expr);	// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return pass==1 ? OK : ERR_UNDEF_EXPR;
 			if (expr.value < 0)
-				return ERR_NUM_NEGATIVE;	// oczekiwana wartoœæ nieujemna
-			if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;	// oczekiwana wartoÅ“Ã¦ nieujemna
+			if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
 			program_start = expr.value & mem_mask;
 			if (listing.IsOpen())
@@ -1199,18 +1199,18 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 		def++;
 	case I_ASCIS:	// def ascii + $80
 		{
-			UINT32 cnt_org= origin;	// miejsce na bajt d³ugoœci danych (tylko .STR)
-			int cnt= 0;		// d³ugoœæ danych (inf. dla .STR)
-			if (def == -1)		// jeœli .STR to zarezerwowanie bajtu
+			UINT32 cnt_org= origin;	// miejsce na bajt dÂ³ugoÅ“ci danych (tylko .STR)
+			int cnt= 0;		// dÂ³ugoÅ“Ã¦ danych (inf. dla .STR)
+			if (def == -1)		// jeÅ“li .STR to zarezerwowanie bajtu
 			{
 				ret = inc_prog_counter(1);
 				if (ret)
-					return ret;		// dane nie zmieszcz¹ siê w pamiêci systemu 6502
+					return ret;		// dane nie zmieszczÂ¹ siÃª w pamiÃªci systemu 6502
 			}
 			for (;;)
 			{
 				Expr expr;
-				ret = expression(leks,expr,def<=0);	// oczekiwane wyra¿enie
+				ret = expression(leks,expr,def<=0);	// oczekiwane wyraÂ¿enie
 				if (ret)
 					return ret;
 				if (expr.inf==Expr::EX_STRING)		// tekst?
@@ -1224,7 +1224,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 					cnt += len;
 					ret = inc_prog_counter(len);
 					if (ret)
-						return ret;		// ci¹g znaków nie zmieœci³ siê w pamiêci systemu 6502
+						return ret;		// ciÂ¹g znakÃ³w nie zmieÅ“ciÂ³ siÃª w pamiÃªci systemu 6502
 					if (pass==2 && out)
 					{
 						for (int i=0; org<origin; org++,i++)
@@ -1232,15 +1232,15 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 					}
 					//	  leks = next_leks();
 				}
-				else if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				else if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 					return ERR_NUM_LONG;
 				else if (pass==1)
 				{
 					if (def==0 && expr.inf==Expr::EX_WORD)
-						return ERR_NUM_NOT_BYTE;	// za du¿a liczba, max $FF
+						return ERR_NUM_NOT_BYTE;	// za duÂ¿a liczba, max $FF
 					ret = inc_prog_counter(def>0 ? 2 : 1);
 					if (ret)
-						return ret;		// dane nie zmieszcz¹ siê w pamiêci systemu 6502
+						return ret;		// dane nie zmieszczÂ¹ siÃª w pamiÃªci systemu 6502
 					cnt++;
 				}
 				else
@@ -1248,13 +1248,13 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 					if (expr.inf==Expr::EX_UNDEF)
 						return ERR_UNDEF_EXPR;
 					if (def==0 && expr.inf==Expr::EX_WORD)
-						return ERR_NUM_NOT_BYTE;	// za du¿a liczba, max $FF
+						return ERR_NUM_NOT_BYTE;	// za duÂ¿a liczba, max $FF
 					UINT32 org= origin;
 					//	  if (origin > 0xFFFF)
 					//	    return ERR_UNDEF_ORIGIN;
 					ret = inc_prog_counter(def>0 ? 2 : 1);
 					if (ret)
-						return ret;		// dane nie zmieszcz¹ siê w pamiêci systemu 6502
+						return ret;		// dane nie zmieszczÂ¹ siÃª w pamiÃªci systemu 6502
 					if (out)
 					{
 						switch (def)
@@ -1276,7 +1276,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 						}
 					}
 				}
-				if (leks.type != CLeksem::L_COMMA)	// po przecinku (jeœli jest) kolejne dane
+				if (leks.type != CLeksem::L_COMMA)	// po przecinku (jeÅ“li jest) kolejne dane
 				{
 					if (def == -1)		// .STR ?
 					{
@@ -1302,14 +1302,14 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_DCB:		// declare block
 		{
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane s³owo
+			ret = expression(leks,expr);	// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			if (expr.value < 0)
-				return ERR_NUM_NEGATIVE;	// oczekiwana wartoœæ nieujemna
-			if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;	// oczekiwana wartoÅ“Ã¦ nieujemna
+			if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
 			UINT16 org= origin;
 			ret = inc_prog_counter(expr.value);
@@ -1324,9 +1324,9 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			ret = expression(leks,init);	// oczekiwany bajt
 			if (ret)
 				return ret;
-			if (init.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ?
+			if (init.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦?
 				return pass==1 ? OK : ERR_UNDEF_EXPR;
-			if (init.inf!=Expr::EX_BYTE)	// za du¿a wartoœæ?
+			if (init.inf!=Expr::EX_BYTE)	// za duÂ¿a wartoÅ“Ã¦?
 				return ERR_NUM_NOT_BYTE;
 			if (pass==2 && out)
 			{
@@ -1342,44 +1342,44 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_RS:		// reserve space
 		{
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane s³owo
+			ret = expression(leks,expr);	// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			if (expr.value < 0)
-				return ERR_NUM_NEGATIVE;	// oczekiwana wartoœæ nieujemna
-			if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;	// oczekiwana wartoÅ“Ã¦ nieujemna
+			if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
 			if (origin > 0xFFFF)
 				return ERR_UNDEF_ORIGIN;
-			origin += expr.value & 0xFFFF;	// zarezerwowana przestrzeñ
+			origin += expr.value & 0xFFFF;	// zarezerwowana przestrzeÃ±
 			if (origin > mem_mask)
-				return ERR_PC_WRAPED;		// licznik rozkazów "przewin¹³ siê"
+				return ERR_PC_WRAPED;		// licznik rozkazÃ³w "przewinÂ¹Â³ siÃª"
 			if (pass==2 && listing.IsOpen())
 				listing.AddCodeBytes(UINT16(origin));
 			break;
 		}
 
-	case I_END:		// zakoñczenie
+	case I_END:		// zakoÃ±czenie
 		{
-			if (!is_expression(leks))		// nie ma wyra¿enia?
+			if (!is_expression(leks))		// nie ma wyraÂ¿enia?
 				return STAT_FIN;
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane s³owo
+			ret = expression(leks,expr);	// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return pass==1 ? OK : ERR_UNDEF_EXPR;
 			if (expr.value < 0)
-				return ERR_NUM_NEGATIVE;	// oczekiwana wartoœæ nieujemna
-			if (expr.inf==Expr::EX_LONG)	// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;	// oczekiwana wartoÅ“Ã¦ nieujemna
+			if (expr.inf==Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
 			program_start = expr.value & mem_mask;
 			return STAT_FIN;
 		}
 
-	case I_ERROR:	// zg³oszenie b³êdu
+	case I_ERROR:	// zgÂ³oszenie bÂ³Ãªdu
 		if (pLabel)			// jest etykieta przed .ERROR ?
 			return ERR_LABEL_NOT_ALLOWED;
 
@@ -1402,9 +1402,9 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	leks = next_leks();
       }
 */
-		return STAT_USER_DEF_ERR;		// b³¹d u¿ytkownika
+		return STAT_USER_DEF_ERR;		// bÂ³Â¹d uÂ¿ytkownika
 
-	case I_INCLUDE:	// w³¹czenie plku
+	case I_INCLUDE:	// wÂ³Â¹czenie plku
 		if (pLabel)			// jest etykieta przed .INCLUDE ?
 			return ERR_LABEL_NOT_ALLOWED;
 
@@ -1434,7 +1434,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			include_fname = szPath;
 		}
 		else
-			return ERR_STR_EXPECTED;	// oczekiwany ³añcuch znaków
+			return ERR_STR_EXPECTED;	// oczekiwany Â³aÃ±cuch znakÃ³w
 		return STAT_INCLUDE;
 
 	case I_IF:
@@ -1442,11 +1442,11 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			if (pLabel)			// jest etykieta przed .IF ?
 				return ERR_LABEL_NOT_ALLOWED;
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane wyra¿enie
+			ret = expression(leks,expr);	// oczekiwane wyraÂ¿enie
 			if (ret)
 				return ret;
 			//      leks = next_leks();
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return check_line ? OK : STAT_IF_UNDETERMINED;
 			return expr.value ? STAT_IF_TRUE : STAT_IF_FALSE;
 		}
@@ -1473,7 +1473,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			CMacroDef *pMacro= NULL;
 			if (pass == 1)
 			{
-				pMacro = get_new_macro_entry();	// miejsce na now¹ makrodefinicjê
+				pMacro = get_new_macro_entry();	// miejsce na nowÂ¹ makrodefinicjÃª
 				ret = def_macro_name(*pLabel,CIdent(CIdent::I_MACRONAME,get_last_macro_entry_index()));
 				if (ret)
 					return ret;
@@ -1485,18 +1485,18 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 				ret = chk_macro_name(*pLabel);
 				if (ret)
 					return ret;
-				return STAT_MACRO;		// makro zosta³o ju¿ zarejestrowane
+				return STAT_MACRO;		// makro zostaÂ³o juÂ¿ zarejestrowane
 			}
 
 			ASSERT(pMacro);
-			pMacro->m_strName = *pLabel;	// zapamiêtanie nazwy makra w opisie makrodefinicji
+			pMacro->m_strName = *pLabel;	// zapamiÃªtanie nazwy makra w opisie makrodefinicji
 
 			for (bool bRequired= false; ; )
 			{
 				if (leks.type == CLeksem::L_IDENT)	// nazwa parametru?
 				{
 					if (pMacro->AddParam(*leks.GetString()) < 0)
-						return ERR_PARAM_ID_REDEF;		// powtórzona nazwa parametru
+						return ERR_PARAM_ID_REDEF;		// powtÃ³rzona nazwa parametru
 				}
 				else if (leks.type == CLeksem::L_MULTI)	// wielokropek?
 				{
@@ -1526,7 +1526,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_ENDM:			// koniec makrodefinicji
 		if (pLabel)
 			return ERR_LABEL_NOT_ALLOWED;
-		return ERR_SPURIOUS_ENDM;		// .ENDM bez wczeœniejszego .MACRO
+		return ERR_SPURIOUS_ENDM;		// .ENDM bez wczeÅ“niejszego .MACRO
 
 	case I_EXITM:			// opuszczenie makrodefinicji
 		if (pLabel)
@@ -1534,12 +1534,12 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 		return expanding_macro ? STAT_EXITM : ERR_SPURIOUS_EXITM;
 
 
-	case I_SET:				// przypisanie wartoœci zmiennej
+	case I_SET:				// przypisanie wartoÅ“ci zmiennej
 		{
 			if (!pLabel)			// nie ma etykiety przed .SET ?
 				return ERR_LABEL_EXPECTED;
 			Expr expr;
-			ret = expression(leks,expr);	// oczekiwane wyra¿enie
+			ret = expression(leks,expr);	// oczekiwane wyraÂ¿enie
 			if (ret)
 				return ret;
 			CIdent::IdentInfo info= expr.inf==Expr::EX_UNDEF ? CIdent::I_UNDEF : CIdent::I_VALUE;
@@ -1553,13 +1553,13 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 		}
 
 
-	case I_REPEAT:			// powtórka wierszy
+	case I_REPEAT:			// powtÃ³rka wierszy
 		{
 			Expr expr;
-			ret = expression(leks, expr);	// oczekiwane wyra¿enie
+			ret = expression(leks, expr);	// oczekiwane wyraÂ¿enie
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			if (expr.value < 0 || expr.value > 0xFFFF)
 				return ERR_BAD_REPT_NUM;
@@ -1567,8 +1567,8 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			return STAT_REPEAT;
 		}
 
-	case I_ENDR:			// koniec powtórki
-		return ERR_SPURIOUS_ENDR;		// .ENDR bez wczeœniejszego .REPEAT
+	case I_ENDR:			// koniec powtÃ³rki
+		return ERR_SPURIOUS_ENDR;		// .ENDR bez wczeÅ“niejszego .REPEAT
 
 
 	case I_OPT:				// opcje asemblera
@@ -1608,17 +1608,17 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_ROM_AREA:	// protected memory area
 		{
 			Expr addr_from;
-			ret = expression(leks, addr_from);		// oczekiwane s³owo
+			ret = expression(leks, addr_from);		// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (addr_from.inf == Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (addr_from.inf == Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 			{
 				if (pass == 2)
 					return ERR_UNDEF_EXPR;
 			}
 			else if (addr_from.value < 0)
-				return ERR_NUM_NEGATIVE;			// oczekiwana wartoœæ nieujemna
-			else if (addr_from.inf == Expr::EX_LONG)		// za du¿a wartoœæ
+				return ERR_NUM_NEGATIVE;			// oczekiwana wartoÅ“Ã¦ nieujemna
+			else if (addr_from.inf == Expr::EX_LONG)		// za duÂ¿a wartoÅ“Ã¦
 				return ERR_NUM_LONG;
 
 			if (leks.type != CLeksem::L_COMMA)		// po przecinku kolejne dane
@@ -1629,14 +1629,14 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			ret = expression(leks, addr_to);		// expected word
 			if (ret)
 				return ret;
-			if (addr_to.inf == Expr::EX_UNDEF)		// nieokreœlona wartoœæ?
+			if (addr_to.inf == Expr::EX_UNDEF)		// nieokreÅ“lona wartoÅ“Ã¦?
 			{
 				if (pass == 2)
 					return ERR_UNDEF_EXPR;
 			}
 			else if (addr_to.value < 0)
-				return ERR_NUM_NEGATIVE;			// oczekiwana wartoœæ nieujemna
-			else if (addr_to.inf == Expr::EX_LONG)	// za du¿a wartoœæ?
+				return ERR_NUM_NEGATIVE;			// oczekiwana wartoÅ“Ã¦ nieujemna
+			else if (addr_to.inf == Expr::EX_LONG)	// za duÂ¿a wartoÅ“Ã¦?
 				return ERR_NUM_LONG;
 
 //			if (pass == 2)		// do it once (avoid first pass; it's called for line checking)
@@ -1658,17 +1658,17 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 	case I_IO_WND:		// size of terminal window
 		{
 			Expr width;
-			ret = expression(leks, width);			// oczekiwane s³owo
+			ret = expression(leks, width);			// oczekiwane sÂ³owo
 			if (ret)
 				return ret;
-			if (width.inf == Expr::EX_UNDEF)		// nieokreœlona wartoœæ
+			if (width.inf == Expr::EX_UNDEF)		// nieokreÅ“lona wartoÅ“Ã¦
 			{
 				if (pass == 2)
 					return ERR_UNDEF_EXPR;
 			}
 			else if (width.value < 0)
-				return ERR_NUM_NEGATIVE;			// oczekiwana wartoœæ nieujemna
-			else if (width.inf != Expr::EX_BYTE)	// za du¿a wartoœæ?
+				return ERR_NUM_NEGATIVE;			// oczekiwana wartoÅ“Ã¦ nieujemna
+			else if (width.inf != Expr::EX_BYTE)	// za duÂ¿a wartoÅ“Ã¦?
 				return ERR_NUM_NOT_BYTE;
 
 			if (leks.type != CLeksem::L_COMMA)		// po przecinku kolejne dane
@@ -1679,14 +1679,14 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 			ret = expression(leks, height);			// expected word
 			if (ret)
 				return ret;
-			if (height.inf == Expr::EX_UNDEF)		// nieokreœlona wartoœæ?
+			if (height.inf == Expr::EX_UNDEF)		// nieokreÅ“lona wartoÅ“Ã¦?
 			{
 				if (pass == 2)
 					return ERR_UNDEF_EXPR;
 			}
 			else if (height.value < 0)
-				return ERR_NUM_NEGATIVE;			// oczekiwana wartoœæ nieujemna
-			else if (height.inf != Expr::EX_BYTE)	// za du¿a wartoœæ?
+				return ERR_NUM_NEGATIVE;			// oczekiwana wartoÅ“Ã¦ nieujemna
+			else if (height.inf != Expr::EX_BYTE)	// za duÂ¿a wartoÅ“Ã¦?
 				return ERR_NUM_NOT_BYTE;
 
 			if (pass == 2)		// do it once (avoid first pass; it's called for line checking)
@@ -1714,7 +1714,7 @@ CAsm6502::Stat CAsm6502::asm_instr_syntax_and_generate(CLeksem &leks, InstrType 
 const CString CSource::s_strEmpty;
 
 
-// wczytanie argumentów wywo³ania makra
+// wczytanie argumentÃ³w wywoÂ³ania makra
 CAsm::Stat CMacroDef::ParseArguments(CLeksem &leks, CAsm6502 &asmb)
 {
 	bool get_param= true;
@@ -1722,7 +1722,7 @@ CAsm::Stat CMacroDef::ParseArguments(CLeksem &leks, CAsm6502 &asmb)
 	Stat ret;
 	int count= 0;
 
-	int required= m_nParams >= 0 ? m_nParams : -m_nParams - 1;	// iloœæ wymaganych arg.
+	int required= m_nParams >= 0 ? m_nParams : -m_nParams - 1;	// iloÅ“Ã¦ wymaganych arg.
 
 	m_strarrArgs.RemoveAll();
 	m_narrArgs.RemoveAll();
@@ -1737,23 +1737,23 @@ CAsm::Stat CMacroDef::ParseArguments(CLeksem &leks, CAsm6502 &asmb)
 		if (get_param)		// ew. kolejny argument
 			switch (leks.type)
 			{
-			case CLeksem::L_STR:		// ci¹g znaków?
+			case CLeksem::L_STR:		// ciÂ¹g znakÃ³w?
 				m_strarrArgs.Add(*leks.GetString());
 				m_narrArgs.Add(strlen(*leks.GetString()));
 				m_arrArgType.Add(STR);
 				count++;
-				get_param = false;		// parametr ju¿ zinterpretowany
-				first_param = false;		// pierwszy parametr ju¿ wczytany
+				get_param = false;		// parametr juÂ¿ zinterpretowany
+				first_param = false;		// pierwszy parametr juÂ¿ wczytany
 				leks = asmb.next_leks();
 				break;
 			default:
-				if (asmb.is_expression(leks))	// wyra¿enie?
+				if (asmb.is_expression(leks))	// wyraÂ¿enie?
 				{
 					Expr expr;
 					ret = asmb.expression(leks,expr);
 					if (ret)
 						return ret;
-					if (expr.inf == Expr::EX_UNDEF)	// wartoœæ niezdeterminowana
+					if (expr.inf == Expr::EX_UNDEF)	// wartoÅ“Ã¦ niezdeterminowana
 					{
 						m_strarrArgs.Add(_T(""));
 						m_narrArgs.Add(0);
@@ -1774,34 +1774,34 @@ CAsm::Stat CMacroDef::ParseArguments(CLeksem &leks, CAsm6502 &asmb)
 						m_arrArgType.Add(NUM);
 					}
 					count++;
-					get_param = false;		// parametr ju¿ zinterpretowany
+					get_param = false;		// parametr juÂ¿ zinterpretowany
 				}
 				else
 				{
 					if (count < required)
-						return ERR_PARAM_REQUIRED;	// za ma³o parametrów wywo³ania makra
+						return ERR_PARAM_REQUIRED;	// za maÂ³o parametrÃ³w wywoÂ³ania makra
 					if (!first_param)
-						return ERR_PARAM_REQUIRED;	// po przecinku trzeba podaæ kolejny parametr
+						return ERR_PARAM_REQUIRED;	// po przecinku trzeba podaÃ¦ kolejny parametr
 					m_nParamCount = count;
 					return OK;
 				}
 			}
-		else			// za argumentem przecinek, œrednik lub koniec
+		else			// za argumentem przecinek, Å“rednik lub koniec
 		{
 			if (count==required && m_nParams>0)
 			{
 				m_nParamCount = count;
-				return OK;		// wszystkie wymagane parametry ju¿ wczytane
+				return OK;		// wszystkie wymagane parametry juÂ¿ wczytane
 			}
 			switch (leks.type)
 			{
 			case CLeksem::L_COMMA:		// przecinek
-				get_param = true;		// nastêpny parametr
+				get_param = true;		// nastÃªpny parametr
 				leks = asmb.next_leks();
 				break;
 			default:
 				if (count < required)
-					return ERR_PARAM_REQUIRED;	// za ma³o parametrów wywo³ania makra
+					return ERR_PARAM_REQUIRED;	// za maÂ³o parametrÃ³w wywoÂ³ania makra
 				m_nParamCount = count;
 				return OK;
 			}
@@ -1823,20 +1823,20 @@ CAsm::Stat CMacroDef::ParamLookup(CLeksem &leks, const CString param_name, Expr 
 }
 
 
-// odszukanie wartoœci parametru numer 'param_number' aktualnego makra
+// odszukanie wartoÅ“ci parametru numer 'param_number' aktualnego makra
 CAsm::Stat CMacroDef::ParamLookup(CLeksem &leks, int param_number, Expr &expr, CAsm6502 &asmb)
 {
 	bool special= param_number == -1;	// zmienna %0 ? (nie parametr)
-	if (leks.type == CLeksem::L_STR_ARG)	// odwo³anie do wartoœci znakowej parametru?
+	if (leks.type == CLeksem::L_STR_ARG)	// odwoÂ³anie do wartoÅ“ci znakowej parametru?
 	{
 		if (!special && (param_number >= m_nParamCount || param_number < 0))
 			return ERR_EMPTY_PARAM;
-		if (special)			// odwo³anie do %0$ -> co oznacza nazwê makra
+		if (special)			// odwoÂ³anie do %0$ -> co oznacza nazwÃª makra
 			expr.string = m_strName;
 		else
 		{
 			ASSERT(m_arrArgType.GetSize() > param_number);
-			if (m_arrArgType[param_number] != STR)	// spr. czy zmienna ma wartoœæ tekstow¹
+			if (m_arrArgType[param_number] != STR)	// spr. czy zmienna ma wartoÅ“Ã¦ tekstowÂ¹
 				return ERR_NOT_STR_PARAM;
 			ASSERT(m_strarrArgs.GetSize() > param_number);
 			expr.string = m_strarrArgs[param_number];
@@ -1848,12 +1848,12 @@ CAsm::Stat CMacroDef::ParamLookup(CLeksem &leks, int param_number, Expr &expr, C
 	else if (leks.type == CLeksem::L_SPACE)
 		leks = asmb.next_leks();
 
-	if (special)	// odwo³anie do %0 -> iloœæ aktualnych parametrów w wywo³aniu makra
+	if (special)	// odwoÂ³anie do %0 -> iloÅ“Ã¦ aktualnych parametrÃ³w w wywoÂ³aniu makra
 	{
 		expr.inf = Expr::EX_LONG;
 		expr.value = m_nParamCount;
 	}
-	else		// odwo³anie do aktualnego parametru
+	else		// odwoÂ³anie do aktualnego parametru
 	{
 		if (param_number >= m_nParamCount || param_number < 0)
 			return ERR_EMPTY_PARAM;		// parametru o takim numerze nie ma
@@ -1861,12 +1861,12 @@ CAsm::Stat CMacroDef::ParamLookup(CLeksem &leks, int param_number, Expr &expr, C
 		switch (m_arrArgType[param_number])	// aktualny typ parametru
 		{
 		case NUM:		// parametr liczbowy
-		case STR:		// parametr tekstowy (podawana jest jego d³ugoœæ)
+		case STR:		// parametr tekstowy (podawana jest jego dÂ³ugoÅ“Ã¦)
 			ASSERT(m_narrArgs.GetSize() > param_number);
 			expr.inf = Expr::EX_LONG;
 			expr.value = m_narrArgs[param_number];
 			break;
-		case UNDEF_EXPR:	// parametr liczbowy, wartoœæ niezdefiniowana
+		case UNDEF_EXPR:	// parametr liczbowy, wartoÅ“Ã¦ niezdefiniowana
 			ASSERT(m_narrArgs.GetSize() > param_number);
 			expr.inf = Expr::EX_UNDEF;
 			expr.value = 0;
@@ -1881,10 +1881,10 @@ CAsm::Stat CMacroDef::ParamLookup(CLeksem &leks, int param_number, Expr &expr, C
 }
 
 
-// spr. sk³adni odwo³ania do parametru makra (tryb sprawdzania wiersza)
+// spr. skÂ³adni odwoÂ³ania do parametru makra (tryb sprawdzania wiersza)
 CAsm::Stat CMacroDef::AnyParamLookup(CLeksem &leks, CAsm6502 &asmb)
 {
-	if (leks.type == CLeksem::L_STR_ARG)	// odwo³anie do wartoœci znakowej parametru?
+	if (leks.type == CLeksem::L_STR_ARG)	// odwoÂ³anie do wartoÅ“ci znakowej parametru?
 	{
 		leks = asmb.next_leks();
 		return OK;
@@ -1945,7 +1945,7 @@ CAsm6502::Stat CAsm6502::CheckLine(const TCHAR *str, int &instr_idx_start, int &
 		ret = OK;
 //  if (ret == STAT_FIN || ret == STAT_USER_DEF_ERR || ret == STAT_INCLUDE)
 //    ret = OK;
-	switch (ret)	// nie wszystke b³êdy s¹ b³êdami w trybie analizowania jednego wiersza
+	switch (ret)	// nie wszystke bÂ³Ãªdy sÂ¹ bÂ³Ãªdami w trybie analizowania jednego wiersza
 	{
 	case ERR_UNDEF_EXPR:
 	case ERR_UNKNOWN_INSTR:
@@ -1963,7 +1963,7 @@ CAsm6502::Stat CAsm6502::CheckLine(const TCHAR *str, int &instr_idx_start, int &
 
 CAsm6502::Stat CAsm6502::look_for_endif()		// szukanie .IF, .ENDIF lub .ELSE
 {
-	CLeksem leks= next_leks(false);	// kolejny leksem, byæ mo¿e pusty (L_SPACE)
+	CLeksem leks= next_leks(false);	// kolejny leksem, byÃ¦ moÂ¿e pusty (L_SPACE)
 	bool labelled= false;
 
 	switch (leks.type)
@@ -1994,7 +1994,7 @@ CAsm6502::Stat CAsm6502::look_for_endif()		// szukanie .IF, .ENDIF lub .ELSE
 		//      leks = next_leks();
 		break;
 
-	case CLeksem::L_SPACE:	// odstêp
+	case CLeksem::L_SPACE:	// odstÃªp
 		leks = next_leks();
 		if (leks.type!=CLeksem::L_ASM_INSTR)	// nie dyrektywa asemblera?
 			return OK;
@@ -2039,25 +2039,25 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 			COMMENT,
 			FINISH
 	} state= START;
-	CString label;	// pomocnicza zmienna do zapamiêtania identyfikatora
-	bool labelled= false;	// flaga wyst¹pienia etykiety
+	CString label;	// pomocnicza zmienna do zapamiÃªtania identyfikatora
+	bool labelled= false;	// flaga wystÂ¹pienia etykiety
 	Stat ret, ret_stat= OK;
 	instr_start = NULL;
 	instr_fin = NULL;
 	ident_start = NULL;
 	ident_fin = NULL;
 
-	CLeksem leks= next_leks(false);	// kolejny leksem, byæ mo¿e pusty (L_SPACE)
+	CLeksem leks= next_leks(false);	// kolejny leksem, byÃ¦ moÂ¿e pusty (L_SPACE)
 
 	for (;;)
 	{
 		switch (state)
 		{
-		case START:			// pocz¹tek wiersza
+		case START:			// poczÂ¹tek wiersza
 			switch (leks.type)
 			{
 			case CLeksem::L_IDENT:	// etykieta
-				label = *leks.GetString();	// zapamiêtanie identyfikatora
+				label = *leks.GetString();	// zapamiÃªtanie identyfikatora
 				state = AFTER_LABEL;
 				leks = next_leks();
 				break;
@@ -2071,17 +2071,17 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 						return ret;
 					if (!check_line)
 					{
-						if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+						if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 							return ERR_UNDEF_EXPR;
 						ident.Format(expr.value);	// znormalizowanie postaci etykiety
-						label = *ident.GetString();	// zapamiêtanie identyfikatora
+						label = *ident.GetString();	// zapamiÃªtanie identyfikatora
 					}
 					else
 						label = _T("x");
 					state = AFTER_LABEL;
 					break;
 				}
-			case CLeksem::L_SPACE:	// po odstêpie ju¿ nie mo¿e byæ etykiety
+			case CLeksem::L_SPACE:	// po odstÃªpie juÂ¿ nie moÂ¿e byÃ¦ etykiety
 				state = INSTR;
 				leks = next_leks();
 				break;
@@ -2098,7 +2098,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 			break;
 
 
-		case AFTER_LABEL:			// wyst¹pi³a etykieta
+		case AFTER_LABEL:			// wystÂ¹piÂ³a etykieta
 			switch (leks.type)
 			{
 			case CLeksem::L_SPACE:
@@ -2121,9 +2121,9 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 
 
 		case INSTR:			// oczekiwana instrukcja, komentarz lub nic
-			if (labelled &&					// przed instr. by³a etykieta
-				!(leks.type == CLeksem::L_ASM_INSTR &&	// i za etykiet¹
-				(leks.GetInstr() == I_MACRO ||		// nie wystêpuje dyrektywa .MACRO
+			if (labelled &&					// przed instr. byÂ³a etykieta
+				!(leks.type == CLeksem::L_ASM_INSTR &&	// i za etykietÂ¹
+				(leks.GetInstr() == I_MACRO ||		// nie wystÃªpuje dyrektywa .MACRO
 				leks.GetInstr() == I_SET)))			// ani dyrektywa .SET?
 			{
 				if (origin > 0xFFFF)
@@ -2142,12 +2142,12 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 			case CLeksem::L_ASM_INSTR:	// dyrektywa asemblera
 				{
 					InstrType it= leks.GetInstr();
-					instr_start = ident_start;	// po³o¿enie instrukcji w wierszu
+					instr_start = ident_start;	// poÂ³oÂ¿enie instrukcji w wierszu
 					instr_fin = ident_fin;
 
 					leks = next_leks();
 					ret_stat = asm_instr_syntax_and_generate(leks,it,labelled ? &label : NULL);
-					if (ret_stat > OK)		// b³¹d? (ERR_xxx)
+					if (ret_stat > OK)		// bÂ³Â¹d? (ERR_xxx)
 						return ret_stat;
 					if (pass==2 && out && debug &&
 						ret_stat!=STAT_MACRO && ret_stat!=STAT_EXITM && it!=I_SET &&
@@ -2158,33 +2158,33 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 							return ret;
 					}
 					if (pass==2 && ret_stat==STAT_MACRO)
-						return ret_stat;		// w drugim przejœciu omijamy .MACRO
+						return ret_stat;		// w drugim przejÅ“ciu omijamy .MACRO
 					state = COMMENT;
 					break;
 				}
 
 			case CLeksem::L_PROC_INSTR:	// rozkaz procesora
 				{
-					instr_start = ident_start;	// po³o¿enie instrukcji w wierszu
+					instr_start = ident_start;	// poÂ³oÂ¿enie instrukcji w wierszu
 					instr_fin = ident_fin;
 					OpCode code= leks.GetCode();	// nr rozkazu
 					CodeAdr mode;
 					Expr expr, expr_bit, expr_zpg;
 					leks = next_leks();
 					ret = proc_instr_syntax(leks,mode,expr,expr_bit,expr_zpg);
-					if (ret)			// b³¹d sk³adni
+					if (ret)			// bÂ³Â¹d skÂ³adni
 						return ret;
-					int len;			// d³ugoœæ rozkazu z argumentem
+					int len;			// dÂ³ugoÅ“Ã¦ rozkazu z argumentem
 					ret = chk_instr_code(code,mode,expr,len);
 					if (ret)
-						return ret;		// b³¹d trybu adresowania lub zakresu
+						return ret;		// bÂ³Â¹d trybu adresowania lub zakresu
 					if (pass==2 && out && debug)
 					{
 						if (origin > 0xFFFF)
 							return ERR_UNDEF_ORIGIN;
 						CMacroDef* pMacro= dynamic_cast<CMacroDef*>(text);
 						if (pMacro && pMacro->m_bFirstCodeLine)
-						{	// debug info dla pierwszego wiersza makra zawieraj¹cego instr. 6502
+						{	// debug info dla pierwszego wiersza makra zawierajÂ¹cego instr. 6502
 							pMacro->m_bFirstCodeLine = false;
 							generate_debug((UINT16)origin,pMacro->GetFirstLineNo(),pMacro->GetFirstLineFileUID());
 						}
@@ -2195,7 +2195,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 					ret = inc_prog_counter(len);
 					if (ret)
 						return ret;
-					state = COMMENT;		// dozwolony ju¿ tylko komentarz
+					state = COMMENT;		// dozwolony juÂ¿ tylko komentarz
 					break;
 				}
 
@@ -2204,7 +2204,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 				{
 					if (leks.type == CLeksem::L_IDENT)
 					{
-						label = *leks.GetString();	// zapamiêtanie identyfikatora
+						label = *leks.GetString();	// zapamiÃªtanie identyfikatora
 						leks = next_leks();
 					}
 					else
@@ -2215,26 +2215,26 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 						ret = factor(leks,expr);
 						if (ret)
 							return ret;
-						if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+						if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 							return ERR_UNDEF_EXPR;
 						ident.Format(expr.value);		// znormalizowanie postaci etykiety
-						label = *ident.GetString();	// zapamiêtanie identyfikatora
+						label = *ident.GetString();	// zapamiÃªtanie identyfikatora
 					}
 					CIdent macro;
-					if (!macro_name.lookup(label,macro))	// jeœli etykiety nie ma w tablicy
+					if (!macro_name.lookup(label,macro))	// jeÅ“li etykiety nie ma w tablicy
 						return ERR_UNKNOWN_INSTR;
 					ASSERT(macros.GetSize() > macro.val && macro.val >= 0);
 					CMacroDef *pMacro= &macros[macro.val];
-					ret = pMacro->ParseArguments(leks,*this);	// wczytanie argumentów makra
+					ret = pMacro->ParseArguments(leks,*this);	// wczytanie argumentÃ³w makra
 					if (ret)
 						return ret;
 					pMacro->Start(text->GetLineNo(),text->GetFileUID());
-					source.Push(text);		// bie¿¹ce Ÿród³o wierszy na stos
+					source.Push(text);		// bieÂ¿Â¹ce Å¸rÃ³dÂ³o wierszy na stos
 					text = expanding_macro = pMacro;
 					//	    text->Start();
 					macro_local_area++;		// nowy obszar lokalny etykiet makra
-					//	    MacroExpandStart(pMacro);	// przejœcie do trybu rozwijania makrodefinicji
-					state = COMMENT;		// dozwolony ju¿ tylko komentarz
+					//	    MacroExpandStart(pMacro);	// przejÅ“cie do trybu rozwijania makrodefinicji
+					state = COMMENT;		// dozwolony juÂ¿ tylko komentarz
 					break;
 				}
 
@@ -2251,7 +2251,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 			break;
 
 
-		case EXPR:			// oczekiwane wyra¿enie - wart. etykiety
+		case EXPR:			// oczekiwane wyraÂ¿enie - wart. etykiety
 			switch (leks.type)
 			{
 			case CLeksem::L_SPACE:
@@ -2260,7 +2260,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 
 			default:
 				Expr expr;
-				ret = expression(leks, expr);// zinterpretowanie wyra¿enia
+				ret = expression(leks, expr);// zinterpretowanie wyraÂ¿enia
 				if (ret)
 					return ret;
 
@@ -2290,14 +2290,14 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 						return ERR_CONST_LABEL_REDEF;
 					}
 				}
-				else if (pass==1)		// pierwsze przejœcie?
+				else if (pass==1)		// pierwsze przejÅ“cie?
 				{
 					if (expr.inf != Expr::EX_UNDEF)
 						ret = def_ident(label, CIdent(CIdent::I_VALUE, expr.value));
 					else
 						ret = def_ident(label, CIdent(CIdent::I_UNDEF, 0));
 				}
-				else			// drugie przejœcie
+				else			// drugie przejÅ“cie
 				{
 					if (expr.inf != Expr::EX_UNDEF)
 						ret = chk_ident_def(label, CIdent(CIdent::I_VALUE, expr.value));
@@ -2353,7 +2353,7 @@ CAsm6502::Stat CAsm6502::assemble_line()	// interpretacja wiersza
 //-----------------------------------------------------------------------------
 
 
-bool CAsm6502::is_expression(const CLeksem &leks)	// pocz¹tek wyra¿enia?
+bool CAsm6502::is_expression(const CLeksem &leks)	// poczÂ¹tek wyraÂ¿enia?
 {
 	switch (leks.type)
 	{
@@ -2361,20 +2361,20 @@ bool CAsm6502::is_expression(const CLeksem &leks)	// pocz¹tek wyra¿enia?
 	case CLeksem::L_IDENT:			// identyfikator
 	case CLeksem::L_IDENT_N:		// identyfikator numerowany
 	case CLeksem::L_OPER:			// operator
-	case CLeksem::L_EXPR_BRACKET_L:	// lewy nawias dla wyra¿eñ '['
-	case CLeksem::L_EXPR_BRACKET_R:	// prawy nawias dla wyra¿eñ ']'
-		return true;				// to pocz¹tek wyra¿enia
+	case CLeksem::L_EXPR_BRACKET_L:	// lewy nawias dla wyraÂ¿eÃ± '['
+	case CLeksem::L_EXPR_BRACKET_R:	// prawy nawias dla wyraÂ¿eÃ± ']'
+		return true;				// to poczÂ¹tek wyraÂ¿enia
 
 	default:
-		return false;	// to nie pocz¹tek wyra¿enia
+		return false;	// to nie poczÂ¹tek wyraÂ¿enia
 	}
 }
 
 
 int CAsm6502::find_const(const CString& str)
 {
-	static const TCHAR cnst1[]= "ORG";		// predefiniowana sta³a
-	static const TCHAR cnst2[]= "IO_AREA";	// predefiniowana sta³a
+	static const TCHAR cnst1[]= "ORG";		// predefiniowana staÂ³a
+	static const TCHAR cnst2[]= "IO_AREA";	// predefiniowana staÂ³a
 
 	if (str.CompareNoCase(cnst1) == 0)
 		return 0;
@@ -2393,7 +2393,7 @@ CAsm6502::Stat CAsm6502::predef_const(const CString& str, Expr& expr, bool& foun
 	{
 		if (origin > 0xFFFF)
 			return ERR_UNDEF_ORIGIN;
-		expr.value = origin;	// wartoœæ licznika rozkazów
+		expr.value = origin;	// wartoÅ“Ã¦ licznika rozkazÃ³w
 		found = true;
 		return OK;
 	}
@@ -2432,7 +2432,7 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 	{
 		leks = next_leks(false);
 		if (leks.type != CLeksem::L_BRACKET_L)
-			return ERR_BRACKET_L_EXPECTED;	// wymagany nawias '(' (bez odstêpu)
+			return ERR_BRACKET_L_EXPECTED;	// wymagany nawias '(' (bez odstÃªpu)
 		leks = next_leks();
 		CString Label;
 		if (leks.type == CLeksem::L_IDENT)
@@ -2448,10 +2448,10 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 			Stat ret = factor(leks,expr);
 			if (ret)
 				return ret;
-			if (expr.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			ident.Format(expr.value);		// znormalizowanie postaci etykiety
-			Label = *ident.GetString();	// zapamiêtanie identyfikatora
+			Label = *ident.GetString();	// zapamiÃªtanie identyfikatora
 		}
 		else
 			return ERR_LABEL_EXPECTED;	// wymagana etykieta - argument .DEF lub .REF
@@ -2475,7 +2475,7 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 		}
 		else if (hit == 2)			// .REF?
 		{
-			expr.value = global_ident.lookup(Label,ident) ? 1 : 0; // 1 - jeœli etykieta jest w tablicy
+			expr.value = global_ident.lookup(Label,ident) ? 1 : 0; // 1 - jeÅ“li etykieta jest w tablicy
 		}
 		else				// .PASSDEF?
 		{
@@ -2484,8 +2484,8 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 				ASSERT(ident.info != CIdent::I_INIT);
 				if (pass==1)
 					expr.value = 1;		// 1 - etykieta zdefiniowana
-				else		// drugie przejœcie asemblacji
-					expr.value = ident.checked ? 1 : 0;	// 1 - def. etykiety znaleziona w 2. przejœciu
+				else		// drugie przejÅ“cie asemblacji
+					expr.value = ident.checked ? 1 : 0;	// 1 - def. etykiety znaleziona w 2. przejÅ“ciu
 			}
 			else		// etykieta jeszcze nie zdefiniowana
 				expr.value = 0;			// 0 - etykieta niezdefiniowana
@@ -2499,14 +2499,14 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 	{
 		leks = next_leks(false);
 		if (leks.type != CLeksem::L_BRACKET_L)
-			return ERR_BRACKET_L_EXPECTED;	// wymagany nawias '(' (bez odstêpu)
+			return ERR_BRACKET_L_EXPECTED;	// wymagany nawias '(' (bez odstÃªpu)
 		leks = next_leks();
 		Expr strexpr;
 		Stat ret= expression(leks,strexpr,true);
 		if (ret)
 			return ret;
 		if (strexpr.inf != Expr::EX_STRING)
-			return ERR_STR_EXPECTED;		// wymagany ³añcuch znaków jako argument
+			return ERR_STR_EXPECTED;		// wymagany Â³aÃ±cuch znakÃ³w jako argument
 		if (leks.type != CLeksem::L_BRACKET_R)
 			return ERR_BRACKET_R_EXPECTED;	// wymagany nawias ')'
 		expr.value = strlen(strexpr.string);
@@ -2520,16 +2520,16 @@ CAsm6502::Stat CAsm6502::predef_function(CLeksem &leks, Expr &expr, bool &fn)
 }
 
 
-// wartoœæ sta³a - etykieta, parametr, liczba, predef. sta³a lub funkcja
+// wartoÅ“Ã¦ staÂ³a - etykieta, parametr, liczba, predef. staÂ³a lub funkcja
 CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 {
 	switch (leks.type)
 	{
 	case CLeksem::L_NUM:		// liczba (dec, hex, bin, lub znak)
-		expr.value = leks.GetValue();	// wartoœæ liczby lub znaku
+		expr.value = leks.GetValue();	// wartoÅ“Ã¦ liczby lub znaku
 		break;
 
-	case CLeksem::L_STR:		// ci¹g znaków w cudzys³owach
+	case CLeksem::L_STR:		// ciÂ¹g znakÃ³w w cudzysÂ³owach
 		expr.string = *leks.GetString();
 		expr.inf = Expr::EX_STRING;
 		break;
@@ -2551,7 +2551,7 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 			if (found)
 				return OK;
 			if (expanding_macro)
-			{		// przeszukanie tablicy parametrów makra, jeœli jest rozwijane makro
+			{		// przeszukanie tablicy parametrÃ³w makra, jeÅ“li jest rozwijane makro
 				Stat ret= expanding_macro->ParamLookup(leks,*leks.GetString(),expr,found,*this);
 				if (ret)
 					return ret;
@@ -2559,18 +2559,18 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 					return OK;
 			}
 			CIdent id(CIdent::I_UNDEF);	// niezdefiniowany identyfikator
-			if (!add_ident(*leks.GetString(),id) && id.info!=CIdent::I_UNDEF)	// ju¿ zdefiniowany?
-				expr.value = id.val;		// odczytana wartoœæ etykiety
+			if (!add_ident(*leks.GetString(),id) && id.info!=CIdent::I_UNDEF)	// juÂ¿ zdefiniowany?
+				expr.value = id.val;		// odczytana wartoÅ“Ã¦ etykiety
 			else
 			{
-				expr.inf = Expr::EX_UNDEF;	// jeszcze bez wartoœci
+				expr.inf = Expr::EX_UNDEF;	// jeszcze bez wartoÅ“ci
 				if (pass==2)
 					return err_ident=*leks.GetString(), ERR_UNDEF_LABEL;	// niezdefiniowana etykieta w drugim przebiegu
 			}
 			if (check_line)			// tryb sprawdzania jednego wiersza?
 			{
 				leks = next_leks(false);
-				if (leks.type == CLeksem::L_STR_ARG)	// ominiêcie znaku '$' na koñcu etykiety
+				if (leks.type == CLeksem::L_STR_ARG)	// ominiÃªcie znaku '$' na koÃ±cu etykiety
 					leks = next_leks();
 				if (leks.type == CLeksem::L_SPACE)
 					leks = next_leks();
@@ -2587,16 +2587,16 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 			Stat ret = factor(leks,expr2);
 			if (ret)
 				return ret;
-			if (expr2.inf==Expr::EX_UNDEF)	// nieokreœlona wartoœæ
+			if (expr2.inf==Expr::EX_UNDEF)	// nieokreÅ“lona wartoÅ“Ã¦
 				return ERR_UNDEF_EXPR;
 			ident.Format(expr2.value);	// znormalizowanie postaci etykiety
 
 			CIdent id(CIdent::I_UNDEF);	// niezdefiniowany identyfikator
-			if (!add_ident(*ident.GetString(),id) && id.info!=CIdent::I_UNDEF)	// ju¿ zdefiniowany?
-				expr.value = id.val;		// odczytana wartoœæ etykiety
+			if (!add_ident(*ident.GetString(),id) && id.info!=CIdent::I_UNDEF)	// juÂ¿ zdefiniowany?
+				expr.value = id.val;		// odczytana wartoÅ“Ã¦ etykiety
 			else
 			{
-				expr.inf = Expr::EX_UNDEF;	// jeszcze bez wartoœci
+				expr.inf = Expr::EX_UNDEF;	// jeszcze bez wartoÅ“ci
 				if (pass==2)
 					return err_ident=*ident.GetString(), ERR_UNDEF_LABEL;	// niezdefiniowana etykieta w drugim przebiegu
 			}
@@ -2604,16 +2604,16 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 		}
 
 	case CLeksem::L_OPER:		// operator
-		if (expanding_macro && leks.GetOper() == O_MOD)	// '%' (odwo³anie do parametru makra)?
+		if (expanding_macro && leks.GetOper() == O_MOD)	// '%' (odwoÂ³anie do parametru makra)?
 		{
 			leks = next_leks(false);
-			if (leks.type == CLeksem::L_SPACE)	// odstêp niedozwolony
+			if (leks.type == CLeksem::L_SPACE)	// odstÃªp niedozwolony
 				return ERR_PARAM_NUMBER_EXPECTED;
 			Stat ret= factor(leks,expr,false);	// oczekiwany numer parametru makra
 			if (ret)
 				return ret;
 			if (expr.inf == Expr::EX_UNDEF)
-				return ERR_UNDEF_PARAM_NUMBER;	// numer parametru musi byæ zdefiniowany
+				return ERR_UNDEF_PARAM_NUMBER;	// numer parametru musi byÃ¦ zdefiniowany
 			ret = expanding_macro->ParamLookup(leks,expr.value-1,expr,*this);
 			if (ret)
 				return ret;
@@ -2622,7 +2622,7 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 		else if (check_line && leks.GetOper() == O_MOD)	// tryb sprawdzania wiersza?
 		{
 			leks = next_leks(false);
-			if (leks.type == CLeksem::L_SPACE)	// odstêp niedozwolony
+			if (leks.type == CLeksem::L_SPACE)	// odstÃªp niedozwolony
 				return ERR_PARAM_NUMBER_EXPECTED;
 			Stat ret= factor(leks,expr,false);	// oczekiwany numer parametru makra
 			if (ret)
@@ -2636,7 +2636,7 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 		{
 			if (origin > 0xFFFF)
 				return ERR_UNDEF_ORIGIN;
-			expr.value = origin;		// wartoœæ licznika rozkazów
+			expr.value = origin;		// wartoÅ“Ã¦ licznika rozkazÃ³w
 			break;
 		}
 		// no break here
@@ -2650,7 +2650,7 @@ CAsm6502::Stat CAsm6502::constant_value(CLeksem &leks, Expr &expr, bool nospace)
 
 
 CAsm6502::Stat CAsm6502::factor(CLeksem &leks, Expr &expr, bool nospace)
-	// [~|!|-|>|<] sta³a | '['wyra¿enie']'
+	// [~|!|-|>|<] staÂ³a | '['wyraÂ¿enie']'
 {
 	OperType oper;
 //  bool operation= false;
@@ -2663,8 +2663,8 @@ CAsm6502::Stat CAsm6502::factor(CLeksem &leks, Expr &expr, bool nospace)
 		case O_B_NOT:	// negacja bitowa '~'
 		case O_NOT:	// negacja logiczna '!'
 		case O_MINUS:	// minus unarny '-'
-		case O_GT:	// górny bajt s³owa '>'
-		case O_LT:	// dolny bajt s³owa '<'
+		case O_GT:	// gÃ³rny bajt sÂ³owa '>'
+		case O_LT:	// dolny bajt sÂ³owa '<'
 			{
 				//        operation = true;
 				leks = next_leks();	// kolejny niepusty leksem
@@ -2686,10 +2686,10 @@ CAsm6502::Stat CAsm6502::factor(CLeksem &leks, Expr &expr, bool nospace)
 		case O_MINUS:	// minus unarny '-'
 			expr.value = -expr.value;
 			break;
-		case O_GT:		// górny bajt s³owa '>'
+		case O_GT:		// gÃ³rny bajt sÂ³owa '>'
 			expr.value = (expr.value >> 8) & 0xFF;
 			break;
-		case O_LT:		// dolny bajt s³owa '<'
+		case O_LT:		// dolny bajt sÂ³owa '<'
 			expr.value = expr.value & 0xFF;
 			break;
 				}
@@ -2738,7 +2738,7 @@ CAsm6502::Stat CAsm6502::mul_expr(CLeksem &leks, Expr &expr)
 		if (expr.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		leks = next_leks();		// ominiêcie operatora '*', '/' lub '%'
+		leks = next_leks();		// ominiÃªcie operatora '*', '/' lub '%'
 
 		Expr expr2(0);
 		ret = factor(leks,expr2);		// kolejny czynnik
@@ -2748,7 +2748,7 @@ CAsm6502::Stat CAsm6502::mul_expr(CLeksem &leks, Expr &expr)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 		//    leks = next_leks();
 
-		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 			switch (oper)
 		{
 		case O_MUL:
@@ -2774,9 +2774,9 @@ CAsm6502::Stat CAsm6502::mul_expr(CLeksem &leks, Expr &expr)
 CAsm6502::Stat CAsm6502::shift_expr(CLeksem &leks, Expr &expr)
 	// czynnik1 [<<|>> czynnik1]
 {
-	Stat ret= mul_expr(leks,expr);	// obliczenie sk³adnika
+	Stat ret= mul_expr(leks,expr);	// obliczenie skÂ³adnika
 	if (ret)
-		return ret;		// b³¹d
+		return ret;		// bÂ³Â¹d
 
 	for (;;)
 	{
@@ -2786,10 +2786,10 @@ CAsm6502::Stat CAsm6502::shift_expr(CLeksem &leks, Expr &expr)
 		bool left;
 		switch (leks.GetOper())
 		{
-		case O_SHL:			// przesuniêcie w lewo?
+		case O_SHL:			// przesuniÃªcie w lewo?
 			left = true;
 			break;
-		case O_SHR:			// przesuniêcie w prawo?
+		case O_SHR:			// przesuniÃªcie w prawo?
 			left = false;
 			break;
 		default:
@@ -2797,15 +2797,15 @@ CAsm6502::Stat CAsm6502::shift_expr(CLeksem &leks, Expr &expr)
 		}
 		if (expr.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
-		leks = next_leks();		// ominiêcie operatora '>>' lub '<<'
+		leks = next_leks();		// ominiÃªcie operatora '>>' lub '<<'
 		Expr expr2(0);
-		ret= mul_expr(leks,expr2);		// obliczenie kolejnego sk³adnika
+		ret= mul_expr(leks,expr2);		// obliczenie kolejnego skÂ³adnika
 		if (ret)
-			return ret;		// b³¹d
+			return ret;		// bÂ³Â¹d
 		if (expr2.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 		{
 			if (left)
 				expr.value <<= expr2.value;
@@ -2819,11 +2819,11 @@ CAsm6502::Stat CAsm6502::shift_expr(CLeksem &leks, Expr &expr)
 
 
 CAsm6502::Stat CAsm6502::add_expr(CLeksem &leks, Expr &expr)
-	// sk³adnik [+|- sk³adnik]
+	// skÂ³adnik [+|- skÂ³adnik]
 {
-	Stat ret= shift_expr(leks,expr);	// obliczenie sk³adnika
+	Stat ret= shift_expr(leks,expr);	// obliczenie skÂ³adnika
 	if (ret)
-		return ret;		// b³¹d
+		return ret;		// bÂ³Â¹d
 
 	for (;;)
 	{
@@ -2844,17 +2844,17 @@ CAsm6502::Stat CAsm6502::add_expr(CLeksem &leks, Expr &expr)
 		default:
 			return OK;
 		}
-		leks = next_leks();		// ominiêcie operatora '+' lub '-'
+		leks = next_leks();		// ominiÃªcie operatora '+' lub '-'
 		Expr expr2(0);
-		ret= shift_expr(leks,expr2);	// obliczenie kolejnego sk³adnika
+		ret= shift_expr(leks,expr2);	// obliczenie kolejnego skÂ³adnika
 		if (ret)
-			return ret;		// b³¹d
+			return ret;		// bÂ³Â¹d
 		if (!add && expr2.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 		if ((expr.inf==Expr::EX_STRING) ^ (expr2.inf==Expr::EX_STRING))	// albo, albo
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 		{
 			if (add)
 			{
@@ -2877,7 +2877,7 @@ CAsm6502::Stat CAsm6502::add_expr(CLeksem &leks, Expr &expr)
 // wyr_proste [ & | '|' | ^ wyr_proste ]
 CAsm6502::Stat CAsm6502::bit_expr(CLeksem &leks, Expr &expr)
 {
-	Stat ret= add_expr(leks,expr);	// obliczenie wyra¿enia prostego
+	Stat ret= add_expr(leks,expr);	// obliczenie wyraÂ¿enia prostego
 	if (ret)
 		return ret;
 
@@ -2891,16 +2891,16 @@ CAsm6502::Stat CAsm6502::bit_expr(CLeksem &leks, Expr &expr)
 		if (expr.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		leks = next_leks();		// ominiêcie operatora '&', '|' lub '^'
+		leks = next_leks();		// ominiÃªcie operatora '&', '|' lub '^'
 
 		Expr expr2(0);
-		ret = add_expr(leks,expr2);		// kolejne wyra¿enie proste
+		ret = add_expr(leks,expr2);		// kolejne wyraÂ¿enie proste
 		if (ret)
 			return ret;
 		if (expr2.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 			switch (oper)
 		{
 		case O_B_AND:
@@ -2921,9 +2921,9 @@ CAsm6502::Stat CAsm6502::bit_expr(CLeksem &leks, Expr &expr)
 
 CAsm6502::Stat CAsm6502::cmp_expr(CLeksem &leks, Expr &expr)	// wyr [>|<|>=|<=|==|!= wyr]
 {
-	Stat ret= bit_expr(leks,expr);	// obliczenie sk³adnika
+	Stat ret= bit_expr(leks,expr);	// obliczenie skÂ³adnika
 	if (ret)
-		return ret;				// b³¹d
+		return ret;				// bÂ³Â¹d
 
 	for (;;)
 	{
@@ -2933,15 +2933,15 @@ CAsm6502::Stat CAsm6502::cmp_expr(CLeksem &leks, Expr &expr)	// wyr [>|<|>=|<=|=
 		if (oper!=O_GT && oper!=O_GTE && oper!=O_LT && oper!=O_LTE && oper!=O_EQ && oper!=O_NE)
 			return OK;
 
-		leks = next_leks();			// ominiêcie operatora logicznego
+		leks = next_leks();			// ominiÃªcie operatora logicznego
 		Expr expr2(0);
-		ret= bit_expr(leks,expr2);		// obliczenie kolejnego sk³adnika
+		ret= bit_expr(leks,expr2);		// obliczenie kolejnego skÂ³adnika
 		if (ret)
-			return ret;			// b³¹d
+			return ret;			// bÂ³Â¹d
 		if ((expr.inf==Expr::EX_STRING) ^ (expr2.inf==Expr::EX_STRING))	// albo, albo
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
-		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+		if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 			if (expr.inf==Expr::EX_STRING && expr2.inf==Expr::EX_STRING)
 			{
 				switch (oper)
@@ -3002,9 +3002,9 @@ CAsm6502::Stat CAsm6502::bool_expr_and(CLeksem &leks, Expr &expr)	// wyr [&& wyr
 {
 	bool skip= false;
 
-	Stat ret= cmp_expr(leks,expr);	// obliczenie sk³adnika
+	Stat ret= cmp_expr(leks,expr);	// obliczenie skÂ³adnika
 	if (ret)
-		return ret;				// b³¹d
+		return ret;				// bÂ³Â¹d
 
 	for (;;)
 	{
@@ -3016,18 +3016,18 @@ CAsm6502::Stat CAsm6502::bool_expr_and(CLeksem &leks, Expr &expr)	// wyr [&& wyr
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
 		if (expr.inf!=Expr::EX_UNDEF && expr.value==0)
-			skip = true;			// ju¿ false - nie potrzeba dalej liczyæ
+			skip = true;			// juÂ¿ false - nie potrzeba dalej liczyÃ¦
 
-		leks = next_leks();			// ominiêcie operatora '&&'
+		leks = next_leks();			// ominiÃªcie operatora '&&'
 		Expr expr2(0);
-		ret= cmp_expr(leks,expr2);		// obliczenie kolejnego sk³adnika
+		ret= cmp_expr(leks,expr2);		// obliczenie kolejnego skÂ³adnika
 		if (ret)
-			return ret;			// b³¹d
+			return ret;			// bÂ³Â¹d
 		if (expr2.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
 		if (!skip)
-			if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+			if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 				expr.value = expr2.value ? 1 : 0;
 			else
 				expr.inf = Expr::EX_UNDEF;
@@ -3039,9 +3039,9 @@ CAsm6502::Stat CAsm6502::bool_expr_or(CLeksem &leks, Expr &expr)	// wyr [|| wyr]
 {
 	bool skip= false;
 
-	Stat ret= bool_expr_and(leks,expr);	// obliczenie sk³adnika
+	Stat ret= bool_expr_and(leks,expr);	// obliczenie skÂ³adnika
 	if (ret)
-		return ret;				// b³¹d
+		return ret;				// bÂ³Â¹d
 
 	for (;;)
 	{
@@ -3051,25 +3051,25 @@ CAsm6502::Stat CAsm6502::bool_expr_or(CLeksem &leks, Expr &expr)	// wyr [|| wyr]
 			return OK;
 
 		if (expr.inf!=Expr::EX_UNDEF && expr.value!=0)
-			skip = true;			// ju¿ true - nie potrzeba dalej liczyæ
+			skip = true;			// juÂ¿ true - nie potrzeba dalej liczyÃ¦
 
-		leks = next_leks();			// ominiêcie operatora '||'
+		leks = next_leks();			// ominiÃªcie operatora '||'
 		Expr expr2(0);
-		ret= bool_expr_and(leks,expr2);	// obliczenie kolejnego sk³adnika
+		ret= bool_expr_and(leks,expr2);	// obliczenie kolejnego skÂ³adnika
 		if (ret)
-			return ret;			// b³¹d
+			return ret;			// bÂ³Â¹d
 		if (expr2.inf==Expr::EX_STRING)
 			return ERR_STR_NOT_ALLOWED;	// tekst niedozwolony
 
 		if (!skip)
-			if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyæ wartoœæ?
+			if (expr.inf!=Expr::EX_UNDEF && expr2.inf!=Expr::EX_UNDEF)	// obliczyÃ¦ wartoÅ“Ã¦?
 				expr.value = expr2.value ? 1 : 0;
 			else
 				expr.inf = Expr::EX_UNDEF;
 	}
 }
 
-// interpretacja wyra¿enia
+// interpretacja wyraÂ¿enia
 CAsm6502::Stat CAsm6502::expression(CLeksem &leks, Expr &expr, bool str)
 {
 	expr.inf = Expr::EX_LONG;
@@ -3078,7 +3078,7 @@ CAsm6502::Stat CAsm6502::expression(CLeksem &leks, Expr &expr, bool str)
 		return ret;
 	if (expr.inf == Expr::EX_STRING)
 	{
-		if (!str)			// wyra¿enie znakowe dozwolone?
+		if (!str)			// wyraÂ¿enie znakowe dozwolone?
 			return ERR_STR_NOT_ALLOWED;
 	}
 	else if (expr.inf != Expr::EX_UNDEF)
@@ -3098,7 +3098,7 @@ CAsm6502::Stat CAsm6502::expression(CLeksem &leks, Expr &expr, bool str)
 
 CAsm6502::Stat CAsm6502::look_for_endm()	// szukanie .ENDM lub .MACRO
 {
-	CLeksem leks= next_leks(false);	// kolejny leksem, byæ mo¿e pusty (L_SPACE)
+	CLeksem leks= next_leks(false);	// kolejny leksem, byÃ¦ moÂ¿e pusty (L_SPACE)
 	bool labelled= false;
 
 	switch (leks.type)
@@ -3129,7 +3129,7 @@ CAsm6502::Stat CAsm6502::look_for_endm()	// szukanie .ENDM lub .MACRO
 		}
 		//      leks = next_leks();
 		break;
-		case CLeksem::L_SPACE:	// odstêp
+		case CLeksem::L_SPACE:	// odstÃªp
 			leks = next_leks();
 			if (leks.type!=CLeksem::L_ASM_INSTR)	// nie dyrektywa asemblera?
 				return OK;
@@ -3165,7 +3165,7 @@ CAsm6502::Stat CAsm6502::record_macro()	// wczytanie kolejnego wiersza makrodefi
 	if (ret > 0)
 		return ret;
 
-	if (ret != STAT_ENDM)			// wiersza z .ENDM ju¿ nie potrzeba zapamiêtywaæ
+	if (ret != STAT_ENDM)			// wiersza z .ENDM juÂ¿ nie potrzeba zapamiÃªtywaÃ¦
 		pMacro->AddLine(current_line,text->GetLineNo());
 
 	return ret;
@@ -3180,7 +3180,7 @@ CString CAsm6502::format_local_label(const CString &ident, int area)
 	return local;
 }
 
-  // spr. czy dana etykieta jest ju¿ zdefiniowana
+  // spr. czy dana etykieta jest juÂ¿ zdefiniowana
 bool CAsm6502::add_ident(const CString &id, CIdent &inf)
 {
 	CString tmp;
@@ -3218,15 +3218,15 @@ CAsm6502::Stat CAsm6502::def_ident(const CString &id, CIdent &inf)
 		if (expanding_macro)
 		{
 			if (!macro_ident.replace(format_local_label(ident,macro_local_area),inf))
-				return err_ident=ident, ERR_LABEL_REDEF;	// ju¿ zdefiniowana
+				return err_ident=ident, ERR_LABEL_REDEF;	// juÂ¿ zdefiniowana
 		}
 		else if (!local_ident.replace(format_local_label(ident,local_area),inf))
-			return err_ident=ident, ERR_LABEL_REDEF;	// ju¿ zdefiniowana
+			return err_ident=ident, ERR_LABEL_REDEF;	// juÂ¿ zdefiniowana
 	}
 	else					// etykieta globalna
 	{
 		if (!global_ident.replace(ident,inf))
-			return err_ident=ident, ERR_LABEL_REDEF;	// ju¿ zdefiniowana
+			return err_ident=ident, ERR_LABEL_REDEF;	// juÂ¿ zdefiniowana
 		//    if (inf.info == CIdent::I_ADDRESS)// etykieta z adresem odgradza etykiety lokalne
 		local_area++;			// nowy obszar lokalny
 	}
@@ -3265,7 +3265,7 @@ CAsm6502::Stat CAsm6502::chk_ident(const CString &id, CIdent &inf)
 			return err_ident=ident, ERR_UNDEF_LABEL;	// etykieta bez definicji
 		ASSERT(info.variable && inf.variable || !info.variable && !inf.variable);
 		if (info.val != inf.val && !info.variable)
-			return err_ident=ident, ERR_PHASE;// niezgodne wartoœci miêdzy przebiegami - b³¹d fazy
+			return err_ident=ident, ERR_PHASE;// niezgodne wartoÅ“ci miÃªdzy przebiegami - bÂ³Â¹d fazy
 	}
 	else		// sprawdzanej etykiety nie ma w tablicy
 		return err_ident=ident, ERR_UNDEF_LABEL;
@@ -3283,13 +3283,13 @@ CAsm6502::Stat CAsm6502::chk_ident_def(const CString &id, CIdent &inf)
 	if (case_insensitive)
 		tmp=id, tmp.MakeLower();
 
-	SINT32 val= inf.val;		// zapamiêtanie wartoœci
+	SINT32 val= inf.val;		// zapamiÃªtanie wartoÅ“ci
 	Stat ret= chk_ident(ident, inf);
 	if (ret != OK && ret != ERR_UNDEF_LABEL)
 		return ret;
 	if (inf.variable)		// etykieta zmiennej?
 	{
-		inf.val = val;		// nowa wartoœæ zmiennej
+		inf.val = val;		// nowa wartoÅ“Ã¦ zmiennej
 		bool ret;
 		if (ident[0] == LOCAL_LABEL_CHAR)	// etykieta lokalna?
 		{
@@ -3302,12 +3302,12 @@ CAsm6502::Stat CAsm6502::chk_ident_def(const CString &id, CIdent &inf)
 			ret = global_ident.replace(ident, inf);
 		ASSERT(ret);
 	}
-	else if (ident[0] != LOCAL_LABEL_CHAR)	// etykieta globalna sta³ej?
+	else if (ident[0] != LOCAL_LABEL_CHAR)	// etykieta globalna staÂ³ej?
 	{
 		ASSERT(!inf.checked);
-		inf.checked = true;		// potwierdzenie definicji w drugim przejœciu asemblacji
+		inf.checked = true;		// potwierdzenie definicji w drugim przejÅ“ciu asemblacji
 		bool ret= global_ident.replace(ident, inf);
-//		ASSERT(!ret && inf.info == I_ADDRESS || ret);		// etykieta musi byæ redefiniowana
+//		ASSERT(!ret && inf.info == I_ADDRESS || ret);		// etykieta musi byÃ¦ redefiniowana
 	}
 	return OK;
 }
@@ -3322,7 +3322,7 @@ CAsm6502::Stat CAsm6502::def_macro_name(const CString &id, CIdent &inf)
 		tmp=id, tmp.MakeLower();
 
 	if (!macro_name.replace(ident,inf))
-		return err_ident=ident, ERR_LABEL_REDEF;	// nazwa ju¿ zdefiniowana
+		return err_ident=ident, ERR_LABEL_REDEF;	// nazwa juÂ¿ zdefiniowana
 
 	return OK;
 }
@@ -3343,7 +3343,7 @@ CAsm6502::Stat CAsm6502::chk_macro_name(const CString &id)
 		ASSERT(info.info==CIdent::I_MACRONAME);
 		return OK;
 		//    if (info.val != inf.val)
-		//      return err_ident=ident, ERR_PHASE;// niezgodne wartoœci miêdzy przebiegami - b³¹d fazy
+		//      return err_ident=ident, ERR_PHASE;// niezgodne wartoÅ“ci miÃªdzy przebiegami - bÂ³Â¹d fazy
 	}
 	else		// sprawdzanej etykiety nie ma w tablicy
 		return err_ident=ident, ERR_UNDEF_LABEL;
@@ -3353,16 +3353,16 @@ CAsm6502::Stat CAsm6502::chk_macro_name(const CString &id)
 
 //-----------------------------------------------------------------------------
 
-const TCHAR* CRepeatDef::GetCurrLine(CString &str)	// odczyt aktualnego wiersza do powtórki
+const TCHAR* CRepeatDef::GetCurrLine(CString &str)	// odczyt aktualnego wiersza do powtÃ³rki
 {
 	ASSERT(m_nLineNo >= 0);
 	if (m_nLineNo == GetSize())	// koniec wierszy?
 	{
-		if (m_nRepeat == 0)		// koniec powtórzeñ?
+		if (m_nRepeat == 0)		// koniec powtÃ³rzeÃ±?
 			return NULL;
-		if (GetSize() == 0)		// puste powtórzenie (bez wierszy)?
+		if (GetSize() == 0)		// puste powtÃ³rzenie (bez wierszy)?
 			return NULL;
-		m_nRepeat--;		// odliczanie powtórzeñ
+		m_nRepeat--;		// odliczanie powtÃ³rzeÃ±
 		//    m_nRepeatLocalArea++;	// nowy obszar etykiet
 		ASSERT(m_nRepeat >= 0);
 		m_nLineNo = 0;
@@ -3373,13 +3373,13 @@ const TCHAR* CRepeatDef::GetCurrLine(CString &str)	// odczyt aktualnego wiersza 
 }
 
 
-CAsm6502::Stat CAsm6502::record_rept(CRepeatDef *pRept)	// wczytanie kolejnego wiersza do powtórki
+CAsm6502::Stat CAsm6502::record_rept(CRepeatDef *pRept)	// wczytanie kolejnego wiersza do powtÃ³rki
 {
 	Stat ret= look_for_repeat();
 	if (ret > 0)
 		return ret;
 
-	if (ret == STAT_REPEAT)	// zagnie¿d¿one .REPEAT
+	if (ret == STAT_REPEAT)	// zagnieÂ¿dÂ¿one .REPEAT
 	{
 		ret = OK;
 		reptNested++;
@@ -3389,7 +3389,7 @@ CAsm6502::Stat CAsm6502::record_rept(CRepeatDef *pRept)	// wczytanie kolejnego w
 			return ret;
 		else
 		{
-			reptNested--;		// koniec zagnie¿d¿onego .REPEAT
+			reptNested--;		// koniec zagnieÂ¿dÂ¿onego .REPEAT
 			ret = OK;
 		}
 
@@ -3401,7 +3401,7 @@ CAsm6502::Stat CAsm6502::record_rept(CRepeatDef *pRept)	// wczytanie kolejnego w
 
 CAsm6502::Stat CAsm6502::look_for_repeat()	// szukanie .ENDR lub .REPEAT
 {
-	CLeksem leks= next_leks(false);	// kolejny leksem, byæ mo¿e pusty (L_SPACE)
+	CLeksem leks= next_leks(false);	// kolejny leksem, byÃ¦ moÂ¿e pusty (L_SPACE)
 
 	switch (leks.type)
 	{
@@ -3430,7 +3430,7 @@ CAsm6502::Stat CAsm6502::look_for_repeat()	// szukanie .ENDR lub .REPEAT
 		}
 		//      leks = next_leks();
 		break;
-		case CLeksem::L_SPACE:	// odstêp
+		case CLeksem::L_SPACE:	// odstÃªp
 			leks = next_leks();
 			if (leks.type!=CLeksem::L_ASM_INSTR)	// nie dyrektywa asemblera?
 				return OK;
@@ -3449,7 +3449,7 @@ CAsm6502::Stat CAsm6502::look_for_repeat()	// szukanie .ENDR lub .REPEAT
 	switch (leks.GetInstr())
 	{
 	case I_REPEAT:
-		return STAT_REPEAT;		// zagnie¿d¿one .REPEAT
+		return STAT_REPEAT;		// zagnieÂ¿dÂ¿one .REPEAT
 	case I_ENDR:
 		return STAT_ENDR;		// koniec .REPEAT
 	default:
@@ -3476,7 +3476,7 @@ void CAsm6502::asm_start()
 	if (debug)
 	{
 		debug->ResetFileMap();
-		entire_text.SetFileUID(debug);	// wygenerowanie FUID dla tekstu Ÿród³owego
+		entire_text.SetFileUID(debug);	// wygenerowanie FUID dla tekstu Å¸rÃ³dÂ³owego
 	}
 }
 
@@ -3518,16 +3518,16 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 	{
 		asm_start();
 
-		for (pass=1; pass<=2; pass++)	// dwa przejœcia asemblacji
+		for (pass=1; pass<=2; pass++)	// dwa przejÅ“cia asemblacji
 		{
 			asm_start_pass();
 //      func = read.Peek();
 
 			for (bool fin=false; !fin; )
 			{
-				while (!(ptr=text->GetCurrLine(current_line)))	// funkcja nie zwraca ju¿ wierszy?
+				while (!(ptr=text->GetCurrLine(current_line)))	// funkcja nie zwraca juÂ¿ wierszy?
 				{
-					if (source.Peek())		// jest jeszcze jakaœ funkcja odczytu wierszy?
+					if (source.Peek())		// jest jeszcze jakaÅ“ funkcja odczytu wierszy?
 					{
 						text->Fin();
 						expanding_macro = (CMacroDef *)source.FindMacro();
@@ -3535,22 +3535,22 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 						text = source.Pop();
 					}
 					else
-						break;		// nie ma, zwracamy ptr==NULL na oznaczenie koñca tekstu programu
+						break;		// nie ma, zwracamy ptr==NULL na oznaczenie koÃ±ca tekstu programu
 				}
-				if (current_line.GetLength() > 1024)	// spr. max d³ugoœæ wiersza
+				if (current_line.GetLength() > 1024)	// spr. max dÂ³ugoÅ“Ã¦ wiersza
 					return ERR_LINE_TO_LONG;
 
 				if (is_aborted())
 					return ERR_USER_ABORT;
 
 				if (skip)			// asemblacja warunkowa (po .IF) ?
-					ret = look_for_endif();	// omijanie instrukcji a¿ do .ENDIF lub .ELSE
-				else if (in_macro)		// zapamiêtywanie makra (po .MACRO) ?
-					ret = record_macro();		// zapamiêtanie wiersza makra
-				else if (skip_macro)		// omijanie makra (w 2. przejœciu po .MACRO) ?
-					ret = look_for_endm();	// omijanie wierszy a¿ do .ENDM
-				else if (pRept)			// zapamiêtywanie wiersza powtórzeñ?
-					ret = record_rept(pRept);	// zapamiêtanie wiersza do powtórzeñ
+					ret = look_for_endif();	// omijanie instrukcji aÂ¿ do .ENDIF lub .ELSE
+				else if (in_macro)		// zapamiÃªtywanie makra (po .MACRO) ?
+					ret = record_macro();		// zapamiÃªtanie wiersza makra
+				else if (skip_macro)		// omijanie makra (w 2. przejÅ“ciu po .MACRO) ?
+					ret = look_for_endm();	// omijanie wierszy aÂ¿ do .ENDM
+				else if (pRept)			// zapamiÃªtywanie wiersza powtÃ³rzeÃ±?
+					ret = record_rept(pRept);	// zapamiÃªtanie wiersza do powtÃ³rzeÃ±
 				else
 				{
 					ret = assemble_line();	// asemblacja wiersza
@@ -3569,7 +3569,7 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 //	    if (typeid(text) == typeid(CMacroDef) || typeid(text) == typeid(CRepeatDef))
 						CSourceText* pSrc= dynamic_cast<CSourceText*>(text);
 						if (pSrc == NULL)
-							return ERR_INCLUDE_NOT_ALLOWED;	// .INCLUDE w makrze/powtórce niedozwolone
+							return ERR_INCLUDE_NOT_ALLOWED;	// .INCLUDE w makrze/powtÃ³rce niedozwolone
 						pSrc->Include(include_fname,debug);
 						break;
 					}
@@ -3579,36 +3579,36 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 				case STAT_IF_UNDETERMINED:
 					ret = conditional_asm.instr_if_found(ret);
 					if (ret > OK)
-						return ret;		// b³¹d
-					skip = ret==STAT_SKIP;	// omijanie instrukcji a¿ do .ELSE lub .ENDIF?
+						return ret;		// bÂ³Â¹d
+					skip = ret==STAT_SKIP;	// omijanie instrukcji aÂ¿ do .ELSE lub .ENDIF?
 					break;
 				case STAT_ELSE:
 					ret = conditional_asm.instr_else_found();
 					if (ret > OK)
-						return ret;		// b³¹d
-					skip = ret==STAT_SKIP;	// omijanie instrukcji a¿ do .ELSE lub .ENDIF?
+						return ret;		// bÂ³Â¹d
+					skip = ret==STAT_SKIP;	// omijanie instrukcji aÂ¿ do .ELSE lub .ENDIF?
 					break;
 				case STAT_ENDIF:
 					ret = conditional_asm.instr_endif_found();
 					if (ret > OK)
-						return ret;		// b³¹d
-					skip = ret==STAT_SKIP;	// omijanie instrukcji a¿ do .ELSE lub .ENDIF?
+						return ret;		// bÂ³Â¹d
+					skip = ret==STAT_SKIP;	// omijanie instrukcji aÂ¿ do .ELSE lub .ENDIF?
 					break;
 
 				case STAT_MACRO:		// makrodefinicja
-					if (pass == 2)		// drugie przejœcie?
-						skip_macro = true;	// omijanie makrodefinicji (ju¿ zarejestrowanej)
+					if (pass == 2)		// drugie przejÅ“cie?
+						skip_macro = true;	// omijanie makrodefinicji (juÂ¿ zarejestrowanej)
 					break;
 				case STAT_ENDM:		// koniec makrodefinicji
-					if (pass == 1)		// pierwsze przejœcie?
+					if (pass == 1)		// pierwsze przejÅ“cie?
 					{
 						ASSERT(in_macro);
-						in_macro = NULL;		// rejestracja makra zakoñczona
+						in_macro = NULL;		// rejestracja makra zakoÃ±czona
 					}
 					else
 					{
 						ASSERT(skip_macro);
-						skip_macro = false;	// omijanie definicji makra zakoñczone
+						skip_macro = false;	// omijanie definicji makra zakoÃ±czone
 					}
 					break;
 				case STAT_EXITM:
@@ -3618,10 +3618,10 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 						text->Fin();
 						text = source.Pop();
 					}
-					text->Fin();		// zakoñczenie rozwijania makra
+					text->Fin();		// zakoÃ±czenie rozwijania makra
 					expanding_macro = (CMacroDef *)source.FindMacro();
 					repeating = (CRepeatDef *)source.FindRepeat();
-					text = source.Pop();	// poprzednie Ÿród³o wierszy
+					text = source.Pop();	// poprzednie Å¸rÃ³dÂ³o wierszy
 					break;
 
 				case STAT_REPEAT:		// zarejestrowanie wierszy po .REPEAT
@@ -3631,7 +3631,7 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 					break;
 				case STAT_ENDR:		// koniec rejestracji, teraz powtarzanie
 					//	    RepeatStart(pRept);
-					source.Push(text);		// bie¿¹ce Ÿród³o wierszy na stos
+					source.Push(text);		// bieÂ¿Â¹ce Å¸rÃ³dÂ³o wierszy na stos
 					text = pRept;
 					pRept = NULL;
 					text->Start();
@@ -3641,13 +3641,13 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 					ASSERT(dynamic_cast<CSourceText*>(text));
 //	    ASSERT( typeid(text) != typeid(CMacroDef) && typeid(text) != typeid(CRepeatDef));
 //	    ASSERT(!text->IsMacro() && !text->IsRepeat());
-					if (!static_cast<CSourceText*>(text)->TextFin()) // koniec zagnie¿d¿onego odczytu (.include) ?
+					if (!static_cast<CSourceText*>(text)->TextFin()) // koniec zagnieÂ¿dÂ¿onego odczytu (.include) ?
 					{
-						if (conditional_asm.in_cond())	// w œrodku dyrektywy .IF ?
+						if (conditional_asm.in_cond())	// w Å“rodku dyrektywy .IF ?
 							return ERR_ENDIF_REQUIRED;
 						if (in_macro)
 							return ERR_ENDM_REQUIRED;
-						fin = true;		// koniec przejœcia asemblacji
+						fin = true;		// koniec przejÅ“cia asemblacji
 						ret = OK;
 					}
 					break;
@@ -3656,9 +3656,9 @@ CAsm6502::Stat CAsm6502::assemble()	// translacja programu
 					break;
 
 				default:
-					if (listing.IsOpen())	// usuniêcie listingu ze wzglêdu na b³êdy
+					if (listing.IsOpen())	// usuniÃªcie listingu ze wzglÃªdu na bÂ³Ãªdy
 						listing.Remove();
-					return ret;			// b³¹d asemblacji
+					return ret;			// bÂ³Â¹d asemblacji
 				}
 			}
 
@@ -3699,25 +3699,25 @@ CAsm6502::Stat CAsm6502::chk_instr_code(OpCode code, CodeAdr &mode, Expr expr, i
 
 		case A_ABSX_OR_ZPGX:
 			byte = trans[code][mode=A_ABS_X];
-			if (byte==NA)			// jeœli nie ma ABS_X,
+			if (byte==NA)			// jeÅ“li nie ma ABS_X,
 				byte = trans[code][mode=A_ZPG_X];	// to spr. ZPG_X
 			break;
 
 		case A_ABSY_OR_ZPGY:
 			byte = trans[code][mode=A_ABS_Y];
-			if (byte==NA)			// jeœli nie ma ABS_Y,
+			if (byte==NA)			// jeÅ“li nie ma ABS_Y,
 				byte = trans[code][mode=A_ZPG_Y];	// to spr. ZPG_Y
 			break;
 
 		case A_ABSI_OR_ZPGI:
 			byte = trans[code][mode=A_ABSI];
-			if (byte==NA)			// jeœli nie ma ABSI,
+			if (byte==NA)			// jeÅ“li nie ma ABSI,
 				byte = trans[code][mode=A_ZPGI];	// to spr. ZPGI
 			break;
 
 		case A_IMP_OR_ACC:
 			byte = trans[code][mode=A_IMP];
-			if (byte==NA)			// jeœli nie ma IMP,
+			if (byte==NA)			// jeÅ“li nie ma IMP,
 				byte = trans[code][mode=A_ACC];	// to spr. ACC
 			if (code == C_BRK)
 				mode = A_IMP2;
@@ -3725,7 +3725,7 @@ CAsm6502::Stat CAsm6502::chk_instr_code(OpCode code, CodeAdr &mode, Expr expr, i
 
 		case A_ABSIX_OR_ZPGIX:
 			byte = trans[code][mode=A_ZPGI_X];
-			if (byte==NA)			// jeœli nie ma ZPGI_X,
+			if (byte==NA)			// jeÅ“li nie ma ZPGI_X,
 				byte = trans[code][mode=A_ABSI_X];	// to spr. ABSI_X
 			break;
 
@@ -3738,12 +3738,12 @@ CAsm6502::Stat CAsm6502::chk_instr_code(OpCode code, CodeAdr &mode, Expr expr, i
 
 	if (byte==NA)				// niedozwolony tryb adresowania?
 	{
-		switch (mode)	// promocja trybu adresowania ZPG na odpowiadaj¹cy mu ABS
+		switch (mode)	// promocja trybu adresowania ZPG na odpowiadajÂ¹cy mu ABS
 		{
 		case A_ZPG:	// zero page
 			mode = A_ABS;
 			if (trans[code][mode]==NA)
-				mode = A_REL;	// mo¿e to REL
+				mode = A_REL;	// moÂ¿e to REL
 			break;
 		case A_ZPG_X:	// zero page indexed X
 			mode = A_ABS_X;
@@ -3754,7 +3754,7 @@ CAsm6502::Stat CAsm6502::chk_instr_code(OpCode code, CodeAdr &mode, Expr expr, i
 		case A_ZPGI:	// zero page indirect
 			mode = A_ABSI;
 			break;
-		case A_ABS:		// jest ABS ale mo¿e chodziæ o REL
+		case A_ABS:		// jest ABS ale moÂ¿e chodziÃ¦ o REL
 			mode = A_REL;
 			break;
 		case A_ZPGI_X:	// (zp,X) illigal, try (abs,X) then
@@ -3764,11 +3764,11 @@ CAsm6502::Stat CAsm6502::chk_instr_code(OpCode code, CodeAdr &mode, Expr expr, i
 			return ERR_MODE_NOT_ALLOWED;
 		}
 		byte = trans[code][mode];
-		if (byte==NA)			// wci¹¿ niedozwolony tryb adresowania?
+		if (byte==NA)			// wciÂ¹Â¿ niedozwolony tryb adresowania?
 			return ERR_MODE_NOT_ALLOWED;
 	}
 
-	switch (mode)				// okreœlenie d³ugoœci rozkazu
+	switch (mode)				// okreÅ“lenie dÂ³ugoÅ“ci rozkazu
 	{
 	case A_IMP:		// implied
 	case A_ACC:		// accumulator
@@ -3965,19 +3965,19 @@ CAsm6502::Stat CAsm6502::CConditionalAsm::instr_if_found(Stat condition)
 	bool assemble= level<0 || get_assemble();
 
 	if (assemble && condition==STAT_IF_UNDETERMINED)
-		return ERR_UNDEF_EXPR;	// oczekiwane zdefiniowane wyra¿enie
+		return ERR_UNDEF_EXPR;	// oczekiwane zdefiniowane wyraÂ¿enie
 
 	level++;			// zmiana stanu, zapisanie go na stosie
 
 	if (assemble && condition==STAT_IF_TRUE)
 	{
 		set_state(BEFORE_ELSE,true);
-		return STAT_ASM;		// kolejne wiersze nale¿y poddaæ asemblacji
+		return STAT_ASM;		// kolejne wiersze naleÂ¿y poddaÃ¦ asemblacji
 	}
 	else
 	{
 		set_state(BEFORE_ELSE,false);
-		return STAT_SKIP;		// kolejne wiersze nale¿y omin¹æ, a¿ do .ELSE lub .ENDIF
+		return STAT_SKIP;		// kolejne wiersze naleÂ¿y ominÂ¹Ã¦, aÂ¿ do .ELSE lub .ENDIF
 	}
 }
 
@@ -3988,11 +3988,11 @@ CAsm6502::Stat CAsm6502::CConditionalAsm::instr_else_found()
 		return ERR_SPURIOUS_ELSE;
 	// zmiana stanu automatu
 	if (get_assemble())			// przed .ELSE wiersze asemblowane?
-		set_state(AFTER_ELSE,false);	// wiêc po .ELSE ju¿ nie
+		set_state(AFTER_ELSE,false);	// wiÃªc po .ELSE juÂ¿ nie
 	else
-	{		// wiersze przed .ELSE nie by³y asemblowane
-		if (level>0 && get_prev_assemble() || level==0)	// nadrzêdne if/endif asemblowane lub
-			set_state(AFTER_ELSE,true);			// nie ma nadrzêdnego if/endif
+	{		// wiersze przed .ELSE nie byÂ³y asemblowane
+		if (level>0 && get_prev_assemble() || level==0)	// nadrzÃªdne if/endif asemblowane lub
+			set_state(AFTER_ELSE,true);			// nie ma nadrzÃªdnego if/endif
 		else
 			set_state(AFTER_ELSE,false);
 	}
@@ -4004,7 +4004,7 @@ CAsm6502::Stat CAsm6502::CConditionalAsm::instr_endif_found()
 {
 	if (level<0)
 		return ERR_SPURIOUS_ENDIF;
-	level--;		// zmiana stanu przez usuniêcie wierzcho³ka stosu
+	level--;		// zmiana stanu przez usuniÃªcie wierzchoÂ³ka stosu
 	if (level >= 0)
 		return get_assemble() ? STAT_ASM : STAT_SKIP;
 	return STAT_ASM;
@@ -4030,8 +4030,9 @@ CAsm::FileUID CAsm6502::get_file_UID()	// id pliku (dla debug info)
 void CAsm6502::generate_debug(UINT16 addr, int line_no, FileUID file_UID)
 {
 	ASSERT(debug != NULL);
-	debug->AddLine( CDebugLine(line_no,file_UID,addr,
-		typeid(text) == typeid(CMacroDef) ? DBG_CODE|DBG_MACRO : DBG_CODE) );
+	CDebugLine dbgLine(line_no, file_UID, addr,
+		typeid(text) == typeid(CMacroDef) ? DBG_CODE | DBG_MACRO : DBG_CODE);
+	debug->AddLine(dbgLine);
 }
 
 
@@ -4058,9 +4059,9 @@ CAsm::Stat CAsm6502::generate_debug(InstrType it, int line_no, FileUID file_UID)
 
 	case I_ORG:		// origin
 	case I_START:
-	case I_END:		// zakoñczenie
-	case I_ERROR:	// zg³oszenie b³êdu
-	case I_INCLUDE:	// w³¹czenie pliku
+	case I_END:		// zakoÃ±czenie
+	case I_ERROR:	// zgÂ³oszenie bÂ³Ãªdu
+	case I_INCLUDE:	// wÂ³Â¹czenie pliku
 	case I_IF:
 	case I_ELSE:
 	case I_ENDIF:
@@ -4131,7 +4132,7 @@ CString CAsm6502::GetErrMsg(Stat stat)
 {
 	if ((stat<OK || stat>=ERR_LAST) && stat!=STAT_USER_DEF_ERR)
 	{
-		ASSERT(false);		// b³êdna wartoœæ 'stat'
+		ASSERT(false);		// bÂ³Ãªdna wartoÅ“Ã¦ 'stat'
 		return CString(_T("???"));
 	}
 
@@ -4161,7 +4162,7 @@ CString CAsm6502::GetErrMsg(Stat stat)
 		break;
 	case ERR_UNDEF_LABEL:	// niezdefiniowana etykieta
 	case ERR_PHASE:
-	case ERR_LABEL_REDEF:	// etykieta ju¿ zdefiniowana
+	case ERR_LABEL_REDEF:	// etykieta juÂ¿ zdefiniowana
 		if (form.LoadString(IDS_ASM_FORM4) && txt.LoadString(IDS_ASM_ERR_MSG_FIRST+stat))
 			msg.Format(form,(int)stat,(LPCTSTR)txt,(LPCTSTR)err_ident,text->GetLineNo()+1,(LPCTSTR)text->GetFileName());
 		break;
@@ -4190,7 +4191,7 @@ CString CAsm6502::GetErrMsg(Stat stat)
 
 void CAsm6502::CListing::Remove()
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	try
 	{
 		m_File.Remove(m_File.GetFilePath());
@@ -4203,7 +4204,7 @@ void CAsm6502::CListing::Remove()
 
 void CAsm6502::CListing::NextLine()
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	if (m_nLine != 0)
 		m_File.WriteString(m_Str);
 	m_nLine++;
@@ -4213,7 +4214,7 @@ void CAsm6502::CListing::NextLine()
 
 void CAsm6502::CListing::AddCodeBytes(UINT16 addr, int code1/*= -1*/, int code2/*= -1*/, int code3/*= -1*/)
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	TCHAR buf[32];
 	if (code3 != -1)
 		wsprintf(buf,_T("%04X  %02X %02X %02X     "),(int)addr,(int)code1,code2,code3);
@@ -4229,7 +4230,7 @@ void CAsm6502::CListing::AddCodeBytes(UINT16 addr, int code1/*= -1*/, int code2/
 
 void CAsm6502::CListing::AddValue(UINT16 val)
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	TCHAR buf[32];
 	wsprintf(buf,_T("  %04X             "),val);
 	m_Str += buf;
@@ -4238,7 +4239,7 @@ void CAsm6502::CListing::AddValue(UINT16 val)
 
 void CAsm6502::CListing::AddBytes(UINT16 addr, UINT16 mask, const UINT8 mem[], int len)
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	ASSERT(len > 0);
 	TCHAR buf[32];
 	for (int i=0; i<len; i+=4)
@@ -4270,7 +4271,7 @@ void CAsm6502::CListing::AddBytes(UINT16 addr, UINT16 mask, const UINT8 mem[], i
 
 void CAsm6502::CListing::AddSourceLine(const TCHAR *line)
 {
-	ASSERT(m_nLine != -1);	// plik musi byæ otwarty
+	ASSERT(m_nLine != -1);	// plik musi byÃ¦ otwarty
 	m_Str += line;
 }
 

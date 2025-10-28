@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -555,7 +555,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 		" Last byte has toggled (XOR-ed) most significant bit to mark end of string."
 		"#syntax#[<label>[:]] .ASCIS <expr> | txtexpr { , <expr> | txtexpr }.\n"
 		"#exmpl#alpha: .ASCIS \"ABC\" ; generates bytes $41, $42, $C3.\n"
-		"beta:  .ASCIS \"Stop\",$D ; generates bytes ‘S’, ‘t’, ‘o’, ‘p’, $8D\n"
+		"beta:  .ASCIS \"Stop\",$D ; generates bytes â€˜Sâ€™, â€˜tâ€™, â€˜oâ€™, â€˜pâ€™, $8D\n"
 		"#desc#.ASCIS directive is helpful to generate string with it's end marked by toggling most significant bit."
 		" Printing subroutine for example can use this information to detect the end of string.\n");
 
@@ -568,7 +568,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 			"[<label>[:]] .BYTE <expr> | txtexpr { , <expr> | txtexpr }\n"
 			"[<label>[:]] .ASCII <expr> | txtexpr { , <expr> | txtexpr }\n"
 		"#exmpl#"
-			"alpha: .DB \"ABC\", 0 ; generates bytes ‘A’, ‘B’, ‘C’, 0\n"
+			"alpha: .DB \"ABC\", 0 ; generates bytes â€˜Aâ€™, â€˜Bâ€™, â€˜Câ€™, 0\n"
 			"beta:  .DB %1, %1$  ; macro params; string length and string itself\n"
 			" .BYTE <[alpha-1], >[alpha-1]\n"
 			" .ASCII \"Text\"\n"
@@ -607,9 +607,9 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 			"[<label>[:]] .STR expr { , expr }\n"
 			"[<label>[:]] .STRING expr { , expr }\n"
 		"#exmpl#"
-			"alpha: .STRING \"ABC\", $D ; generates sequence 4, ‘A’, ‘B’, ‘C’, $0D\n"
+			"alpha: .STRING \"ABC\", $D ; generates sequence 4, â€˜Aâ€™, â€˜Bâ€™, â€˜Câ€™, $0D\n"
 			"beta:  .STR \"Test string\", $D, $A\n"
-			"       .STR \"AB\", \"CD\", 13 ; generates: 5, ‘A’, ‘B’, ‘C’, ‘D’, $0D\n");
+			"       .STR \"AB\", \"CD\", 13 ; generates: 5, â€˜Aâ€™, â€˜Bâ€™, â€˜Câ€™, â€˜Dâ€™, $0D\n");
 
 	else if (strDirective.CompareNoCase(_T(".DCB")) == 0)
 		return _T("#title#.DCB#text#\nDirective reserving memory area with initialization of reserved memory by given value."
@@ -618,7 +618,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 		"#exmpl#"
 			"buf: .DCB $20,$FF  ; next $20 bytes is reserved and set to $FF\n"
 		"#desc#"
-			".DCB directive reserves ‘count_bytes’ and initializes them with ‘init_val’ (if it's given).\n");
+			".DCB directive reserves â€˜count_bytesâ€™ and initializes them with â€˜init_valâ€™ (if it's given).\n");
 
 	else if (strDirective.CompareNoCase(_T(".RS")) == 0 ||
 		strDirective.CompareNoCase(_T(".DS")) == 0)
@@ -629,7 +629,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 			"buf: .RS $100 ; reserve $100 bytes\n"
 			"     .RS size ; same as *= * + size\n"
 		"#desc#"
-			".RS and .DS move current origin (‘*’, ORG) by specified amount of bytes.\n");
+			".RS and .DS move current origin (â€˜*â€™, ORG) by specified amount of bytes.\n");
 
 	else if (strDirective.CompareNoCase(_T(".OPT")) == 0)
 		return _T("#title#.OPT#text#\nDirective setting assembly options. Available options are:\n\n"
@@ -652,7 +652,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 		"#exmpl#"
 			"    *= $1000 ; code location: $1000\n"
 			"buf: .ORG * + $10 ; offset code location by $10 bytes,\n"
-			" ; label ‘buf’ will be set to previous code location address\n"
+			" ; label â€˜bufâ€™ will be set to previous code location address\n"
 		"#desc#"
 			"Use .ORG directive to designate beginning of an area where assambled code will be generated.\n");
 
@@ -661,7 +661,7 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 		"#syntax#"
 			"  .START expr\n"
 		"#exmpl#"
-			"  .START Start ; start program execution from ‘Start’ address\n"
+			"  .START Start ; start program execution from â€˜Startâ€™ address\n"
 			"  .START $A100 ; start program execution from $A100 address\n"
 		"#desc#"
 			".START directive selects simulator entry point. Simulator will attempt to launch program using given address."
@@ -703,14 +703,14 @@ extern CString GetDirectiveDesc(const CString& strDirective)
 			"To use params inside macro definition one can use their names or consecutive numbers (starting from 1) preceded by '%' character. Param number zero (%0) has special meaning--it contains number of actual parameters macro was invoked with. Instead of numbers numeric expression can be used if they are enclosed in square brackets (for example %[.cnt+1]).\n"
 			"In macro invocation actual parameters are placed after macro name. Param expressions are separated by commas. All those expression are assembly time expressions. They get interpreted and calculated and result values are passed to macro definition.\n"
 			"All the labels starting with dot (.) are local to macro definition block and are not accessible nor visible from the outside code using macrodefinition. All the other labels are global. Macrodefinition code can use local labels (from the place it was invoked), global labels, as well as it's own local labels.\n"
-			"Macro definition parameters could be referenced with ‘$’ suffix. If given param was passed as string it is still accessible as string using dollar sign. Accessing it without '$' suffix returns string length. Param 0$ has special meaning: macro name.\n"
+			"Macro definition parameters could be referenced with â€˜$â€™ suffix. If given param was passed as string it is still accessible as string using dollar sign. Accessing it without '$' suffix returns string length. Param 0$ has special meaning: macro name.\n"
 		"#exmpl#"
 			"Put:	.MACRO chr		; print single character\n"
-			"	LDA #chr		; load value of parameter ‘chr’\n"
+			"	LDA #chr		; load value of parameter â€˜chrâ€™\n"
 			"	JSR sys_put_char\n"
 			"	.ENDM\n"
 			"; invocation:\n"
-			"	Put ’A’\n"
+			"	Put â€™Aâ€™\n"
 			"\n"
 			"Print:	.MACRO ...	; printing\n"
 			".cnt	.= 0			; param counter\n"
@@ -940,14 +940,14 @@ CString Instructions::GetModes(OpCode inst)
 			code = trans_table_c[inst][i];
 			if (code != NA)
 			{
-				strModes += _T("<pre>¹") + AddMode(code, inst, CodeAdr(i), true);
+				strModes += _T("<pre> ") + AddMode(code, inst, CodeAdr(i), true);
 				bExt = true;
 			}
 		}
 	}
 
 	if (bExt)
-		strModes += _T("\n¹<small> (65c02 only)\n");
+		strModes += _T("\n <small> (65c02 only)\n");
 
 	return strModes;
 }
@@ -1120,12 +1120,12 @@ extern CString GetInstructionDesc(const CString& strInstruction)
 	else if (strInstruction.CompareNoCase(_T("BRK")) == 0)
 	{
 		strDesc = "#title#BRK#text#\nForce Break."
-		"#flags#B¹DI#modes#";
+		"#flags#BÂ¹DI#modes#";
 		strDesc += inst.GetModes(CAsm::C_BRK);
 		strDesc += "#desc#BRK forces interrupt. CPU fetches interrupt vector ($FFFE/F)"
 			" and jumps to the interrupt handler routine. Bits I and B are set.\n"
 			"Simulator can use this instruction to stop execution of your program.\n"
-			"\n¹<small> (D flag cleared only by 65c02 CPU)\n";
+			"\nÂ¹<small> (D flag cleared only by 65c02 CPU)\n";
 	}
 	else if (strInstruction.CompareNoCase(_T("BVC")) == 0)
 	{

@@ -52,6 +52,7 @@
     <OutDir>.\Debug\</OutDir>
     <IntDir>.\Debug\Out\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>false</EmbedManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static|Win32'">
     <Midl>

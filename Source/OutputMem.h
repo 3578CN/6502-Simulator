@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #ifndef _output_mem_h_
 #define _output_mem_h_
 
-class COutputMem : private CByteArray
+class COutputMem : public CByteArray
 {
   UINT m_uMask;
 

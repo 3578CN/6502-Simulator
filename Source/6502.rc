@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+ï»¿//Microsoft Developer Studio generated resource script.
 //
 #include "resource.h"
 
@@ -33,7 +33,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     LTEXT           "Wiersz:",IDC_STATIC,56,8,28,8
     RTEXT           "0",IDC_CURR_ROW,84,8,28,8
-    LTEXT           "Przejœcie:",IDC_STATIC,56,24,32,8
+    LTEXT           "PrzejÅ“cie:",IDC_STATIC,56,24,32,8
     RTEXT           "0",IDC_PASS_NO,100,24,12,8
     CONTROL         "Progress1",IDC_ASM_PROGRESS,"msctls_progress32",0x0,35,
                     43,97,8
@@ -62,13 +62,13 @@ BEGIN
                     WS_GROUP,16,47,139,10
     CONTROL         "&Poprzedzone lub nie znakiem kropki '.'",IDC_STATIC,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED,16,59,136,10
-    GROUPBOX        "Ma³e i wielkie litery w etykietach",IDC_STATIC,8,77,196,
+    GROUPBOX        "MaÂ³e i wielkie litery w etykietach",IDC_STATIC,8,77,196,
                     25,WS_GROUP
-    CONTROL         "&Rozró¿niane",IDC_OPT_ASM_CASE_Y,"Button",
+    CONTROL         "&RozrÃ³Â¿niane",IDC_OPT_ASM_CASE_Y,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,16,88,55,10
-    CONTROL         "&Nie rozró¿niane",IDC_OPT_ASM_CASE_N,"Button",
+    CONTROL         "&Nie rozrÃ³Â¿niane",IDC_OPT_ASM_CASE_N,"Button",
                     BS_AUTORADIOBUTTON,80,88,65,10
-    GROUPBOX        "Dodatkowy bajt za instrukcj¹ BRK",IDC_STATIC,8,106,196,
+    GROUPBOX        "Dodatkowy bajt za instrukcjÂ¹ BRK",IDC_STATIC,8,106,196,
                     27
     CONTROL         "G&eneruj dodatkowy bajt",IDC_OPT_ASM_GENERATE_BYTE,
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,16,117,
@@ -82,7 +82,7 @@ STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Symulator"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Zakoñczenie programu",IDC_OPT_SYM_FIN,8,4,100,49
+    GROUPBOX        "ZakoÃ±czenie programu",IDC_OPT_SYM_FIN,8,4,100,49
     CONTROL         "Rozkazem &BRK",IDC_OPT_SYM_FIN_BRK,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,15,66,10
     CONTROL         "Rozkazem &RTS",IDC_OPT_SYM_FIN_RTS,"Button",
@@ -94,7 +94,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,124,14,44,10
     LTEXT           "Od &adresu:",IDC_STATIC,124,28,40,8
     EDITTEXT        IDC_OPT_SYM_IO_ADDR,164,26,33,12,ES_AUTOHSCROLL
-    GROUPBOX        "Okno wejœcia/wyjœcia",IDC_STATIC,8,56,194,28
+    GROUPBOX        "Okno wejÅ“cia/wyjÅ“cia",IDC_STATIC,8,56,194,28
     LTEXT           "&Kolumn:",IDC_STATIC,16,69,27,8
     EDITTEXT        IDC_OPT_SYM_IO_WND_W,44,67,28,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_OPT_SYM_W_SPIN,"msctls_updown32",
@@ -117,12 +117,12 @@ BEGIN
     CONTROL         "Spin1",IDC_OPT_ED_TAB_SPIN,"msctls_updown32",
                     UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
                     UDS_ARROWKEYS,99,9,11,10
-    CONTROL         "Automatyczne &wciêcia",IDC_OPT_ED_AUTO_INDENT,"Button",
+    CONTROL         "Automatyczne &wciÃªcia",IDC_OPT_ED_AUTO_INDENT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,25,87,10
-    CONTROL         "Sprawdzanie &sk³adni przy pisaniu",
+    CONTROL         "Sprawdzanie &skÂ³adni przy pisaniu",
                     IDC_OPT_ED_AUTO_SYNTAX,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,8,41,121,10
-    CONTROL         "Automatycznie &du¿e litery w nazwach instrukcji",
+    CONTROL         "Automatycznie &duÂ¿e litery w nazwach instrukcji",
                     IDC_OPT_ED_AUTO_UPPER_CASE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,8,57,163,10
     CONTROL         "Otwieranie &nowego dokumentu przy starcie programu",
@@ -144,7 +144,7 @@ BEGIN
                     WS_DISABLED | WS_TABSTOP,17,49,45,8
     CONTROL         "&Zapisie",IDC_EDIT_BP_WRITE,"Button",BS_AUTOCHECKBOX | 
                     WS_DISABLED | WS_TABSTOP,17,61,39,10
-    CONTROL         "Wy³¹czon&e",IDC_EDIT_BP_DISABLED,"Button",
+    CONTROL         "WyÂ³Â¹czon&e",IDC_EDIT_BP_DISABLED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,17,79,53,10
     DEFPUSHBUTTON   "OK",IDOK,120,6,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,120,23,50,14
@@ -166,15 +166,15 @@ BEGIN
     GROUPBOX        "Kolory",IDC_STATIC,8,4,85,50
     LTEXT           "&Adresu",IDC_STATIC,13,17,23,8
     PUSHBUTTON      "",IDC_OPT_DA_ADDR_COL,57,15,28,14
-    LTEXT           "Bajtów &kodu",IDC_STATIC,13,37,40,8
+    LTEXT           "BajtÃ³w &kodu",IDC_STATIC,13,37,40,8
     PUSHBUTTON      "",IDC_OPT_DA_CODE_COL,57,33,28,14
-    CONTROL         "&Wyœwietlanie bajtów kodu",IDC_OPT_DA_CODE,"Button",
+    CONTROL         "&WyÅ“wietlanie bajtÃ³w kodu",IDC_OPT_DA_CODE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,60,98,10
 END
 
 IDD_PROPPAGE_GENERAL DIALOG DISCARDABLE  0, 0, 210, 154
 STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Ogólne"
+CAPTION "OgÃ³lne"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Procesor",IDC_STATIC,8,4,131,52
@@ -182,17 +182,17 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,16,15,74,10
     CONTROL         "6&5C02, 6501",IDC_OPT_65C02,"Button",BS_AUTORADIOBUTTON,
                     16,27,57,10
-    LTEXT           "&Szerokoœæ szyny adresowej:",IDC_STATIC,16,40,90,8
+    LTEXT           "&SzerokoÅ“Ã¦ szyny adresowej:",IDC_STATIC,16,40,90,8
     EDITTEXT        IDC_OPT_BUS_WIDTH,108,38,25,12,ES_AUTOHSCROLL | WS_GROUP
     CONTROL         "Spin1",IDC_OPT_BUS_SPIN,"msctls_updown32",
                     UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
                     UDS_ARROWKEYS,128,38,11,14
-    GROUPBOX        "Kolory wskaŸników",IDC_STATIC,8,59,131,68
+    GROUPBOX        "Kolory wskaÅ¸nikÃ³w",IDC_STATIC,8,59,131,68
     LTEXT           "&Aktualnej instrukcji",IDC_STATIC,13,72,60,8
     PUSHBUTTON      "",IDC_OPT_MARK_PTR_COL,79,69,28,14
     LTEXT           "Miejsca &przerwania",IDC_STATIC,13,91,61,8
     PUSHBUTTON      "",IDC_OPT_MARK_BRKP_COL,79,88,28,14
-    LTEXT           "Miejsca &b³êdu",IDC_STATIC,13,110,46,8
+    LTEXT           "Miejsca &bÂ³Ãªdu",IDC_STATIC,13,110,46,8
     PUSHBUTTON      "",IDC_OPT_MARK_ERR_COL,79,107,28,14
 END
 
@@ -202,7 +202,7 @@ CAPTION "Opcje zapisu kodu wynikowego"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Adresy kodu",IDC_STATIC,8,6,100,62
-    LTEXT           "Pocz¹tek",IDC_STATIC,14,20,31,8
+    LTEXT           "PoczÂ¹tek",IDC_STATIC,14,20,31,8
     EDITTEXT        IDC_SAVE_CODE_OPT_1_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_START,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,
@@ -212,12 +212,12 @@ BEGIN
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_END,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,
                     12
-    LTEXT           "D³ugoœæ",IDC_STATIC,14,52,28,8
+    LTEXT           "DÂ³ugoÅ“Ã¦",IDC_STATIC,14,52,28,8
     EDITTEXT        IDC_SAVE_CODE_OPT_1_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_LENGTH,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,
                     12
-    LTEXT           "Kod wynikowy o podanym rozmiarze, plik binarny bez nag³ówka.",
+    LTEXT           "Kod wynikowy o podanym rozmiarze, plik binarny bez nagÂ³Ã³wka.",
                     IDC_STATIC,12,76,156,18
     DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,116,28,50,14
@@ -229,7 +229,7 @@ CAPTION "Opcje zapisu programu wynikowego"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Adresy kodu",IDC_STATIC,8,6,100,62
-    LTEXT           "Pocz¹tek",IDC_STATIC,14,20,31,8
+    LTEXT           "PoczÂ¹tek",IDC_STATIC,14,20,31,8
     EDITTEXT        IDC_SAVE_CODE_OPT_2_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_START,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,
@@ -239,12 +239,12 @@ BEGIN
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_END,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,
                     12
-    LTEXT           "D³ugoœæ",IDC_STATIC,14,52,28,8
+    LTEXT           "DÂ³ugoÅ“Ã¦",IDC_STATIC,14,52,28,8
     EDITTEXT        IDC_SAVE_CODE_OPT_2_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_LENGTH,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,
                     12
-    LTEXT           "Program wynikowy 6502 o podanym rozmiarze, wraz z nag³ówkiem zawieraj¹cym dodatkowe informacje symulatora.",
+    LTEXT           "Program wynikowy 6502 o podanym rozmiarze, wraz z nagÂ³Ã³wkiem zawierajÂ¹cym dodatkowe informacje symulatora.",
                     IDC_STATIC,12,76,148,24
     DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,116,28,50,14
@@ -255,10 +255,10 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcje odczytu kodu wynikowego"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Pamiêæ 6502 do wczytania kodu",IDC_STATIC,8,4,128,46
-    LTEXT           "&Adres pocz¹tku",IDC_STATIC,16,19,50,8
+    GROUPBOX        "PamiÃªÃ¦ 6502 do wczytania kodu",IDC_STATIC,8,4,128,46
+    LTEXT           "&Adres poczÂ¹tku",IDC_STATIC,16,19,50,8
     EDITTEXT        IDC_LOAD_CODE_START,76,17,34,12,ES_AUTOHSCROLL
-    CONTROL         "&Wyzerowanie pamiêci",IDC_LOAD_CODE_CLR,"Button",
+    CONTROL         "&Wyzerowanie pamiÃªci",IDC_LOAD_CODE_CLR,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,34,85,10
     DEFPUSHBUTTON   "OK",IDOK,16,58,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,78,58,50,14
@@ -269,8 +269,8 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcje odczytu kodu wynikowego"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Pamiêæ 6502 do wczytania kodu",-1,8,4,128,46
-    CONTROL         "&Wyzerowanie pamiêci",IDC_LOAD_CODE_CLR,"Button",
+    GROUPBOX        "PamiÃªÃ¦ 6502 do wczytania kodu",-1,8,4,128,46
+    CONTROL         "&Wyzerowanie pamiÃªci",IDC_LOAD_CODE_CLR,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,19,85,10
     DEFPUSHBUTTON   "OK",IDOK,16,58,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,78,58,50,14
@@ -278,13 +278,13 @@ END
 
 IDD_PROPPAGE_VIEW DIALOG DISCARDABLE  0, 0, 210, 154
 STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Wygl¹d"
+CAPTION "WyglÂ¹d"
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "&Okno:",IDC_STATIC,8,6,20,8
     LISTBOX         IDC_OPT_VIEW_WND,8,18,76,54,LBS_NOINTEGRALHEIGHT | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Przyk³ad:",IDC_STATIC,92,6,31,8
+    LTEXT           "PrzykÂ³ad:",IDC_STATIC,92,6,31,8
     CONTROL         "",IDC_OPT_VIEW_EXAMPLE,"Static",SS_LEFTNOWORDWRAP | 
                     SS_NOPREFIX | SS_SUNKEN | WS_GROUP,92,18,112,54
     PUSHBUTTON      "&Czcionka...",IDC_OPT_VIEW_FONT_BTN,8,84,44,14
@@ -292,7 +292,7 @@ BEGIN
                     ES_READONLY | NOT WS_TABSTOP
     LTEXT           "&Kolor tekstu:",IDC_STATIC,8,106,40,8
     PUSHBUTTON      "",IDC_OPT_VIEW_TXT_COL,52,104,28,14
-    LTEXT           "Kolor &t³a:",IDC_STATIC,96,106,30,8
+    LTEXT           "Kolor &tÂ³a:",IDC_STATIC,96,106,30,8
     PUSHBUTTON      "",IDC_OPT_VIEW_BKGND_COL,128,104,28,14
 END
 
@@ -302,7 +302,7 @@ CAPTION "Opcje zapisu deasemblowanego kodu"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Adresy kodu",IDC_STATIC,8,6,100,62
-    LTEXT           "Pocz¹tek",IDC_STATIC,14,20,31,8
+    LTEXT           "PoczÂ¹tek",IDC_STATIC,14,20,31,8
     EDITTEXT        IDC_DEASM_SAVE_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_START,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,
@@ -312,12 +312,12 @@ BEGIN
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_END,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,
                     12
-    LTEXT           "D³ugoœæ",IDC_STATIC,14,52,28,8
+    LTEXT           "DÂ³ugoÅ“Ã¦",IDC_STATIC,14,52,28,8
     EDITTEXT        IDC_DEASM_SAVE_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_LENGTH,"msctls_updown32",
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,
                     12
-    CONTROL         "Zapisaæ jako obszar danych",IDC_DATA,"Button",
+    CONTROL         "ZapisaÃ¦ jako obszar danych",IDC_DATA,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,74,105,10
     DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,116,28,50,14
@@ -336,7 +336,7 @@ END
 
 IDD_MEMORY_GOTO DIALOG DISCARDABLE  0, 0, 156, 53
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Wyœwietlanie pamiêci od adresu"
+CAPTION "WyÅ“wietlanie pamiÃªci od adresu"
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "&Adres:",IDC_STATIC,16,20,21,8
@@ -347,17 +347,17 @@ END
 
 IDD_MEMORY_CHG DIALOG DISCARDABLE  0, 0, 182, 77
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Modyfikacja komórki pamiêci"
+CAPTION "Modyfikacja komÃ³rki pamiÃªci"
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "&Adres:",IDC_STATIC,8,16,21,8
     EDITTEXT        IDC_MEMORY_ADDR,40,14,36,12,ES_AUTOHSCROLL
-    LTEXT           "&Wartoœæ:",IDC_STATIC,8,32,30,8
+    LTEXT           "&WartoÅ“Ã¦:",IDC_STATIC,8,32,30,8
     EDITTEXT        IDC_MEMORY_DATA,40,30,36,12,ES_AUTOHSCROLL
-    GROUPBOX        "Wyœwietl",IDC_STATIC,88,4,86,44
+    GROUPBOX        "WyÅ“wietl",IDC_STATIC,88,4,86,44
     CONTROL         "&Bajt",IDC_MEMORY_BYTE,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP | WS_TABSTOP,96,16,28,10
-    CONTROL         "&S³owo",IDC_MEMORY_WORD,"Button",BS_AUTORADIOBUTTON,132,
+    CONTROL         "&SÂ³owo",IDC_MEMORY_WORD,"Button",BS_AUTORADIOBUTTON,132,
                     16,37,10
     CONTROL         "&Ze znakiem",IDC_MEMORY_SIGNED,"Button",BS_AUTOCHECKBOX | 
                     WS_GROUP | WS_TABSTOP,96,32,53,10
@@ -376,10 +376,10 @@ BEGIN
                     SS_NOPREFIX
     LTEXT           "",IDC_STATIC,86,25,169,80,SS_SUNKEN
     LTEXT           "6502 wersja robocza",IDC_STATIC,92,28,66,8,SS_NOPREFIX
-    LTEXT           "Prawa autorskie © 1996-98 Micha³ Kowalski",IDC_STATIC,
+    LTEXT           "Prawa autorskie Â© 1996-98 MichaÂ³ Kowalski",IDC_STATIC,
                     91,44,142,8
     LTEXT           "mkowalsk@friko5.onet.pl",IDC_EMAIL,95,54,108,8
-    LTEXT           "Makroasembler i symulator dla procesorów z rodziny 650x: 6502, 65c02, 6501",
+    LTEXT           "Makroasembler i symulator dla procesorÃ³w z rodziny 650x: 6502, 65c02, 6501",
                     IDC_STATIC,92,68,136,18
     LTEXT           "",IDC_ABOUT_VER,92,92,124,8,SS_NOPREFIX
     DEFPUSHBUTTON   "OK",IDOK,196,154,54,14,WS_GROUP
@@ -606,28 +606,28 @@ BEGIN
     POPUP "&Plik"
     BEGIN
         MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
-        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&OtwÃ³rz...\tCtrl+O",          ID_FILE_OPEN
         MENUITEM SEPARATOR
-        MENUITEM "O&twórz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
+        MENUITEM "O&twÃ³rz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
         MENUITEM "Zapi&sz kod...\tCtrl+K",      ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
         MENUITEM "&Ustawienia strony...",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Za&koñcz",                    ID_APP_EXIT
+        MENUITEM "Za&koÃ±cz",                    ID_APP_EXIT
     END
     POPUP "&Widok"
     BEGIN
         MENUITEM "&Deasembler\tAlt+0",          ID_VIEW_DEASM
         MENUITEM SEPARATOR
         MENUITEM "&Rejestry 6502\tAlt+1",       ID_VIEW_REGISTERBAR
-        MENUITEM "&Pamiêæ 6502\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&PamiÃªÃ¦ 6502\tAlt+2",         ID_VIEW_MEMORY
         MENUITEM "Strona &zerowa\tAlt+3",       ID_VIEW_ZEROPAGEBAR
         MENUITEM "&Identyfikatory\tAlt+4",      ID_VIEW_IDENT
-        MENUITEM "&Wejœcie/wyjœcie\tAlt+5",     ID_VIEW_IO_WINDOW
+        MENUITEM "&WejÅ“cie/wyjÅ“cie\tAlt+5",     ID_VIEW_IO_WINDOW
         MENUITEM SEPARATOR
-        MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
+        MENUITEM "Pasek &narzÃªdzi",             ID_VIEW_TOOLBAR
         MENUITEM "Pasek &stanu",                ID_VIEW_STATUS_BAR
     END
     POPUP "&Symulator"
@@ -643,15 +643,15 @@ BEGIN
         MENUITEM "Wykonaj krok na&d\tF10",      ID_SYM_STEP_OVER
         MENUITEM "Uruc&hom do powrotu\tCtrl+F11", ID_SYM_GO_RTS
         MENUITEM "Uruchom do kur&sora\tCtrl+F10", ID_SYM_GO_LINE
-        POPUP "Zg³oœ przer&wanie"
+        POPUP "ZgÂ³oÅ“ przer&wanie"
         BEGIN
             MENUITEM "&Maskowalne (IRQ)",           ID_SYM_GEN_IRQ
             MENUITEM "&Niemaskowalne (NMI)",        ID_SYM_GEN_NMI
             MENUITEM "&Reset (RST)",                ID_SYM_GEN_RST
         END
         MENUITEM SEPARATOR
-        MENUITEM "&Pomiñ instrukcjê\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Nastêpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&PomiÃ± instrukcjÃª\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "NastÃªpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
         MENUITEM "&Miejsce przerwania\tF9",     ID_SYM_BREAKPOINT
         MENUITEM "Parametry prz&erwania...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
@@ -661,7 +661,7 @@ BEGIN
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskada",                    ID_WINDOW_CASCADE
-        MENUITEM "&Rozmieœæ",                   ID_WINDOW_TILE_HORZ
+        MENUITEM "&RozmieÅ“Ã¦",                   ID_WINDOW_TILE_HORZ
         MENUITEM "&Ustaw",                      ID_WINDOW_ARRANGE
     END
     POPUP "Po&moc"
@@ -677,21 +677,21 @@ BEGIN
     POPUP "&Plik"
     BEGIN
         MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
-        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&OtwÃ³rz...\tCtrl+O",          ID_FILE_OPEN
         MENUITEM "Za&mknij\tCtrl+W",            ID_FILE_CLOSE
         MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
         MENUITEM "Z&apisz jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "O&twórz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
+        MENUITEM "O&twÃ³rz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
         MENUITEM "Zapi&sz kod...\tCtrl+K",      ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
         MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
-        MENUITEM "&Podgl¹d wydruku",            ID_FILE_PRINT_PREVIEW
+        MENUITEM "&PodglÂ¹d wydruku",            ID_FILE_PRINT_PREVIEW
         MENUITEM "&Ustawienia strony...",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Za&koñcz",                    ID_APP_EXIT
+        MENUITEM "Za&koÃ±cz",                    ID_APP_EXIT
     END
     POPUP "&Edycja"
     BEGIN
@@ -700,24 +700,24 @@ BEGIN
         MENUITEM "&Wytnij\tCtrl+X",             ID_EDIT_CUT
         MENUITEM "&Kopiuj\tCtrl+C",             ID_EDIT_COPY
         MENUITEM "Wkl&ej\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&Usuñ\tDel",                  ID_EDIT_CLEAR
+        MENUITEM "&UsuÃ±\tDel",                  ID_EDIT_CLEAR
         MENUITEM "Z&aznacz wszystko\tCtrl+A",   ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "&ZnajdŸ\tCtrl+F",             ID_EDIT_FIND
-        MENUITEM "ZnajdŸ &nastêpny\tCtrl+G",    ID_EDIT_REPEAT
-        MENUITEM "Za&mieñ\tCtrl+R",             ID_EDIT_REPLACE
+        MENUITEM "&ZnajdÅ¸\tCtrl+F",             ID_EDIT_FIND
+        MENUITEM "ZnajdÅ¸ &nastÃªpny\tCtrl+G",    ID_EDIT_REPEAT
+        MENUITEM "Za&mieÃ±\tCtrl+R",             ID_EDIT_REPLACE
     END
     POPUP "&Widok"
     BEGIN
         MENUITEM "&Deasembler\tAlt+0",          ID_VIEW_DEASM
         MENUITEM SEPARATOR
         MENUITEM "&Rejestry 6502\tAlt+1",       ID_VIEW_REGISTERBAR
-        MENUITEM "&Pamiêæ 6502\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&PamiÃªÃ¦ 6502\tAlt+2",         ID_VIEW_MEMORY
         MENUITEM "Strona &zerowa\tAlt+3",       ID_VIEW_ZEROPAGEBAR
         MENUITEM "&Identyfikatory\tAlt+4",      ID_VIEW_IDENT
-        MENUITEM "&Wejœcie/wyjœcie\tAlt+5",     ID_VIEW_IO_WINDOW
+        MENUITEM "&WejÅ“cie/wyjÅ“cie\tAlt+5",     ID_VIEW_IO_WINDOW
         MENUITEM SEPARATOR
-        MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
+        MENUITEM "Pasek &narzÃªdzi",             ID_VIEW_TOOLBAR
         MENUITEM "Pasek &stanu",                ID_VIEW_STATUS_BAR
     END
     POPUP "&Symulator"
@@ -735,15 +735,15 @@ BEGIN
         MENUITEM "Wykonaj krok nad\tF10",       ID_SYM_STEP_OVER
         MENUITEM "Uruc&hom do powrotu\tCtrl+F11", ID_SYM_GO_RTS
         MENUITEM "Uruchom do kur&sora\tCtrl+F10", ID_SYM_GO_LINE
-        POPUP "Zg³oœ przer&wanie"
+        POPUP "ZgÂ³oÅ“ przer&wanie"
         BEGIN
             MENUITEM "&Maskowalne (IRQ)",           ID_SYM_GEN_IRQ
             MENUITEM "&Niemaskowalne (NMI)",        ID_SYM_GEN_NMI
             MENUITEM "&Reset (RST)",                ID_SYM_GEN_RST
         END
         MENUITEM SEPARATOR
-        MENUITEM "&Pomiñ instrukcjê\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Nastêpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&PomiÃ± instrukcjÃª\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "NastÃªpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
         MENUITEM "&Miejsce przerwania\tF9",     ID_SYM_BREAKPOINT
         MENUITEM "Parametry prz&erwania...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
@@ -753,7 +753,7 @@ BEGIN
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskada",                    ID_WINDOW_CASCADE
-        MENUITEM "&Rozmieœæ",                   ID_WINDOW_TILE_HORZ
+        MENUITEM "&RozmieÅ“Ã¦",                   ID_WINDOW_TILE_HORZ
         MENUITEM "&Ustaw",                      ID_WINDOW_ARRANGE
     END
     POPUP "Po&moc"
@@ -772,7 +772,7 @@ BEGIN
         MENUITEM "&Kopiuj",                     ID_EDIT_COPY
         MENUITEM "Wkl&ej",                      ID_EDIT_PASTE
         MENUITEM SEPARATOR
-        MENUITEM "&Wstaw/usuñ przerwanie",      ID_SYM_BREAKPOINT
+        MENUITEM "&Wstaw/usuÃ± przerwanie",      ID_SYM_BREAKPOINT
         MENUITEM "&Parametry przerwania...",    ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
         MENUITEM "&Opcje edytora...",           ID_EDITOR_OPT
@@ -784,21 +784,21 @@ BEGIN
     POPUP "&Plik"
     BEGIN
         MENUITEM "&Nowy\tCtrl+N",               ID_FILE_NEW
-        MENUITEM "&Otwórz...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&OtwÃ³rz...\tCtrl+O",          ID_FILE_OPEN
         MENUITEM "Za&mknij\tCtrl+W",            ID_FILE_CLOSE
         MENUITEM "&Zapisz\tCtrl+S",             ID_FILE_SAVE
         MENUITEM "Z&apisz jako...",             ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "O&twórz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
+        MENUITEM "O&twÃ³rz kod...\tCtrl+L",      ID_FILE_OPEN_CODE
         MENUITEM "Zapi&sz kod...\tCtrl+K",      ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
         MENUITEM "&Drukuj...\tCtrl+P",          ID_FILE_PRINT
-        MENUITEM "&Podgl¹d wydruku",            ID_FILE_PRINT_PREVIEW
+        MENUITEM "&PodglÂ¹d wydruku",            ID_FILE_PRINT_PREVIEW
         MENUITEM "&Ustawienia strony...",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Za&koñcz",                    ID_APP_EXIT
+        MENUITEM "Za&koÃ±cz",                    ID_APP_EXIT
     END
     POPUP "&Edycja"
     BEGIN
@@ -807,24 +807,24 @@ BEGIN
         MENUITEM "&Wytnij\tCtrl+X",             ID_EDIT_CUT
         MENUITEM "&Kopiuj\tCtrl+C",             ID_EDIT_COPY
         MENUITEM "Wkl&ej\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&Usuñ\tDel",                  ID_EDIT_CLEAR
+        MENUITEM "&UsuÃ±\tDel",                  ID_EDIT_CLEAR
         MENUITEM "Z&aznacz wszystko\tCtrl+A",   ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "&ZnajdŸ\tCtrl+F",             ID_EDIT_FIND
-        MENUITEM "ZnajdŸ &nastêpny\tCtrl+G",    ID_EDIT_REPEAT
-        MENUITEM "Za&mieñ\tCtrl+R",             ID_EDIT_REPLACE
+        MENUITEM "&ZnajdÅ¸\tCtrl+F",             ID_EDIT_FIND
+        MENUITEM "ZnajdÅ¸ &nastÃªpny\tCtrl+G",    ID_EDIT_REPEAT
+        MENUITEM "Za&mieÃ±\tCtrl+R",             ID_EDIT_REPLACE
     END
     POPUP "&Widok"
     BEGIN
         MENUITEM "&Deasembler\tAlt+0",          ID_VIEW_DEASM
         MENUITEM SEPARATOR
         MENUITEM "&Rejestry 6502\tAlt+1",       ID_VIEW_REGISTERBAR
-        MENUITEM "&Pamiêæ 6502\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&PamiÃªÃ¦ 6502\tAlt+2",         ID_VIEW_MEMORY
         MENUITEM "Strona &zerowa\tAlt+3",       ID_VIEW_ZEROPAGEBAR
         MENUITEM "&Identyfikatory\tAlt+4",      ID_VIEW_IDENT
-        MENUITEM "&Wejœcie/wyjœcie\tAlt+5",     ID_VIEW_IO_WINDOW
+        MENUITEM "&WejÅ“cie/wyjÅ“cie\tAlt+5",     ID_VIEW_IO_WINDOW
         MENUITEM SEPARATOR
-        MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
+        MENUITEM "Pasek &narzÃªdzi",             ID_VIEW_TOOLBAR
         MENUITEM "Pasek &stanu",                ID_VIEW_STATUS_BAR
     END
     POPUP "&Symulator"
@@ -842,15 +842,15 @@ BEGIN
         MENUITEM "Wykonaj krok na&d\tF10",      ID_SYM_STEP_OVER
         MENUITEM "Uruc&hom do powrotu\tCtrl+F11", ID_SYM_GO_RTS
         MENUITEM "Uruchom do kur&sora\tCtrl+F10", ID_SYM_GO_LINE
-        POPUP "Zg³oœ przer&wanie"
+        POPUP "ZgÂ³oÅ“ przer&wanie"
         BEGIN
             MENUITEM "&Maskowalne (IRQ)",           ID_SYM_GEN_IRQ
             MENUITEM "&Niemaskowalne (NMI)",        ID_SYM_GEN_NMI
             MENUITEM "&Reset (RST)",                ID_SYM_GEN_RST
         END
         MENUITEM SEPARATOR
-        MENUITEM "&Pomiñ instrukcjê\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Nastêpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&PomiÃ± instrukcjÃª\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "NastÃªpna &instrukcja\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
         MENUITEM "&Miejsce przerwania\tF9",     ID_SYM_BREAKPOINT
         MENUITEM "Parametry prz&erwania...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
@@ -860,7 +860,7 @@ BEGIN
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskada",                    ID_WINDOW_CASCADE
-        MENUITEM "&Rozmieœæ",                   ID_WINDOW_TILE_HORZ
+        MENUITEM "&RozmieÅ“Ã¦",                   ID_WINDOW_TILE_HORZ
         MENUITEM "&Ustaw",                      ID_WINDOW_ARRANGE
     END
     POPUP "Po&moc"
@@ -875,7 +875,7 @@ IDR_POPUP_DEASM6502 MENU DISCARDABLE
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Wyœwietlanie od adresu...",  ID_DEASM_GOTO
+        MENUITEM "&WyÅ“wietlanie od adresu...",  ID_DEASM_GOTO
         MENUITEM SEPARATOR
         MENUITEM "&Zapisz program...",          ID_FILE_SAVE
         MENUITEM SEPARATOR
@@ -887,14 +887,14 @@ IDR_POPUP_MEMORY MENU DISCARDABLE
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Wyœwietlanie od adresu...",  ID_MEMORY_GOTO
-        MENUITEM "&Modyfikacja pamiêci...",     ID_MEMORY_CHG
+        MENUITEM "&WyÅ“wietlanie od adresu...",  ID_MEMORY_GOTO
+        MENUITEM "&Modyfikacja pamiÃªci...",     ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "Op&cje okna pamiêci...",      ID_MEMORY_OPTIONS
+        MENUITEM "Op&cje okna pamiÃªci...",      ID_MEMORY_OPTIONS
         MENUITEM SEPARATOR
-        MENUITEM "Wyœw&ietlaj szesnastkowo i znakowo", ID_MEMORY_FULL
-        MENUITEM "Wyœwietlaj &szesnastkowo",    ID_MEMORY_HEX
-        MENUITEM "Wyœwietlaj &znakowo",         ID_MEMORY_TEXT
+        MENUITEM "WyÅ“w&ietlaj szesnastkowo i znakowo", ID_MEMORY_FULL
+        MENUITEM "WyÅ“wietlaj &szesnastkowo",    ID_MEMORY_HEX
+        MENUITEM "WyÅ“wietlaj &znakowo",         ID_MEMORY_TEXT
     END
 END
 
@@ -902,10 +902,10 @@ IDR_POPUP_ZPMEMORY MENU DISCARDABLE
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Wyœwietlanie od adresu...",  ID_MEMORY_GOTO
-        MENUITEM "&Modyfikacja pamiêci...",     ID_MEMORY_CHG
+        MENUITEM "&WyÅ“wietlanie od adresu...",  ID_MEMORY_GOTO
+        MENUITEM "&Modyfikacja pamiÃªci...",     ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "Op&cje okna pamiêci...",      ID_MEMORY_OPTIONS
+        MENUITEM "Op&cje okna pamiÃªci...",      ID_MEMORY_OPTIONS
     END
 END
 
@@ -918,15 +918,15 @@ END
 STRINGTABLE PRELOAD DISCARDABLE 
 BEGIN
     IDR_MAINFRAME           "Symulator 6502"
-    IDR_SRC65TYPE           "Symulator 6502\n\nSrc65\nPliki Ÿród³owe 6502 (*.65s)\n.65s\nM6502.Source\nDokument Ÿród³owy 6502"
-    IDR_DEASM65TYPE         "Symulator 6502\nDeasemblacja \n\nPliki Ÿród³owe 6502 (*.65s)\n.65s\nM6502.Code\nKod wynikowy 6502"
+    IDR_SRC65TYPE           "Symulator 6502\n\nSrc65\nPliki Å¸rÃ³dÂ³owe 6502 (*.65s)\n.65s\nM6502.Source\nDokument Å¸rÃ³dÂ³owy 6502"
+    IDR_DEASM65TYPE         "Symulator 6502\nDeasemblacja \n\nPliki Å¸rÃ³dÂ³owe 6502 (*.65s)\n.65s\nM6502.Code\nKod wynikowy 6502"
 END
 
 STRINGTABLE PRELOAD DISCARDABLE 
 BEGIN
     AFX_IDS_APP_TITLE       "Emulator 6502"
     AFX_IDS_IDLEMESSAGE     "Gotowy"
-    AFX_IDS_HELPMODEMESSAGE "Wybierz obiekt, do którego potrzebujesz opisu"
+    AFX_IDS_HELPMODEMESSAGE "Wybierz obiekt, do ktÃ³rego potrzebujesz opisu"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -942,25 +942,25 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_FILE_NEW             "Tworzy nowy dokument\nNowy (Ctrl+N)"
-    ID_FILE_OPEN            "Otwiera istniej¹cy dokument\nOtwórz (Ctrl+O)"
+    ID_FILE_OPEN            "Otwiera istniejÂ¹cy dokument\nOtwÃ³rz (Ctrl+O)"
     ID_FILE_CLOSE           "Zamyka aktywny dokument\nZamknij (Ctrl+W)"
     ID_FILE_SAVE            "Zapisuje aktywny dokument\nZapisz (Ctrl+S)"
-    ID_FILE_SAVE_AS         "Zapisuje aktywny dokument pod now¹ nazw¹\nZapisz jako"
+    ID_FILE_SAVE_AS         "Zapisuje aktywny dokument pod nowÂ¹ nazwÂ¹\nZapisz jako"
     ID_FILE_PAGE_SETUP      "Zmiana opcji wydruku\nUstawienia wydruku"
-    ID_FILE_PRINT_SETUP     "Zmiana bie¿¹cej drukarki i opcji wydruku\nUstawienia drukarki"
+    ID_FILE_PRINT_SETUP     "Zmiana bieÂ¿Â¹cej drukarki i opcji wydruku\nUstawienia drukarki"
     ID_FILE_PRINT           "Drukuje aktywny dokument\nDrukuj (Ctrl+P)"
-    ID_FILE_PRINT_PREVIEW   "Podgl¹d wydruku\nPodgl¹d wydruku"
+    ID_FILE_PRINT_PREVIEW   "PodglÂ¹d wydruku\nPodglÂ¹d wydruku"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_APP_ABOUT            "Wyœwietla informacje o programie\nO programie"
-    ID_APP_EXIT             "Zakoñczenie programu\nZakoñcz"
+    ID_APP_ABOUT            "WyÅ“wietla informacje o programie\nO programie"
+    ID_APP_EXIT             "ZakoÃ±czenie programu\nZakoÃ±cz"
     ID_HELP_INDEX           "Otwiera pomoc\nTematy pomocy"
     ID_HELP_FINDER          "Otwiera pomoc\nTematy pomocy"
-    ID_HELP_USING           "Instrukcje jak u¿ywaæ pomocy\nPomoc"
-    ID_CONTEXT_HELP         "Wyœwietla pomoc dla przycisków, menu i okien\nPomoc"
-    ID_HELP                 "Wyœwietla pomoc dla polecenia\nPomoc"
+    ID_HELP_USING           "Instrukcje jak uÂ¿ywaÃ¦ pomocy\nPomoc"
+    ID_CONTEXT_HELP         "WyÅ“wietla pomoc dla przyciskÃ³w, menu i okien\nPomoc"
+    ID_HELP                 "WyÅ“wietla pomoc dla polecenia\nPomoc"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -985,92 +985,92 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_NEXT_PANE            "Prze³¹cza na nastêpne okno\nNastêpne okno"
-    ID_PREV_PANE            "Prze³¹cza na poprzednie okno\nPoprzednie okno"
+    ID_NEXT_PANE            "PrzeÂ³Â¹cza na nastÃªpne okno\nNastÃªpne okno"
+    ID_PREV_PANE            "PrzeÂ³Â¹cza na poprzednie okno\nPoprzednie okno"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_WINDOW_NEW           "Otwiera nowe okno\nNowe okno"
-    ID_WINDOW_ARRANGE       "Wyrównanie ikonek\nWyrównanie ikonek"
-    ID_WINDOW_CASCADE       "Wyrównanie okien\nOkna - kaskada"
-    ID_WINDOW_TILE_HORZ     "Wyrównanie okien\nOkna - zachodz¹ce"
-    ID_WINDOW_TILE_VERT     "Wyrównanie okien\nOkna - niezachodz¹ce"
-    ID_WINDOW_SPLIT         "Podzia³ okna\nPodzia³"
+    ID_WINDOW_ARRANGE       "WyrÃ³wnanie ikonek\nWyrÃ³wnanie ikonek"
+    ID_WINDOW_CASCADE       "WyrÃ³wnanie okien\nOkna - kaskada"
+    ID_WINDOW_TILE_HORZ     "WyrÃ³wnanie okien\nOkna - zachodzÂ¹ce"
+    ID_WINDOW_TILE_VERT     "WyrÃ³wnanie okien\nOkna - niezachodzÂ¹ce"
+    ID_WINDOW_SPLIT         "PodziaÂ³ okna\nPodziaÂ³"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_EDIT_CLEAR           "Kasuje zaznaczony tekst\nUsuñ (Del)"
+    ID_EDIT_CLEAR           "Kasuje zaznaczony tekst\nUsuÃ± (Del)"
     ID_EDIT_CLEAR_ALL       "Kasuje wszystko\nKasuje wszystko"
     ID_EDIT_COPY            "Kopiuje zaznaczony fragment i umieszcza go w schowku\nKopiuj (Ctrl+C)"
     ID_EDIT_CUT             "Wycina zaznaczony fragment i umieszcza go w schowku\nWytnij (Ctrl+X)"
     ID_EDIT_FIND            "Szukanie podanego tekstu\nSzukanie (Ctrl+F)"
-    ID_EDIT_PASTE           "Wstawia zawartoœæ schowka\nWklej (Ctrl+V)"
-    ID_EDIT_REPEAT          "Powtórzenie ostatniego dzia³ania\nPowtórzenie"
-    ID_EDIT_REPLACE         "Zastêpuje dany tekst innym tekstem\nZastêpowanie"
+    ID_EDIT_PASTE           "Wstawia zawartoÅ“Ã¦ schowka\nWklej (Ctrl+V)"
+    ID_EDIT_REPEAT          "PowtÃ³rzenie ostatniego dziaÂ³ania\nPowtÃ³rzenie"
+    ID_EDIT_REPLACE         "ZastÃªpuje dany tekst innym tekstem\nZastÃªpowanie"
     ID_EDIT_SELECT_ALL      "Zaznaczenie wszystkiego\nZaznacz wszystko (Ctrl+A)"
-    ID_EDIT_UNDO            "Cofa ostatni¹ akcje\nCofnij (Ctrl+Z)"
-    ID_EDIT_REDO            "Przywraca ostatni¹ akcjê\nPrzywróæ"
+    ID_EDIT_UNDO            "Cofa ostatniÂ¹ akcje\nCofnij (Ctrl+Z)"
+    ID_EDIT_REDO            "Przywraca ostatniÂ¹ akcjÃª\nPrzywrÃ³Ã¦"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_VIEW_TOOLBAR         "Pokazuje lub ukrywa pasek narzêdzi\nPrze³¹cza pasek narzêdzi"
-    ID_VIEW_STATUS_BAR      "Pokazuje lub ukrywa pasek stanu\nPrze³¹cza pasek stanu"
-    ID_VIEW_ZEROPAGEBAR     "Wyœwietla lub ukrywa okno strony zerowej 6502\nPrze³¹cza okno strony zerowej (Alt+3)"
+    ID_VIEW_TOOLBAR         "Pokazuje lub ukrywa pasek narzÃªdzi\nPrzeÂ³Â¹cza pasek narzÃªdzi"
+    ID_VIEW_STATUS_BAR      "Pokazuje lub ukrywa pasek stanu\nPrzeÂ³Â¹cza pasek stanu"
+    ID_VIEW_ZEROPAGEBAR     "WyÅ“wietla lub ukrywa okno strony zerowej 6502\nPrzeÂ³Â¹cza okno strony zerowej (Alt+3)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_VIEW_REGISTERBAR     "Wyœwietla lub ukrywa okno rejestrów 6502\nPrze³¹cza okno rejestrów (Alt+1)"
+    ID_VIEW_REGISTERBAR     "WyÅ“wietla lub ukrywa okno rejestrÃ³w 6502\nPrzeÂ³Â¹cza okno rejestrÃ³w (Alt+1)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    AFX_IDS_SCSIZE          "Zmiana wielkoœci okna"
-    AFX_IDS_SCMOVE          "Zmiana po³o¿enia okna"
+    AFX_IDS_SCSIZE          "Zmiana wielkoÅ“ci okna"
+    AFX_IDS_SCMOVE          "Zmiana poÂ³oÂ¿enia okna"
     AFX_IDS_SCMINIMIZE      "Redukuje okno do ikony"
-    AFX_IDS_SCMAXIMIZE      "Powiêksza okno do pe³nego rozmiaru"
-    AFX_IDS_SCNEXTWINDOW    "Prze³¹cza na nastêpne okno"
-    AFX_IDS_SCPREVWINDOW    "Prze³¹cza na poprzednie okno"
+    AFX_IDS_SCMAXIMIZE      "PowiÃªksza okno do peÂ³nego rozmiaru"
+    AFX_IDS_SCNEXTWINDOW    "PrzeÂ³Â¹cza na nastÃªpne okno"
+    AFX_IDS_SCPREVWINDOW    "PrzeÂ³Â¹cza na poprzednie okno"
     AFX_IDS_SCCLOSE         "Zamyka aktywne okno"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     AFX_IDS_SCRESTORE       "Przywraca poprzedni rozmiar okna"
-    AFX_IDS_SCTASKLIST      "Aktywuje listê aplikacji"
+    AFX_IDS_SCTASKLIST      "Aktywuje listÃª aplikacji"
     AFX_IDS_MDICHILD        "Aktywuje okno"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    AFX_IDS_PREVIEW_CLOSE   "Zamyka tryb podgl¹du wydruku\nZamkniêcie podgl¹du wydruku"
+    AFX_IDS_PREVIEW_CLOSE   "Zamyka tryb podglÂ¹du wydruku\nZamkniÃªcie podglÂ¹du wydruku"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ERR_ASM_THREAD      "Nieudane uruchomienie w¹tku asemblacji"
+    IDS_ERR_ASM_THREAD      "Nieudane uruchomienie wÂ¹tku asemblacji"
     IDS_DIAL_ASM_OK         "OK"
     IDS_ROW_COLUMN          "Ln %d, Kol %d"
-    IDS_ERR_SYM_THREAD      "Nieudane uruchomienie w¹tku symulacji"
+    IDS_ERR_SYM_THREAD      "Nieudane uruchomienie wÂ¹tku symulacji"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_SYM_STAT_OK         "OK"
-    IDS_SYM_STAT_BPX        "Osi¹gniête miejsce przerwania"
-    IDS_SYM_STAT_BPR        "Osi¹gniête miejsce przerwania (przy odczycie)"
-    IDS_SYM_STAT_BPW        "Osi¹gniête miejsce przerwania (przy zapisie)"
-    IDS_SYM_STAT_ILL        "Próba wykonania nielegalnego kodu rozkazu"
+    IDS_SYM_STAT_BPX        "OsiÂ¹gniÃªte miejsce przerwania"
+    IDS_SYM_STAT_BPR        "OsiÂ¹gniÃªte miejsce przerwania (przy odczycie)"
+    IDS_SYM_STAT_BPW        "OsiÂ¹gniÃªte miejsce przerwania (przy zapisie)"
+    IDS_SYM_STAT_ILL        "PrÃ³ba wykonania nielegalnego kodu rozkazu"
     IDS_SYM_STAT_RUN        "Program uruchomiony..."
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDC_REGS_CYCLES_CLR     "Zerowanie licznika taktów zegarowych 6502\nZerowanie licznika taktów"
-    IDC_REGS_CYCLES         "Iloœæ taktów zegarowych 6502 zu¿ytych przez wykonane instrukcje\nIloœæ taktów 6502"
+    IDC_REGS_CYCLES_CLR     "Zerowanie licznika taktÃ³w zegarowych 6502\nZerowanie licznika taktÃ³w"
+    IDC_REGS_CYCLES         "IloÅ“Ã¦ taktÃ³w zegarowych 6502 zuÂ¿ytych przez wykonane instrukcje\nIloÅ“Ã¦ taktÃ³w 6502"
     IDS_REGS_S_EMPTY        "- stos pusty -"
 END
 
@@ -1082,18 +1082,18 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_SYM_DEBUG            "Tryb debuggera - uruchamianie i œledzenie programu\nDebugger (F6)"
+    ID_SYM_DEBUG            "Tryb debuggera - uruchamianie i Å“ledzenie programu\nDebugger (F6)"
     ID_SYM_GO               "Uruchamia program\nUruchom (F5)"
-    ID_SYM_STEP_INTO        "Wykonuje jedn¹ instrukcjê, wchodzi do podprogramu\nWykonaj krok (F11)"
-    ID_SYM_ASSEMBLE         "Asembluje bie¿¹c¹cy dokument\nAsembluj (F7)"
+    ID_SYM_STEP_INTO        "Wykonuje jednÂ¹ instrukcjÃª, wchodzi do podprogramu\nWykonaj krok (F11)"
+    ID_SYM_ASSEMBLE         "Asembluje bieÂ¿Â¹cÂ¹cy dokument\nAsembluj (F7)"
     ID_SYM_OPTIONS          "Zmiana opcji programu"
-    ID_SYM_STEP_OVER        "Wykonuje jedn¹ instrukcjê, przechodzi nad podprogramami\nWykonaj krok nad (F10)"
-    ID_SYM_GO_RTS           "Uruchamia program a¿ do powrotu z podprogramu\nUruchom do powrotu (Ctrl+F11)"
-    ID_SYM_GO_LINE          "Uruchamia program a¿ do wiersza zawieraj¹cego kursor\nUruchom do kursora (Ctrl+F10)"
+    ID_SYM_STEP_OVER        "Wykonuje jednÂ¹ instrukcjÃª, przechodzi nad podprogramami\nWykonaj krok nad (F10)"
+    ID_SYM_GO_RTS           "Uruchamia program aÂ¿ do powrotu z podprogramu\nUruchom do powrotu (Ctrl+F11)"
+    ID_SYM_GO_LINE          "Uruchamia program aÂ¿ do wiersza zawierajÂ¹cego kursor\nUruchom do kursora (Ctrl+F10)"
     ID_SYM_DEBUG_STOP       "Zamyka tryb debuggera\nZamknij debugger"
     ID_SYM_BREAKPOINT       "Ustawia/usuwa miejsce przerwania\nMiejsce przerwania (F9)"
-    ID_SYM_GEN_IRQ          "Generuje zg³oszenie przerwania maskowalnego (IRQ)\nZg³oœ IRQ"
-    ID_SYM_GEN_NMI          "Generuje zg³oszenie przerwania niemaskowalnego (NMI)\nZg³oœ NMI"
+    ID_SYM_GEN_IRQ          "Generuje zgÂ³oszenie przerwania maskowalnego (IRQ)\nZgÂ³oÅ“ IRQ"
+    ID_SYM_GEN_NMI          "Generuje zgÂ³oszenie przerwania niemaskowalnego (NMI)\nZgÂ³oÅ“ NMI"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1107,56 +1107,56 @@ BEGIN
     IDC_REGS_A              "Akumulator procesora 6502\nAkumulator"
     IDC_REGS_X              "Rejestr X procesora 6502\nRejestr X"
     IDC_REGS_Y              "Rejestr Y procesora 6502\nRejestr Y"
-    IDC_REGS_S              "Rejestr wskaŸnika stosu procesora 6502\nWskaŸnik stosu"
+    IDC_REGS_S              "Rejestr wskaÅ¸nika stosu procesora 6502\nWskaÅ¸nik stosu"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDC_REGS_P              "Rejestr znaczników procesora 6502\nRejestr znaczników"
-    IDC_REGS_PC             "Rejestr licznika rozkazów procesora 6502\nLicznik rozkazów"
-    IDC_REGS_A_MEM          "Akumulator dziesiêtnie, znakowo i dwójkowo\nAkumulator dec/char/bin"
-    IDC_REGS_X_MEM          "Rejestr X dziesiêtnie, znakowo i dwójkowo\nRejestr X dec/char/bin"
-    IDC_REGS_Y_MEM          "Rejestr Y dziesiêtnie, znakowo i dwójkowo\nRejestr Y dec/char/bin"
-    IDC_REGS_S_MEM          "Bajty z wierzcho³ka stosu 6502\nWierzch stosu"
-    IDC_REGS_INSTR          "Bie¿¹ca instrukcja wskazywana przez PC\nBie¿¹ca instrukcja"
-    IDC_REGS_NEG            "Bit znaku (Negative) rejestru znaczników procesora 6502\nNegative"
-    IDC_REGS_ZERO           "Bit zerowego wyniku (Zero) rejestru znaczników procesora 6502\nZero"
-    IDC_REGS_OVER           "Bit przekroczenia zakresu liczb ze znakiem (Overflow) rejestru znaczników procesora 6502\nOverflow"
-    IDC_REGS_CARRY          "Bit przepe³nienia/po¿yczki (Carry) rejestru znaczników procesora 6502\nCarry"
-    IDC_REGS_INT            "Bit zablokowania przerwañ maskowalnych (Interrupt) rejestru znaczników procesora 6502\nInterrupt"
-    IDC_REGS_BRK            "Bit wykonania programowego przerwania (Break) rejestru znaczników procesora 6502\nBreak"
-    IDC_REGS_DEC            "Bit trybu dziesiêtnego obliczeñ (Decimal) rejestru znaczników procesora 6502\nDecimal"
-    IDC_REGS_INSTR_ARG      "Argument bie¿¹cej instrukcji\nBie¿¹cy argument"
+    IDC_REGS_P              "Rejestr znacznikÃ³w procesora 6502\nRejestr znacznikÃ³w"
+    IDC_REGS_PC             "Rejestr licznika rozkazÃ³w procesora 6502\nLicznik rozkazÃ³w"
+    IDC_REGS_A_MEM          "Akumulator dziesiÃªtnie, znakowo i dwÃ³jkowo\nAkumulator dec/char/bin"
+    IDC_REGS_X_MEM          "Rejestr X dziesiÃªtnie, znakowo i dwÃ³jkowo\nRejestr X dec/char/bin"
+    IDC_REGS_Y_MEM          "Rejestr Y dziesiÃªtnie, znakowo i dwÃ³jkowo\nRejestr Y dec/char/bin"
+    IDC_REGS_S_MEM          "Bajty z wierzchoÂ³ka stosu 6502\nWierzch stosu"
+    IDC_REGS_INSTR          "BieÂ¿Â¹ca instrukcja wskazywana przez PC\nBieÂ¿Â¹ca instrukcja"
+    IDC_REGS_NEG            "Bit znaku (Negative) rejestru znacznikÃ³w procesora 6502\nNegative"
+    IDC_REGS_ZERO           "Bit zerowego wyniku (Zero) rejestru znacznikÃ³w procesora 6502\nZero"
+    IDC_REGS_OVER           "Bit przekroczenia zakresu liczb ze znakiem (Overflow) rejestru znacznikÃ³w procesora 6502\nOverflow"
+    IDC_REGS_CARRY          "Bit przepeÂ³nienia/poÂ¿yczki (Carry) rejestru znacznikÃ³w procesora 6502\nCarry"
+    IDC_REGS_INT            "Bit zablokowania przerwaÃ± maskowalnych (Interrupt) rejestru znacznikÃ³w procesora 6502\nInterrupt"
+    IDC_REGS_BRK            "Bit wykonania programowego przerwania (Break) rejestru znacznikÃ³w procesora 6502\nBreak"
+    IDC_REGS_DEC            "Bit trybu dziesiÃªtnego obliczeÃ± (Decimal) rejestru znacznikÃ³w procesora 6502\nDecimal"
+    IDC_REGS_INSTR_ARG      "Argument bieÂ¿Â¹cej instrukcji\nBieÂ¿Â¹cy argument"
     IDC_REGS_STAT           "Aktualny stan symulatora 6502\nStan symulatora"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_SYM_GEN_RST          "Generuje zg³oszenie sygna³u resetowania (RST)\nReset 6502"
-    ID_SYM_SKIP_INSTR       "Pomija bie¿¹c¹ instrukcjê\nPomiñ"
-    ID_SYM_SKIP_TO_LINE     "Przestawia rejestr PC na instrukcjê w wierszu zawieraj¹cym kursor\nNastêpna instrukcja"
-    ID_SYM_BREAK            "Zatrzymuje dzia³aj¹cy program\nStop (Ctrl+Break)"
+    ID_SYM_GEN_RST          "Generuje zgÂ³oszenie sygnaÂ³u resetowania (RST)\nReset 6502"
+    ID_SYM_SKIP_INSTR       "Pomija bieÂ¿Â¹cÂ¹ instrukcjÃª\nPomiÃ±"
+    ID_SYM_SKIP_TO_LINE     "Przestawia rejestr PC na instrukcjÃª w wierszu zawierajÂ¹cym kursor\nNastÃªpna instrukcja"
+    ID_SYM_BREAK            "Zatrzymuje dziaÂ³ajÂ¹cy program\nStop (Ctrl+Break)"
     ID_SYM_RESTART          "Ponownie wczytuje program do wykonania\nRestart (Ctrl+Shift+F5)"
     ID_SYM_EDIT_BREAKPOINT  "Ustawia parametry miejsca przerwania\nEdycja przerwania"
-    ID_SYM_ANIMATE          "Uruchamia program wyœwietlaj¹c kolejno wykonywane instrukcje\nAnimacja (Ctrl+F5)"
+    ID_SYM_ANIMATE          "Uruchamia program wyÅ“wietlajÂ¹c kolejno wykonywane instrukcje\nAnimacja (Ctrl+F5)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ASM_FORM1           "B£¥D E%03d: %s. WIERSZ %d, PLIK %s"
-    IDS_ASM_FORM2           "B£¥D E%03d: %s. PLIK %s"
-    IDS_ASM_FORM3           "B£¥D E%03d: %s."
-    IDS_ASM_FORM4           "B£¥D E%03d: %s '%s'. WIERSZ %d, PLIK %s"
-    IDS_ASM_FORM5           "B£¥D U¯YTKOWNIKA: %s. WIERSZ %d, PLIK %s"
-    IDS_ASM_FORM6           "B£¥D U¯YTKOWNIKA. WIERSZ %d, PLIK %s"
-    IDS_ASM_ERR_MSG_FIRST   "Nie wykryto b³êdów"
+    IDS_ASM_FORM1           "BÂ£Â¥D E%03d: %s. WIERSZ %d, PLIK %s"
+    IDS_ASM_FORM2           "BÂ£Â¥D E%03d: %s. PLIK %s"
+    IDS_ASM_FORM3           "BÂ£Â¥D E%03d: %s."
+    IDS_ASM_FORM4           "BÂ£Â¥D E%03d: %s '%s'. WIERSZ %d, PLIK %s"
+    IDS_ASM_FORM5           "BÂ£Â¥D UÂ¯YTKOWNIKA: %s. WIERSZ %d, PLIK %s"
+    IDS_ASM_FORM6           "BÂ£Â¥D UÂ¯YTKOWNIKA. WIERSZ %d, PLIK %s"
+    IDS_ASM_ERR_MSG_FIRST   "Nie wykryto bÂ³ÃªdÃ³w"
     IDS_ASM_ERR_01          "Niedozwolone dane po instrukcji/etykiecie - oczekiwany komentarz lub CR"
-    IDS_ASM_ERR_02          "Nierozpoznany napis - oczekiwany odstêp lub etykieta"
-    IDS_ASM_ERR_03          "Brak pamiêci"
-    IDS_ASM_ERR_04          "B³¹d odczytu pliku"
+    IDS_ASM_ERR_02          "Nierozpoznany napis - oczekiwany odstÃªp lub etykieta"
+    IDS_ASM_ERR_03          "Brak pamiÃªci"
+    IDS_ASM_ERR_04          "BÂ³Â¹d odczytu pliku"
     IDS_ASM_ERR_05          "Przekroczony zakres liczb 16-bitowych"
-    IDS_ASM_ERR_06          "Dana wartoœæ nie mieœci siê w jednym bajcie"
-    IDS_ASM_ERR_07          "Niedozwolona ujemna wartoœæ"
+    IDS_ASM_ERR_06          "Dana wartoÅ“Ã¦ nie mieÅ“ci siÃª w jednym bajcie"
+    IDS_ASM_ERR_07          "Niedozwolona ujemna wartoÅ“Ã¦"
     IDS_ASM_ERR_08          "Niedozwolone dane - oczekiwana instrukcja, komentarz lub CR"
     IDS_ASM_ERR_09          "Brak rejestru indeksowego (X lub Y)"
 END
@@ -1168,84 +1168,84 @@ BEGIN
     IDS_ASM_ERR_12          "Brak przecinka ',' lub nawiasu ')'"
     IDS_ASM_ERR_13          "Brak nawiasu ')'"
     IDS_ASM_ERR_14          "Oczekiwany nawias '('"
-    IDS_ASM_ERR_15          "Niedozwolone dzielenie przez zero w wyra¿eniu"
-    IDS_ASM_ERR_16          "Brak nawiasu ']' zamykaj¹cego wyra¿enie"
-    IDS_ASM_ERR_17          "Brak sta³ej (liczby, etykiety, funkcji lub '*')"
-    IDS_ASM_ERR_18          "Niedozwolone przedefiniowanie - etykieta ju¿ zdefiniowana"
-    IDS_ASM_ERR_19          "Nieokreœlona wartoœæ wyra¿enia"
-    IDS_ASM_ERR_20          """Przewiniêcie siê"" licznika rozkazów"
+    IDS_ASM_ERR_15          "Niedozwolone dzielenie przez zero w wyraÂ¿eniu"
+    IDS_ASM_ERR_16          "Brak nawiasu ']' zamykajÂ¹cego wyraÂ¿enie"
+    IDS_ASM_ERR_17          "Brak staÂ³ej (liczby, etykiety, funkcji lub '*')"
+    IDS_ASM_ERR_18          "Niedozwolone przedefiniowanie - etykieta juÂ¿ zdefiniowana"
+    IDS_ASM_ERR_19          "NieokreÅ“lona wartoÅ“Ã¦ wyraÂ¿enia"
+    IDS_ASM_ERR_20          """PrzewiniÃªcie siÃª"" licznika rozkazÃ³w"
     IDS_ASM_ERR_21          "Niezdefiniowana etykieta"
-    IDS_ASM_ERR_22          "B³¹d fazy - niezgodne wartoœci etykiety miêdzy przebiegami"
-    IDS_ASM_ERR_23          "Przekroczenie zakresu przy adresowaniu wzglêdnym"
+    IDS_ASM_ERR_22          "BÂ³Â¹d fazy - niezgodne wartoÅ“ci etykiety miÃªdzy przebiegami"
+    IDS_ASM_ERR_23          "Przekroczenie zakresu przy adresowaniu wzglÃªdnym"
     IDS_ASM_ERR_24          "Niedozwolony tryb adresowania"
-    IDS_ASM_ERR_25          "Brak ³añcucha znaków"
+    IDS_ASM_ERR_25          "Brak Â³aÃ±cucha znakÃ³w"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ASM_ERR_26          "Wyst¹pienie .ENDIF bez odpowiadaj¹cego mu .IF"
-    IDS_ASM_ERR_27          "Wst¹pienie .ELSE bez odpowiadaj¹cego mu .IF"
+    IDS_ASM_ERR_26          "WystÂ¹pienie .ENDIF bez odpowiadajÂ¹cego mu .IF"
+    IDS_ASM_ERR_27          "WstÂ¹pienie .ELSE bez odpowiadajÂ¹cego mu .IF"
     IDS_ASM_ERR_28          "Brak dyrektywy .ENDIF"
-    IDS_ASM_ERR_29          "Etykieta lokalna niedozwolona – wymagane jest wyst¹pienie etykiety globalnej"
+    IDS_ASM_ERR_29          "Etykieta lokalna niedozwolona â€“ wymagane jest wystÂ¹pienie etykiety globalnej"
     IDS_ASM_ERR_30          "Brak etykiety"
     IDS_ASM_ERR_31          "Przerwanie procesu asemblacji"
-    IDS_ASM_ERR_32          "Brak dyrektywy .ORG - nieznane po³o¿enie programu"
+    IDS_ASM_ERR_32          "Brak dyrektywy .ORG - nieznane poÂ³oÂ¿enie programu"
     IDS_ASM_ERR_33          "Brak etykiety nazwy makrodefinicji"
-    IDS_ASM_ERR_34          "Powtórzona nazwa parametru makrodefinicji"
-    IDS_ASM_ERR_35          "Niedozwolone zagni¿d¿enie makrodefinicji w makrodefinicji"
-    IDS_ASM_ERR_36          "Brak dyrektywy .ENDM koñcz¹cej makrodefinicjê"
+    IDS_ASM_ERR_34          "PowtÃ³rzona nazwa parametru makrodefinicji"
+    IDS_ASM_ERR_35          "Niedozwolone zagniÂ¿dÂ¿enie makrodefinicji w makrodefinicji"
+    IDS_ASM_ERR_36          "Brak dyrektywy .ENDM koÃ±czÂ¹cej makrodefinicjÃª"
     IDS_ASM_ERR_37          "Nierozpoznana nazwa instrukcji/dyrektywy/makra"
-    IDS_ASM_ERR_38          "Brak wymaganej iloœci parametrów wywo³ania makrodefinicji"
-    IDS_ASM_ERR_39          "Niedozwolone wyst¹pienie dyrektywy .ENDM bez odpowiadaj¹cej jej .MACRO"
-    IDS_ASM_ERR_40          "Niedozwolone wyst¹pienie dyrektywy .EXITM poza definicj¹ makra"
-    IDS_ASM_ERR_41          "Niedozwolone wyst¹pienie wyra¿enia tekstowego"
+    IDS_ASM_ERR_38          "Brak wymaganej iloÅ“ci parametrÃ³w wywoÂ³ania makrodefinicji"
+    IDS_ASM_ERR_39          "Niedozwolone wystÂ¹pienie dyrektywy .ENDM bez odpowiadajÂ¹cej jej .MACRO"
+    IDS_ASM_ERR_40          "Niedozwolone wystÂ¹pienie dyrektywy .EXITM poza definicjÂ¹ makra"
+    IDS_ASM_ERR_41          "Niedozwolone wystÂ¹pienie wyraÂ¿enia tekstowego"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_ASM_ERR_42          "Parametr wywo³any ze znakiem '$' nie posiada wartoœci tekstowej"
-    IDS_ASM_ERR_43          "Wywo³any parametr nie istnieje - za du¿y numer parametru"
-    IDS_ASM_ERR_44          "Wyra¿enie okreœlaj¹ce numer parametru nie ma zdefiniowanej wartoœci"
-    IDS_ASM_ERR_45          "Nazwa makrodefinicji nie mo¿e mieæ postaci etykiety lokalnej"
+    IDS_ASM_ERR_42          "Parametr wywoÂ³any ze znakiem '$' nie posiada wartoÅ“ci tekstowej"
+    IDS_ASM_ERR_43          "WywoÂ³any parametr nie istnieje - za duÂ¿y numer parametru"
+    IDS_ASM_ERR_44          "WyraÂ¿enie okreÅ“lajÂ¹ce numer parametru nie ma zdefiniowanej wartoÅ“ci"
+    IDS_ASM_ERR_45          "Nazwa makrodefinicji nie moÂ¿e mieÃ¦ postaci etykiety lokalnej"
     IDS_ASM_ERR_46          "Po znaku '%' oczekiwany jest numer parametru makrorozszerzenia"
-    IDS_ASM_ERR_47          "Niedozwolone wyst¹pienie etykiety przed dyrektyw¹"
-    IDS_ASM_ERR_48          "B³êdna iloœæ powtórzeñ. Dozwolone wielkoœci od 0 do 65535"
-    IDS_ASM_ERR_49          "Niedozwolone wyst¹pienie dyrektywy .ENDR bez odpowiadaj¹cej jej .REPEAT"
-    IDS_ASM_ERR_50          "Niedozwolone wyst¹pienie dyrektywy .INCLUDE w makrodefinicji/powtórce (.REPEAT)"
-    IDS_ASM_ERR_51          "Za d³ugi ci¹g znaków – dozwolone max 255 znaków"
-    IDS_ASM_ERR_52          "Z³y numer bitu - oczekiwana wartoœæ od 0 do 7"
+    IDS_ASM_ERR_47          "Niedozwolone wystÂ¹pienie etykiety przed dyrektywÂ¹"
+    IDS_ASM_ERR_48          "BÂ³Ãªdna iloÅ“Ã¦ powtÃ³rzeÃ±. Dozwolone wielkoÅ“ci od 0 do 65535"
+    IDS_ASM_ERR_49          "Niedozwolone wystÂ¹pienie dyrektywy .ENDR bez odpowiadajÂ¹cej jej .REPEAT"
+    IDS_ASM_ERR_50          "Niedozwolone wystÂ¹pienie dyrektywy .INCLUDE w makrodefinicji/powtÃ³rce (.REPEAT)"
+    IDS_ASM_ERR_51          "Za dÂ³ugi ciÂ¹g znakÃ³w â€“ dozwolone max 255 znakÃ³w"
+    IDS_ASM_ERR_52          "ZÂ³y numer bitu - oczekiwana wartoÅ“Ã¦ od 0 do 7"
     IDS_ASM_ERR_53          "Brak wymaganej nazwy opcji"
     IDS_ASM_ERR_54          "Nierozpoznana nazwa opcji"
-    IDS_ASM_ERR_55          "Za d³ugi wiersz wejœciowy - maks. 1024 znaki"
+    IDS_ASM_ERR_55          "Za dÂ³ugi wiersz wejÅ“ciowy - maks. 1024 znaki"
     IDS_ASM_ERR_56          "Brak nazwy parametru makrodefinicji"
     IDS_ASM_ERR_57          "x"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_SRC_NO_CODE         "Bie¿¹cy wiersz nie zawiera kodu wynikowego.\nUstawienie miejsca przerwania jest niemo¿liwe."
+    IDS_SRC_NO_CODE         "BieÂ¿Â¹cy wiersz nie zawiera kodu wynikowego.\nUstawienie miejsca przerwania jest niemoÂ¿liwe."
     IDS_SYM_STAT_STOP       "Wykonanie programu zatrzymane"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_SYM_STAT_FIN        "Program zakoñczy³ dzia³anie"
+    IDS_SYM_STAT_FIN        "Program zakoÃ±czyÂ³ dziaÂ³anie"
     IDS_OPTIONS             "Opcje programu"
-    IDS_SRC_NO_CODE2        "Bie¿¹cy wiersz nie zawiera kodu wynikowego.\nUruchomienie do tego miejsca jest niemo¿liwe."
-    IDS_SRC_NO_CODE3        "Bie¿¹cy wiersz nie zawiera kodu wynikowego.\nPrzestawienie licznika rozkazów na ten wiersz jest niemo¿liwe."
-    IDS_SRC_DATA            "Bie¿¹cy wiersz zawiera dane a nie rozkazy.\nCzy pomimo tego kontynuowaæ?"
+    IDS_SRC_NO_CODE2        "BieÂ¿Â¹cy wiersz nie zawiera kodu wynikowego.\nUruchomienie do tego miejsca jest niemoÂ¿liwe."
+    IDS_SRC_NO_CODE3        "BieÂ¿Â¹cy wiersz nie zawiera kodu wynikowego.\nPrzestawienie licznika rozkazÃ³w na ten wiersz jest niemoÂ¿liwe."
+    IDS_SRC_DATA            "BieÂ¿Â¹cy wiersz zawiera dane a nie rozkazy.\nCzy pomimo tego kontynuowaÃ¦?"
     IDS_MAINFRM_PROG_RUNNING 
-                            "Przerwaæ dzia³anie symulatora i zakoñczyæ pracê z programem?"
-    IDS_MSG_HEX_STR         "Proszê podaæ czterocyfrow¹ liczbê szesnastkow¹."
+                            "PrzerwaÃ¦ dziaÂ³anie symulatora i zakoÃ±czyÃ¦ pracÃª z programem?"
+    IDS_MSG_HEX_STR         "ProszÃª podaÃ¦ czterocyfrowÂ¹ liczbÃª szesnastkowÂ¹."
     IDS_IDENT_TITLE         "Identyfikatory"
     IDS_IDENT_COL_NAME      "Nazwa"
-    IDS_IDENT_COL_VALUE     "Wartoœæ"
+    IDS_IDENT_COL_VALUE     "WartoÅ“Ã¦"
     IDS_IDENT_COL_AREA      "Zakres"
     IDS_IDENT_GLOBAL        "globalny"
-    IDS_MEMORY_TITLE        "Pamiêæ 6502"
-    IDS_IO_WINDOW           "Okno wejœcia/wyjœcia"
+    IDS_MEMORY_TITLE        "PamiÃªÃ¦ 6502"
+    IDS_IO_WINDOW           "Okno wejÅ“cia/wyjÅ“cia"
     IDS_SAVE_CODE           "Format Intel-HEX (*.65h;*.hex)|*.65h;*.hex|Format s-rekord Motoroli (*.65m; *.s9)|*.65m;*.s9|Obraz binarny (*.65b)|*.65b|Program wynikowy 6502 (*.65p)|*.65p||"
-    IDS_MSG_BAD_DEC_HEX_NUM "Proszê podaæ liczbê szesnastkow¹ poprzedzon¹ '$' lub '0x' albo liczbê dziesiêtn¹."
+    IDS_MSG_BAD_DEC_HEX_NUM "ProszÃª podaÃ¦ liczbÃª szesnastkowÂ¹ poprzedzonÂ¹ '$' lub '0x' albo liczbÃª dziesiÃªtnÂ¹."
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1256,29 +1256,29 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     ID_VIEW_DEASM           "Otwiera nowe okno z deasemblowanym kodem wynikowym\nNowe okno deasemblera (Alt+0)"
-    ID_VIEW_IDENT           "Wyœwietla lub ukrywa identyfikatory z programu Ÿród³owego\nPrze³¹cza okno identyfikatorów (Alt+4)"
-    ID_VIEW_MEMORY          "Wyœwietla lub ukrywa okno pamiêci procesora\nPrze³¹cza okno pamiêci 6502 (Alt+2)"
-    ID_VIEW_IO_WINDOW       "Wyœwietla lub ukrywa okno wejœcia/wyjœcia symulatora\nPrze³¹cza okno we/wy symulatora (Alt+5)"
+    ID_VIEW_IDENT           "WyÅ“wietla lub ukrywa identyfikatory z programu Å¸rÃ³dÂ³owego\nPrzeÂ³Â¹cza okno identyfikatorÃ³w (Alt+4)"
+    ID_VIEW_MEMORY          "WyÅ“wietla lub ukrywa okno pamiÃªci procesora\nPrzeÂ³Â¹cza okno pamiÃªci 6502 (Alt+2)"
+    ID_VIEW_IO_WINDOW       "WyÅ“wietla lub ukrywa okno wejÅ“cia/wyjÅ“cia symulatora\nPrzeÂ³Â¹cza okno we/wy symulatora (Alt+5)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_SAVE_CODE_ERR_1     "Przy próbie otwarcia pliku ""%1"" do zapisu, pojawi³ siê b³¹d: %2"
-    IDS_SAVE_CODE_ERR_2     "Przy zapisie do pliku ""%1"", pojawi³ siê b³¹d: %2"
+    IDS_SAVE_CODE_ERR_1     "Przy prÃ³bie otwarcia pliku ""%1"" do zapisu, pojawiÂ³ siÃª bÂ³Â¹d: %2"
+    IDS_SAVE_CODE_ERR_2     "Przy zapisie do pliku ""%1"", pojawiÂ³ siÃª bÂ³Â¹d: %2"
     IDS_LOAD_CODE           "Format Intel-HEX (*.65h;*.hex)|*.65h;*.hex|Format s-rekord Motoroli (*.65m; *.s9)|*.65m;*.s9|Obraz binarny (*.65b)|*.65b|Program wynikowy 6502 (*.65p)|*.65p|Wszystkie pliki (*.*)|*.*||"
-    IDS_LOAD_CODE_ERR_1     "Przy próbie otwarcia pliku ""%1"" do odczytu, pojawi³ siê b³¹d: %2"
-    IDS_LOAD_CODE_ERR_2     "Przy odczycie pliku ""%1"", pojawi³ siê b³¹d: %2"
-    IDS_LOAD_CODE_DLG       "Otwórz kod wynikowy"
+    IDS_LOAD_CODE_ERR_1     "Przy prÃ³bie otwarcia pliku ""%1"" do odczytu, pojawiÂ³ siÃª bÂ³Â¹d: %2"
+    IDS_LOAD_CODE_ERR_2     "Przy odczycie pliku ""%1"", pojawiÂ³ siÃª bÂ³Â¹d: %2"
+    IDS_LOAD_CODE_DLG       "OtwÃ³rz kod wynikowy"
     IDS_SAVE_CODE_DLG       "Zapisz kod wynikowy jako"
-    IDS_INTEL_HEX_ERR_1     "B³¹d sumy kontrolnej w wierszu %1"
-    IDS_INTEL_HEX_ERR_2     "B³êdny format pliku"
+    IDS_INTEL_HEX_ERR_1     "BÂ³Â¹d sumy kontrolnej w wierszu %1"
+    IDS_INTEL_HEX_ERR_2     "BÂ³Ãªdny format pliku"
     IDS_INTEL_HEX_ERR_3     "Nieznany format danych, wiersz %1"
     IDS_INTEL_HEX_ERR_4     "x"
     IDS_CODE_EXTENSIONS     "65h;hex;65m;s9 ;65b;65p;"
-    IDS_STOP_DEBUG          "Asemblacja przerywa dzia³anie symulatora.\nZamkn¹æ debugger w celu asemblacji programu?"
+    IDS_STOP_DEBUG          "Asemblacja przerywa dziaÂ³anie symulatora.\nZamknÂ¹Ã¦ debugger w celu asemblacji programu?"
     IDS_ASM_OPT_LIST_FILES  "Listingi (*.lst) |*.lst|Wszystkie pliki (*.*) |*.*||"
-    IDS_MOTOROLA_S_ERR_1    "B³¹d sumy kontrolnej w wierszu %1"
-    IDS_MOTOROLA_S_ERR_2    "B³êdny format pliku"
+    IDS_MOTOROLA_S_ERR_1    "BÂ³Â¹d sumy kontrolnej w wierszu %1"
+    IDS_MOTOROLA_S_ERR_2    "BÂ³Ãªdny format pliku"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1291,26 +1291,26 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_OPT_VIEW_EXAMPLE    "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789\n.,:""/?+-=!@#$%^&*()|"
-    IDS_OPT_VIEW_EXAMPLE_1  "; Tekst przyk³adowy\n\tLDY #0\n\t; kopiowanie\n.loop:\tLDA (src),Y\n\tSTA (dest),Y\n\tINY\n\tBPL .loop\n\tRTS"
+    IDS_OPT_VIEW_EXAMPLE_1  "; Tekst przykÂ³adowy\n\tLDY #0\n\t; kopiowanie\n.loop:\tLDA (src),Y\n\tSTA (dest),Y\n\tINY\n\tBPL .loop\n\tRTS"
     IDS_OPT_VIEW_EXAMPLE_2  "Okno symulatora\n\n12 34 56 78 90 AB CD EF"
     IDS_OPT_VIEW_EXAMPLE_3  "E897  58        CLI\nE898  20 90 E8  JSR E890\nE89B  A5 F2     LDA $F2\nE89D  C5 A0     CMP $A0\nE89F  F0 09     BEQ E8AA\nE8A1  A8        TAY\nE8A2  B1 80     LDA ($80),Y"
-    IDS_OPT_VIEW_EXAMPLE_4  "1000  20 01 EA  > \001ê<\n1003  BF 20 04  >¿ \004<\n1006  0F 41 F7  >\017A÷<\n1009  EA 97 70  >ê—p<\n100C  77 71 D8  >wqØ<\n100F  A2 66 A0  >¢f <\n1012  33 18 A9  >3\030©<\n1015  FF 85 80  >ÿ… <\n"
-    IDS_OPT_VIEW_EXAMPLE_5  "str. zerowa pamiêci"
+    IDS_OPT_VIEW_EXAMPLE_4  "1000  20 01 EA  > \001Ãª<\n1003  BF 20 04  >Â¿ \004<\n1006  0F 41 F7  >\017AÃ·<\n1009  EA 97 70  >Ãªâ€”p<\n100C  77 71 D8  >wqÃ˜<\n100F  A2 66 A0  >Â¢fÂ <\n1012  33 18 A9  >3\030Â©<\n1015  FF 85 80  >Ã¿â€¦ <\n"
+    IDS_OPT_VIEW_EXAMPLE_5  "str. zerowa pamiÃªci"
     IDS_OPT_VIEW_EXAMPLE_6  "0"
-    IDS_OPT_VIEW_LIST       "edytor;we/wy symulatora;deasembler;pamiêæ 6502;strona zerowa pamiêci;"
+    IDS_OPT_VIEW_LIST       "edytor;we/wy symulatora;deasembler;pamiÃªÃ¦ 6502;strona zerowa pamiÃªci;"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_DEASM_GOTO           "Podanie pocz¹tkowego adresu wyœwietlania deasemblowanego programu"
+    ID_DEASM_GOTO           "Podanie poczÂ¹tkowego adresu wyÅ“wietlania deasemblowanego programu"
     ID_DEASM_OPTIONS        "Zmiana opcji deasemblacji"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_MEMORY_GOTO          "Podanie pocz¹tkowego adresu wyœwietlania pamiêci procesora 6502"
-    ID_MEMORY_OPTIONS       "Zmiana opcji wygl¹du okna pamiêci procesora 6502"
-    ID_MEMORY_CHG           "Modyfikacja komórki pamiêci"
+    ID_MEMORY_GOTO          "Podanie poczÂ¹tkowego adresu wyÅ“wietlania pamiÃªci procesora 6502"
+    ID_MEMORY_OPTIONS       "Zmiana opcji wyglÂ¹du okna pamiÃªci procesora 6502"
+    ID_MEMORY_CHG           "Modyfikacja komÃ³rki pamiÃªci"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -1321,7 +1321,7 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_DISASM_FORMAT1      "; Deasemblacja programu od $%04X do $%04X \t%s\r\n"
-    IDS_DISASM_FORMAT2      "\r\n; oznaczenia etykiet:\r\n;   znn - adresy na str. zerowej\r\n ;   annnn - adresy absolutne\r\n;   ennnn - adresy u¿ywane w rozkazach skoków wzglêdnych\r\n\r\n"
+    IDS_DISASM_FORMAT2      "\r\n; oznaczenia etykiet:\r\n;   znn - adresy na str. zerowej\r\n ;   annnn - adresy absolutne\r\n;   ennnn - adresy uÂ¿ywane w rozkazach skokÃ³w wzglÃªdnych\r\n\r\n"
 END
 
 #endif    // Polish resources
@@ -1493,7 +1493,7 @@ BEGIN
     CTEXT           "6502 Macroassembler & Simulator",IDC_6502,86,8,168,14,
                     SS_NOPREFIX
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,87,23,166,127
-    LTEXT           "Copyright © 1996-2002 Michal Kowalski",IDC_STATIC,96,29,
+    LTEXT           "Copyright Â© 1996-2002 Michal Kowalski",IDC_STATIC,96,29,
                     127,8
     LTEXT           "http://home.pacbell.net/michal_k/",IDC_LINK,96,40,110,8
     LTEXT           "Macroassembler and simulator for 650x microprocessor family: 6502, 65c02, 6501",
@@ -2635,7 +2635,7 @@ BEGIN
             VALUE "FileDescription", "resources\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "res.dll\0"
-            VALUE "LegalCopyright", "Copyright © 1996-2001 Michal Kowalski\0"
+            VALUE "LegalCopyright", "Copyright Â© 1996-2001 Michal Kowalski\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "res.dll\0"
             VALUE "PrivateBuild", "\0"
@@ -2659,7 +2659,7 @@ END
 //
 
 IDC_LINK                CURSOR  DISCARDABLE     "res\\link.cur"
-IDR_MARGIN_CURSOR       CURSOR  DISCARDABLE     "mg_cur.cur"
+//IDR_MARGIN_CURSOR       CURSOR  DISCARDABLE     "mg_cur.cur"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2699,15 +2699,15 @@ END
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_TOOLBAR             "Standard"
-    ID_VIEW_STACK           "Show or hide 6502 µP stack memory window\nToggle Stack Window (Alt+4)"
+    ID_VIEW_STACK           "Show or hide 6502 ÂµP stack memory window\nToggle Stack Window (Alt+4)"
     ID_VIEW_LOG             "Show or hide command log window\nToggle Log Window (Alt+7)"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ID_MEMORY_GOTO          "Sets 6502 µP memory display begining address"
-    ID_MEMORY_OPTIONS       "Sets 6502 µP memory window options"
-    ID_MEMORY_CHG           "Modify 6502 µP memory bytes"
+    ID_MEMORY_GOTO          "Sets 6502 ÂµP memory display begining address"
+    ID_MEMORY_OPTIONS       "Sets 6502 ÂµP memory window options"
+    ID_MEMORY_CHG           "Modify 6502 ÂµP memory bytes"
     ID_MEMORY_FULL          "Display memory as hexadecimal and text dump"
     ID_MEMORY_HEX           "Display memory as hexadecimal dump"
     ID_MEMORY_TEXT          "Display memory as text dump"
@@ -2725,19 +2725,19 @@ BEGIN
     IDS_OPT_VIEW_EXAMPLE_1  "; Sample text\n\tLDY #0\n\t; copy\n.loop:\tLDA (src),Y\n\tSTA (dest),Y\n\tINY\n\tBPL .loop\n\tRTS"
     IDS_OPT_VIEW_EXAMPLE_2  "Simulator window\n\n12 34 56 78 90 AB CD EF"
     IDS_OPT_VIEW_EXAMPLE_3  "E897  58        CLI\nE898  20 90 E8  JSR E890\nE89B  A5 F2     LDA $F2\nE89D  C5 A0     CMP $A0\nE89F  F0 09     BEQ E8AA\nE8A1  A8        TAY\nE8A2  B1 80     LDA ($80),Y"
-    IDS_OPT_VIEW_EXAMPLE_4  "1000  20 01 EA  > \001ê<\n1003  BF 20 04  >¿ \004<\n1006  0F 41 F7  >\017A÷<\n1009  EA 97 70  >ê—p<\n100C  77 71 D8  >wqØ<\n100F  A2 66 A0  >¢f <\n1012  33 18 A9  >3\030©<\n1015  FF 85 80  >ÿ… <\n"
-    IDS_OPT_VIEW_EXAMPLE_5  "81  00 ' '  2F00  00 00 00 00 00\n82  2F '/'  052F  00 00 00 00 00\n83  05 '.'  C505  00 00 00 00 00\n84  C5 'Å'  58C5  FF 00 BF C6 58\n85  58 'X'  0058  00 00 00 00 00\n86  00 ' '  0000  00 00 00 00 00\n87  00 ' '  0000  00 00 00 00 00\n88  00 ' '  0000  00 00 00 00 00"
+    IDS_OPT_VIEW_EXAMPLE_4  "1000  20 01 EA  > \001Ãª<\n1003  BF 20 04  >Â¿ \004<\n1006  0F 41 F7  >\017AÃ·<\n1009  EA 97 70  >Ãªâ€”p<\n100C  77 71 D8  >wqÃ˜<\n100F  A2 66 A0  >Â¢fÂ <\n1012  33 18 A9  >3\030Â©<\n1015  FF 85 80  >Ã¿â€¦ <\n"
+    IDS_OPT_VIEW_EXAMPLE_5  "81  00 ' '  2F00  00 00 00 00 00\n82  2F '/'  052F  00 00 00 00 00\n83  05 '.'  C505  00 00 00 00 00\n84  C5 'Ã…'  58C5  FF 00 BF C6 58\n85  58 'X'  0058  00 00 00 00 00\n86  00 ' '  0000  00 00 00 00 00\n87  00 ' '  0000  00 00 00 00 00\n88  00 ' '  0000  00 00 00 00 00"
     IDS_OPT_VIEW_EXAMPLE_6  "1FF  06 '.'  0006  00 00 00 00\n1FE  04 '.'  0604  06 00 00 20\n1FD  06 '.'  0406  00 00 00 00\n1FC  09 '.'  0609  06 60 EA 85\n1FB  06 '.'  0906  00 00 00 00\n1FA  11 '.'  0611  06 98 60 A0\n1F9  00 ' '  1100  00 00 00 00\n"
-    IDS_OPT_VIEW_LIST       "Editor;Simulator I/O;Disassembler;6502 µP Memory;Zero Page Memory;6502 µP Stack;"
+    IDS_OPT_VIEW_LIST       "Editor;Simulator I/O;Disassembler;6502 ÂµP Memory;Zero Page Memory;6502 ÂµP Stack;"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
     IDS_MOTOROLA_S_ERR_3    "Unknown data format; line %1"
     IDS_MOTOROLA_S_ERR_4    "x"
-    IDS_ZMEMORY_TITLE       "6502 µP Zero Page"
+    IDS_ZMEMORY_TITLE       "6502 ÂµP Zero Page"
     IDS_ABOUT_VER           "Version Number: %d.%d.%d"
-    IDS_STACK               "6502 µP Stack"
+    IDS_STACK               "6502 ÂµP Stack"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -2764,7 +2764,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_VIEW_DEASM           "Open new Disassembly window with machine code\nNew Disassembly window (Alt+0)"
     ID_VIEW_IDENT           "Show or hide source code identifiers window\nToggle Identifiers Window (Alt+5)"
-    ID_VIEW_MEMORY          "Show or hide 6502 µP memory window\nToggle 6502 Memory Window (Alt+2)"
+    ID_VIEW_MEMORY          "Show or hide 6502 ÂµP memory window\nToggle 6502 Memory Window (Alt+2)"
     ID_VIEW_IO_WINDOW       "Show or hide In/Out simulator window\nToggle In/Out Window (Alt+6)"
 END
 
@@ -2883,42 +2883,42 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDC_REGS_CYCLES_CLR     "Clear 6502 µP clock cycles counter\nClear clock cycles counter"
-    IDC_REGS_CYCLES         "Number of 6502 µP clock cycles utilized by traced instructions\nNo of clock cycles"
+    IDC_REGS_CYCLES_CLR     "Clear 6502 ÂµP clock cycles counter\nClear clock cycles counter"
+    IDC_REGS_CYCLES         "Number of 6502 ÂµP clock cycles utilized by traced instructions\nNo of clock cycles"
     IDS_REGS_S_EMPTY        "- empty stack -"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDC_REGS_P              "6502 µP Flags Register\nFlags Register"
-    IDC_REGS_PC             "6502 µP Program Counter Register\nProgram Counter Register"
+    IDC_REGS_P              "6502 ÂµP Flags Register\nFlags Register"
+    IDC_REGS_PC             "6502 ÂµP Program Counter Register\nProgram Counter Register"
     IDC_REGS_A_MEM          "Accumulator as decimal, character & binary\nAccumulator dec/char/bin"
     IDC_REGS_X_MEM          "X register as decimal, character & binary\nX register dec/char/bin"
     IDC_REGS_Y_MEM          "Y register as decimal, character & binary\nY register dec/char/bin"
-    IDC_REGS_S_MEM          "Top of 6502 µP stack\nTop of stack"
-    IDC_REGS_INSTR          "Current 6502 µP instruction (pointed by PC)\nCurrent instruction"
-    IDC_REGS_NEG            "Sign flag (Negative) of 6502 µP flags register\nNegative"
-    IDC_REGS_ZERO           "Zero flag (Zero) of 6502 µP flags register\nZero"
-    IDC_REGS_OVER           "Overflow flag (Overflow) of 6502 µP flags register\nOverflow"
-    IDC_REGS_CARRY          "Carry/borrow flag (Carry) of 6502 µP flags register\nCarry"
-    IDC_REGS_INT            "Interrupt mask bit (Interrupt) of 6502 µP flags register\nInterrupt"
-    IDC_REGS_BRK            "Software interrupt flag (Break) of 6502 µP flags register\nBreak"
-    IDC_REGS_DEC            "Decimal calculations flag (Decimal) of 6502 µP flags register\nDecimal"
+    IDC_REGS_S_MEM          "Top of 6502 ÂµP stack\nTop of stack"
+    IDC_REGS_INSTR          "Current 6502 ÂµP instruction (pointed by PC)\nCurrent instruction"
+    IDC_REGS_NEG            "Sign flag (Negative) of 6502 ÂµP flags register\nNegative"
+    IDC_REGS_ZERO           "Zero flag (Zero) of 6502 ÂµP flags register\nZero"
+    IDC_REGS_OVER           "Overflow flag (Overflow) of 6502 ÂµP flags register\nOverflow"
+    IDC_REGS_CARRY          "Carry/borrow flag (Carry) of 6502 ÂµP flags register\nCarry"
+    IDC_REGS_INT            "Interrupt mask bit (Interrupt) of 6502 ÂµP flags register\nInterrupt"
+    IDC_REGS_BRK            "Software interrupt flag (Break) of 6502 ÂµP flags register\nBreak"
+    IDC_REGS_DEC            "Decimal calculations flag (Decimal) of 6502 ÂµP flags register\nDecimal"
     IDC_REGS_INSTR_ARG      "Current instruction argument\nCurrent argument"
-    IDC_REGS_STAT           "Current 6502 µP simulator state\nSimulator state"
+    IDC_REGS_STAT           "Current 6502 ÂµP simulator state\nSimulator state"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDC_REGS_A              "6502 µP Accumulator\nAccumulator"
-    IDC_REGS_X              "6502 µP X Register\nX Register"
-    IDC_REGS_Y              "6502 µP Y Register\nY Register"
-    IDC_REGS_S              "6502 µP Stack Pointer Register\nStack Pointer Register"
+    IDC_REGS_A              "6502 ÂµP Accumulator\nAccumulator"
+    IDC_REGS_X              "6502 ÂµP X Register\nX Register"
+    IDC_REGS_Y              "6502 ÂµP Y Register\nY Register"
+    IDC_REGS_S              "6502 ÂµP Stack Pointer Register\nStack Pointer Register"
 END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDD_REGISTERBAR         "6502 µP Registers & Status"
+    IDD_REGISTERBAR         "6502 ÂµP Registers & Status"
     IDD_ZEROPAGEBAR         "Zero Page"
 END
 
@@ -2936,7 +2936,7 @@ BEGIN
     IDS_IDENT_COL_VALUE     "Value"
     IDS_IDENT_COL_AREA      "Range"
     IDS_IDENT_GLOBAL        "global"
-    IDS_MEMORY_TITLE        "6502 µP Memory"
+    IDS_MEMORY_TITLE        "6502 ÂµP Memory"
     IDS_IO_WINDOW           "In/Out Window"
     IDS_SAVE_CODE           "Intel-HEX format (*.65h;*.hex)|*.65h;*.hex|Motorola s-rekord format (*.65m; *.s9)|*.65m;*.s9|Binary image (*.65b)|*.65b|Binary program (*.65p)|*.65p||"
     IDS_MSG_BAD_DEC_HEX_NUM "Please enter hexadecimal number proceded by '$' or '0x' characters or decimal number."
@@ -2998,7 +2998,7 @@ STRINGTABLE DISCARDABLE
 BEGIN
     ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
     ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
-    ID_VIEW_ZEROPAGEBAR     "Show or hide 6502 µP zero page memory window\nToggle zero page memory window (Alt+3)"
+    ID_VIEW_ZEROPAGEBAR     "Show or hide 6502 ÂµP zero page memory window\nToggle zero page memory window (Alt+3)"
 END
 
 STRINGTABLE DISCARDABLE 
@@ -3006,7 +3006,7 @@ BEGIN
     ID_EDIT_TOGGLE_BLOCK    "Toggle collapsible block of text"
     ID_EDIT_COLLAPSE_ALL    "Fold all collapsible text blocks"
     ID_EDIT_EXPAND_ALL      "Expand all collapsible text blocks"
-    ID_VIEW_REGISTERBAR     "Show or hide 6502 µP registers & status window\nToggle registers window (Alt+1)"
+    ID_VIEW_REGISTERBAR     "Show or hide 6502 ÂµP registers & status window\nToggle registers window (Alt+1)"
 END
 
 STRINGTABLE DISCARDABLE 

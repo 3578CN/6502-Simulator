@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="Current"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -231,16 +232,6 @@
     <None Include="CrystalEdit\CCrystalEditView.inl" />
     <None Include="CrystalEdit\CCrystalTextBuffer.inl" />
     <None Include="CrystalEdit\CCrystalTextView.inl" />
-    <CustomBuild Include="hlp\6502.hpj">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Making help file...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(ProjectDir)makehelp.bat"
-</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)$(TargetName).hlp;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Static|Win32'">Making help file...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Static|Win32'">"$(ProjectDir)makehelp.bat"
-</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Static|Win32'">$(OutDir)$(TargetName).hlp;%(Outputs)</Outputs>
-    </CustomBuild>
     <None Include="mg_cur.cur" />
     <None Include="res\6502.rc2" />
     <None Include="res\link.cur" />

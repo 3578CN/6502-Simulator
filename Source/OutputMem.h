@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -29,7 +29,7 @@ public:
   COutputMem()
   { SetSize(0x10000); m_uMask = 0xFFFF; }
 
-  void ClearMem()	// wyzerowanie pamiêci
+  void ClearMem()	// wyzerowanie pamiÃªci
   { memset(m_pData, 0, m_nSize*sizeof(BYTE)); }
 
 	void ClearMem(int nByte)
@@ -37,7 +37,7 @@ public:
 
   COutputMem &operator= (const COutputMem &src)
   {
-    ASSERT(m_nSize == src.m_nSize);		// wymiary musz¹ byæ identyczne
+    ASSERT(m_nSize == src.m_nSize);		// wymiary muszÂ¹ byÃ¦ identyczne
     memcpy(m_pData, src.m_pData, m_nSize * sizeof(BYTE));
     m_uMask = src.m_uMask;
     return *this;

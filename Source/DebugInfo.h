@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 struct CLine : CAsm
 {
-  int ln;		// nr wiersza w pliku Ÿród³owym
+  int ln;		// nr wiersza w pliku ï¿½rï¿½dï¿½owym
   FileUID file;		// identyfikator pliku
   CLine(int ln, FileUID file) : ln(ln), file(file)
   { }
@@ -36,14 +36,14 @@ struct CLine : CAsm
   { }
   int operator==(const CLine &arg) const
   { return ln==arg.ln && file==arg.file; }
-  operator DWORD()	// konwersja dla funkcji mieszaj¹cej (CMap<>::HashKey())
+  operator DWORD()	// konwersja dla funkcji mieszajï¿½cej (CMap<>::HashKey())
   { return DWORD( (ln<<4) ^ (file<<8) ); }
 };
 
 
-struct CDebugLine : CAsm	// info dla symulatora o jednym wierszu Ÿród³owym programu
+struct CDebugLine : CAsm	// info dla symulatora o jednym wierszu ï¿½rï¿½dï¿½owym programu
 {
-  UINT8 flags;		// flagi opisuj¹ce wiersz (DbgFlag)
+  UINT8 flags;		// flagi opisujï¿½ce wiersz (DbgFlag)
   UINT16 addr;		// adres programu 6502
   CLine line;
   CDebugLine() : flags(CAsm::DBG_EMPTY), addr(0)
@@ -73,7 +73,7 @@ public:
   CDebugLines() : addr_to_idx(50), line_to_idx(50)
   { SetSize(50,50); }
 
-	// znalezienie wiersza odpowiadaj¹cego adresowi
+	// znalezienie wiersza odpowiadajï¿½cego adresowi
   void GetLine(CDebugLine &ret, UINT16 addr)
   {
     static const CDebugLine empty;	// pusty obiekt - do oznaczenia "nie znaleziony wiersz"
@@ -97,8 +97,8 @@ public:
 
   void AddLine(CDebugLine &dl)
   {
-    ASSERT(dl.flags != DBG_EMPTY);	// niewype³niony opis wiersza
-    int idx = Add(dl);			// dopisanie info o wierszu, zapamiêtanie indeksu
+    ASSERT(dl.flags != DBG_EMPTY);	// niewypeï¿½niony opis wiersza
+    int idx = Add(dl);			// dopisanie info o wierszu, zapamiï¿½tanie indeksu
     addr_to_idx.SetAt(dl.addr,idx);	// zapisanie indeksu
     line_to_idx.SetAt(dl.line,idx);	// j.w.
   }
@@ -112,7 +112,7 @@ public:
 };
 
 
-class CDebugBreakpoints : CAsm, CByteArray	// informacja o miejscach przerwañ
+class CDebugBreakpoints : CAsm, CByteArray	// informacja o miejscach przerwaï¿½
 {
   UINT16 temp_bp_index;
 public:
@@ -121,17 +121,17 @@ public:
 
   Breakpoint Set(UINT16 addr, int bp= BPT_EXECUTE)	// ustawienie przerwania
   {
-    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitów okreœlaj¹cych przerwanie
+    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitï¿½w okreï¿½lajï¿½cych przerwanie
     return Breakpoint( (*this)[addr] |= bp );
   }
   Breakpoint Clr(UINT16 addr, int bp= BPT_MASK)		// skasowanie przerwania
   {
-    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitów okreœlaj¹cych przerwanie
+    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitï¿½w okreï¿½lajï¿½cych przerwanie
     return Breakpoint( (*this)[addr] &= ~bp );
   }
   Breakpoint Toggle(UINT16 addr, int bp)
   {
-    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitów okreœlaj¹cych przerwanie
+    ASSERT( (bp & ~BPT_MASK) == 0 );	// niedozwolona kombinacja bitï¿½w okreï¿½lajï¿½cych przerwanie
     return Breakpoint( (*this)[addr] &= ~bp );
   }
   Breakpoint Get(UINT16 addr)
@@ -158,7 +158,7 @@ public:
     (*this)[temp_bp_index] &= ~BPT_TEMP_EXEC;
   }
 
-  void ClearAll()		// usuniêcie wszystkich przerwañ
+  void ClearAll()		// usuniï¿½cie wszystkich przerwaï¿½
   { memset(m_pData,BPT_NONE,m_nSize*sizeof(BYTE)); }
 };
 
@@ -204,8 +204,8 @@ class CDebugInfo : CAsm
 {
   CDebugLines m_lines;			// informacja o wierszach
   CDebugIdents m_idents;		// informacja o identyfikatorach
-  CDebugBreakpoints m_breakpoints;	// informacja o miejscach przerwañ
-  CMapFile m_map_file;			// odwzorowania fazwy pliku Ÿród³owego na 'fuid' i odwrotnie
+  CDebugBreakpoints m_breakpoints;	// informacja o miejscach przerwaï¿½
+  CMapFile m_map_file;			// odwzorowania fazwy pliku ï¿½rï¿½dï¿½owego na 'fuid' i odwrotnie
 
 public:
 
@@ -215,7 +215,7 @@ public:
   void AddLine(CDebugLine &dl)
   { m_lines.AddLine(dl); }
 
-  void GetLine(CDebugLine &ret, UINT16 addr)	// znalezienie wiersza odpowiadaj¹cego adresowi
+  void GetLine(CDebugLine &ret, UINT16 addr)	// znalezienie wiersza odpowiadajï¿½cego adresowi
   { m_lines.GetLine(ret,addr); }
 
   void GetAddress(CDebugLine &ret, int ln, FileUID file)	// znalezienie adresu odp. wierszowi
@@ -238,7 +238,7 @@ public:
   FileUID GetFileUID(const CString &doc_title)
   { return m_map_file.GetFileUID(doc_title); }		// ID pliku
   LPCTSTR GetFilePath(FileUID fuid)
-  { return fuid ? m_map_file.GetPath(fuid) : NULL; }	// nazwa (œcie¿ka do) pliku
+  { return fuid ? m_map_file.GetPath(fuid) : NULL; }	// nazwa (ï¿½cieï¿½ka do) pliku
   void ResetFileMap()
   { m_map_file.Reset(); }
 

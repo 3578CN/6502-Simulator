@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -28,12 +28,12 @@ struct CIdent
     I_INIT,
     I_UNDEF,		// identyfikator niezdefiniowany
     I_ADDRESS,		// identyfikator zawiera adres
-    I_VALUE,		// identyfikator zawiera wartoœæ liczbow¹
-    I_MACRONAME,	// identyfikator jest nazw¹ makrodefinicji
+    I_VALUE,		// identyfikator zawiera wartoÅ“Ã¦ liczbowÂ¹
+    I_MACRONAME,	// identyfikator jest nazwÂ¹ makrodefinicji
     I_MACROADDR		// identyfikator zawiera adres w makrodefinicji
   } info;
-  SINT32 val;		// wartoœæ liczbowa
-  UINT8 checked;	// definicja identyfikatora potwierdzona w drugim przejœciu asemblacji
+  SINT32 val;		// wartoÅ“Ã¦ liczbowa
+  UINT8 checked;	// definicja identyfikatora potwierdzona w drugim przejÅ“ciu asemblacji
   UINT8 variable;	// identyfikator zmiennej
 
   CIdent() : info(I_INIT), checked(FALSE), variable(FALSE)

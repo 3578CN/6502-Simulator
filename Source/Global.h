@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -27,18 +27,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 class CGlobal : public CObject, CAsm, virtual CBroadcast
 {
-	UINT m_uAddrBusWidth;			// szerokoœæ szyny adresowej
+	UINT m_uAddrBusWidth;			// szerokoÅ“Ã¦ szyny adresowej
 	bool m_bCodePresent;			// true -> po udanej asemblacji
-	COutputMem m_ProgMem;			// pamiêæ zapisywana w procesie asemblacji
+	COutputMem m_ProgMem;			// pamiÃªÃ¦ zapisywana w procesie asemblacji
 	CDebugInfo m_Debug;				// informacja uruchomieniowa dla symulatora
-	UINT16 m_uOrigin;				// pocz¹tek programu 6502
+	UINT16 m_uOrigin;				// poczÂ¹tek programu 6502
 	CSym6502 *m_pSym6502;			// symulator
-	Finish m_SymFinish;				// sposób koñczenia programu przez symulator
-	CMarkArea m_MarkArea;			// oznaczenie fragmentów pamiêci zawieraj¹cej kod wynikowy
+	Finish m_SymFinish;				// sposÃ³b koÃ±czenia programu przez symulator
+	CMarkArea m_MarkArea;			// oznaczenie fragmentÃ³w pamiÃªci zawierajÂ¹cej kod wynikowy
 public:
 	bool m_bProc6502;				// typ procesora
-	COutputMem m_Mem;				// pamiêæ dla kodu wynikowego i symulatora
-	bool m_bGenerateListing;		// generowaæ listing przy asemblacji?
+	COutputMem m_Mem;				// pamiÃªÃ¦ dla kodu wynikowego i symulatora
+	bool m_bGenerateListing;		// generowaÃ¦ listing przy asemblacji?
 	CString m_strListingFile;		// plik z listingiem
 	CIntGenerator m_IntGenerator;	// interrupt request generator data
 
@@ -58,13 +58,13 @@ public:
 	CDebugInfo *GetDebug()
 	{ return &m_Debug; }
 
-	COutputMem *GetMemForAsm()	// pamiêæ na kod wynikowy (asemblacja)
+	COutputMem *GetMemForAsm()	// pamiÃªÃ¦ na kod wynikowy (asemblacja)
 	{ 
 		m_ProgMem.ClearMem();
 		return &m_ProgMem;
 	}
 
-	COutputMem *GetMemForSym()	// pamiêæ z kodem wynikowym (symulator)
+	COutputMem *GetMemForSym()	// pamiÃªÃ¦ z kodem wynikowym (symulator)
 	{
 		if (m_bCodePresent)
 		{
@@ -77,9 +77,9 @@ public:
 	CMarkArea *GetMarkArea()
 	{ return &m_MarkArea; }
 
-	COutputMem *GetMem()		// pamiêæ z kodem wynikowym
+	COutputMem *GetMem()		// pamiÃªÃ¦ z kodem wynikowym
 	{ return &m_Mem; }
-	UINT16 GetStartAddr()		// pocz¹tek programu
+	UINT16 GetStartAddr()		// poczÂ¹tek programu
 	{ return m_uOrigin; }
 
 	bool IsCodePresent()

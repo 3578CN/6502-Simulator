@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -21,13 +21,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #ifndef _asm_h_
 #define _asm_h_
 
-typedef unsigned int UINT32;		// liczba ca³kowita 32-bitowa bez znaku
-typedef signed int SINT32;		// liczba ca³kowita 32-bitowa ze znakiem
-typedef unsigned char UINT8;		// liczba ca³kowita 8-bitowa bez znaku
-typedef unsigned short int UINT16;	// liczba ca³kowita 16-bitowa bez znaku
+typedef unsigned int UINT32;		// liczba caÂ³kowita 32-bitowa bez znaku
+typedef signed int SINT32;		// liczba caÂ³kowita 32-bitowa ze znakiem
+typedef unsigned char UINT8;		// liczba caÂ³kowita 8-bitowa bez znaku
+typedef unsigned short int UINT16;	// liczba caÂ³kowita 16-bitowa bez znaku
 
 
-class CAsm	  // klasa bazowa - definicje typów
+class CAsm	  // klasa bazowa - definicje typÃ³w
 {
 public:
 
@@ -46,16 +46,16 @@ public:
 		STAT_ENDIF,
 		STAT_ASM,
 		STAT_SKIP,
-		STAT_USER_DEF_ERR,			// b³¹d u¿ytkownika (.ERROR)
+		STAT_USER_DEF_ERR,			// bÂ³Â¹d uÂ¿ytkownika (.ERROR)
 		STAT_FIN,
 		OK = 0,
-		ERR_DAT,					// nieooczekiwane wyst¹pienie danych (tu tylko komentarz)
-		ERR_UNEXP_DAT,				// nierozpoznany napis (na pocz¹tku wiersza)
+		ERR_DAT,					// nieooczekiwane wystÂ¹pienie danych (tu tylko komentarz)
+		ERR_UNEXP_DAT,				// nierozpoznany napis (na poczÂ¹tku wiersza)
 		ERR_OUT_OF_MEM,
 		ERR_FILE_READ,
 		ERR_NUM_LONG,				// oczekiwana liczba max $FFFF
 		ERR_NUM_NOT_BYTE,			// oczekiwana liczba max $FF
-		ERR_NUM_NEGATIVE,			// oczekiwana wartoœæ nieujemna
+		ERR_NUM_NEGATIVE,			// oczekiwana wartoÅ“Ã¦ nieujemna
 		ERR_INSTR_OR_NULL_EXPECTED,	// oczekiwana instrukcja, komentarz lub CR
 		ERR_IDX_REG_EXPECTED,		// oczekiwany rejestr indeksowy (X lub Y)
 		ERR_IDX_REG_X_EXPECTED,		// oczekiwany rejestr indeksowy X
@@ -63,54 +63,54 @@ public:
 		ERR_COMMA_OR_BRACKET_EXPECTED,	// oczekiwany przecinek lub nawias ')'
 		ERR_BRACKET_R_EXPECTED,		// oczekiwany nawias ')'
 		ERR_BRACKET_L_EXPECTED,		// oczekiwany nawias '('
-		ERR_DIV_BY_ZERO,			// dzielenie przez zero w wyra¿eniu
-		ERR_EXPR_BRACKET_R_EXPECTED,// brak nawiasu ']' zamykaj¹cego wyra¿enie
-		ERR_CONST_EXPECTED,			// oczekiwana sta³a (liczba lub ident)
-		ERR_LABEL_REDEF,			// etykieta ju¿ zdefiniowana
-		ERR_UNDEF_EXPR,				// nieokreœlona wartoœæ wyra¿enia
-		ERR_PC_WRAPED,				// "przewiniêcie siê" licznika rozkazów
+		ERR_DIV_BY_ZERO,			// dzielenie przez zero w wyraÂ¿eniu
+		ERR_EXPR_BRACKET_R_EXPECTED,// brak nawiasu ']' zamykajÂ¹cego wyraÂ¿enie
+		ERR_CONST_EXPECTED,			// oczekiwana staÂ³a (liczba lub ident)
+		ERR_LABEL_REDEF,			// etykieta juÂ¿ zdefiniowana
+		ERR_UNDEF_EXPR,				// nieokreÅ“lona wartoÅ“Ã¦ wyraÂ¿enia
+		ERR_PC_WRAPED,				// "przewiniÃªcie siÃª" licznika rozkazÃ³w
 		ERR_UNDEF_LABEL,			// niezdefiniowana etykieta
-		ERR_PHASE,					// b³¹d fazy - niezgodne wartoœci etykiety miêdzy przebiegami
-		ERR_REL_OUT_OF_RNG,			// przekroczenie zakresu dla adresowania wzglêdnego
+		ERR_PHASE,					// bÂ³Â¹d fazy - niezgodne wartoÅ“ci etykiety miÃªdzy przebiegami
+		ERR_REL_OUT_OF_RNG,			// przekroczenie zakresu dla adresowania wzglÃªdnego
 		ERR_MODE_NOT_ALLOWED,		// niedozwolony tryb adresowania
-		ERR_STR_EXPECTED,			// oczekiwany ³añcuch znaków
-		ERR_SPURIOUS_ENDIF,			// wyst¹pienie .ENDIF bez odpowiadaj¹cego mu .IF
-		ERR_SPURIOUS_ELSE,			// wyst¹pienie .ELSE bez odpowiadaj¹cego mu .IF
+		ERR_STR_EXPECTED,			// oczekiwany Â³aÃ±cuch znakÃ³w
+		ERR_SPURIOUS_ENDIF,			// wystÂ¹pienie .ENDIF bez odpowiadajÂ¹cego mu .IF
+		ERR_SPURIOUS_ELSE,			// wystÂ¹pienie .ELSE bez odpowiadajÂ¹cego mu .IF
 		ERR_ENDIF_REQUIRED,			// brak dyrektywy .ENDIF
-		ERR_LOCAL_LABEL_NOT_ALLOWED,// wymagane jest wyst¹pienie etykiety globalnej
+		ERR_LOCAL_LABEL_NOT_ALLOWED,// wymagane jest wystÂ¹pienie etykiety globalnej
 		ERR_LABEL_EXPECTED,			// wymagana etykieta
-		ERR_USER_ABORT,				// u¿ytkownik przerwa³ asemblacjê
+		ERR_USER_ABORT,				// uÂ¿ytkownik przerwaÂ³ asemblacjÃª
 		ERR_UNDEF_ORIGIN,			// brak dyrektywy .ORG
-		ERR_MACRONAME_REQUIRED,		// brak etykiety nazywaj¹cej makrodefinicjê
-		ERR_PARAM_ID_REDEF,			// nazwa parametru ju¿ zdefiniowana
+		ERR_MACRONAME_REQUIRED,		// brak etykiety nazywajÂ¹cej makrodefinicjÃª
+		ERR_PARAM_ID_REDEF,			// nazwa parametru juÂ¿ zdefiniowana
 		ERR_NESTED_MACRO,			// definicja makra w makrodefinicji jest zabroniona
 		ERR_ENDM_REQUIRED,			// brak dyrektywy .ENDM
 		ERR_UNKNOWN_INSTR,			// nierozpoznana nazwa makra/instrukcji/dyrektywy
-		ERR_PARAM_REQUIRED,			// brak wymaganej iloœci parametrów wywo³ania makra
-		ERR_SPURIOUS_ENDM,			// wyst¹pienie .ENDM bez odpowiadaj¹cego mu .MACRO
-		ERR_SPURIOUS_EXITM,			// wyst¹pienie .EXIT poza makrodefinicj¹ jest niedozwolone
-		ERR_STR_NOT_ALLOWED,		// wyra¿enie znakowe niedozwolone
-		ERR_NOT_STR_PARAM,			// parametr wo³any z '$' nie posiada wartoœci typu tekstowego
-		ERR_EMPTY_PARAM,			// wo³any parametr nie istnieje (za du¿y nr przy odwo³aniu: %num)
-		ERR_UNDEF_PARAM_NUMBER,		// numer parametru w wywo³aniu "%number" jest niezdefiniowany
-		ERR_BAD_MACRONAME,			// nazwa makra nie mo¿e zaczynaæ siê od znaku '.'
+		ERR_PARAM_REQUIRED,			// brak wymaganej iloÅ“ci parametrÃ³w wywoÂ³ania makra
+		ERR_SPURIOUS_ENDM,			// wystÂ¹pienie .ENDM bez odpowiadajÂ¹cego mu .MACRO
+		ERR_SPURIOUS_EXITM,			// wystÂ¹pienie .EXIT poza makrodefinicjÂ¹ jest niedozwolone
+		ERR_STR_NOT_ALLOWED,		// wyraÂ¿enie znakowe niedozwolone
+		ERR_NOT_STR_PARAM,			// parametr woÂ³any z '$' nie posiada wartoÅ“ci typu tekstowego
+		ERR_EMPTY_PARAM,			// woÂ³any parametr nie istnieje (za duÂ¿y nr przy odwoÂ³aniu: %num)
+		ERR_UNDEF_PARAM_NUMBER,		// numer parametru w wywoÂ³aniu "%number" jest niezdefiniowany
+		ERR_BAD_MACRONAME,			// nazwa makra nie moÂ¿e zaczynaÃ¦ siÃª od znaku '.'
 		ERR_PARAM_NUMBER_EXPECTED,	// oczekiwany numer parametru makra
-		ERR_LABEL_NOT_ALLOWED,		// niedozwolone wyst¹pienie etykiety (przed dyrektyw¹)
-		ERR_BAD_REPT_NUM,			// b³¹dna iloœæ powtórzeñ (dozwolone od 0 do 0xFFFF)
-		ERR_SPURIOUS_ENDR,			// wyst¹pienie .ENDR bez odpowiadaj¹cego mu .REPEAT
-		ERR_INCLUDE_NOT_ALLOWED,	// dyrektywa .INCLUDE nie mo¿e wystêpowaæ w makrach i powtórkach
-		ERR_STRING_TOO_LONG,		// za d³ugi ³añcuch (w .STR)
+		ERR_LABEL_NOT_ALLOWED,		// niedozwolone wystÂ¹pienie etykiety (przed dyrektywÂ¹)
+		ERR_BAD_REPT_NUM,			// bÂ³Â¹dna iloÅ“Ã¦ powtÃ³rzeÃ± (dozwolone od 0 do 0xFFFF)
+		ERR_SPURIOUS_ENDR,			// wystÂ¹pienie .ENDR bez odpowiadajÂ¹cego mu .REPEAT
+		ERR_INCLUDE_NOT_ALLOWED,	// dyrektywa .INCLUDE nie moÂ¿e wystÃªpowaÃ¦ w makrach i powtÃ³rkach
+		ERR_STRING_TOO_LONG,		// za dÂ³ugi Â³aÃ±cuch (w .STR)
 		ERR_NOT_BIT_NUM,			// oczekiwana liczba od 0 do 7 (numer biru)
 		ERR_OPT_NAME_REQUIRED,		// brak nazwy opcji
 		ERR_OPT_NAME_UNKNOWN,		// nierozpoznana nazwa opcji
-		ERR_LINE_TO_LONG,			// za d³ugi wiersz Ÿród³owy
+		ERR_LINE_TO_LONG,			// za dÂ³ugi wiersz Å¸rÃ³dÂ³owy
 		ERR_PARAM_DEF_REQUIRED,		// wymagana nazwa parametru makra
 		ERR_INDIRECT_BYTE_EXPECTED,	// Indirect postindexed addressing mode requires byte operand
 		ERR_CONST_LABEL_REDEF,		// Constant label (predefined) cannot be redefined
 		ERR_NO_RANGE,				// expected valid range: first value has to be less than or equal to snd value
 		ERR_NUM_ZERO,				// expected nonzero value
 
-		ERR_LAST					// ostatnia wartoœæ typu Stat - nie b³¹d
+		ERR_LAST					// ostatnia wartoÅ“Ã¦ typu Stat - nie bÂ³Â¹d
 	};
 
 	enum OpCode		// rodzaj instrukcji procesora
@@ -135,8 +135,8 @@ public:
 		C_RMB, //C_RMB1, C_RMB2, C_RMB3, C_RMB4, C_RMB5, C_RMB6, C_RMB7,
 		C_SMB, //C_SMB1, C_SMB2, C_SMB3, C_SMB4, C_SMB5, C_SMB6, C_SMB7,
 
-		C_ILL		// wartoœæ do oznaczania nielegalnych rozkazów w symulatorze (ILLEGAL)
-		// jednoczeœnie wartoœæ maksymalna dla typu OpCode
+		C_ILL		// wartoÅ“Ã¦ do oznaczania nielegalnych rozkazÃ³w w symulatorze (ILLEGAL)
+		// jednoczeÅ“nie wartoÅ“Ã¦ maksymalna dla typu OpCode
 	};
 
 	enum CodeAdr	// tryby adresowania
@@ -157,9 +157,9 @@ public:
 		A_ABSI,		// absolute indirect
 		A_ABSI_X,	// absolute indirect, indexed X
 		A_ZREL,		// zero page / relative -> BBS i BBR z 6501
-		A_ZPG2,		// zero page dla rozkazów RMB SMB z 6501
+		A_ZPG2,		// zero page dla rozkazÃ³w RMB SMB z 6501
 
-		A_NO_OF_MODES,	// iloœæ trybów adresowania
+		A_NO_OF_MODES,	// iloÅ“Ã¦ trybÃ³w adresowania
 
 		A_ABS_OR_ZPG= A_NO_OF_MODES,	// niezdeterminowany tryb adresowania
 		A_ABSX_OR_ZPGX,
@@ -170,7 +170,7 @@ public:
 
 		A_IMP2,	// implied dla rozkazu BRK
 
-		A_ILL		// wartoœæ do oznaczania nielegalnych rozkazów w symulatorze (ILLEGAL)
+		A_ILL		// wartoÅ“Ã¦ do oznaczania nielegalnych rozkazÃ³w w symulatorze (ILLEGAL)
 	};
 
 	enum InstrType	// rodzaj dyrektywy asemblera
@@ -183,18 +183,18 @@ public:
 		I_ASCIS,	// ascii + $80
 		I_DCB,		// declare block
 		I_RS,		// reserve space
-		I_END,		// zakoñcz asemblacjê
-		I_ERROR,	// zg³oszenie b³êdu
-		I_INCLUDE,	// w³¹czenie pliku
+		I_END,		// zakoÃ±cz asemblacjÃª
+		I_ERROR,	// zgÂ³oszenie bÂ³Ãªdu
+		I_INCLUDE,	// wÂ³Â¹czenie pliku
 		I_IF,		// asemblacja warunkowa
 		I_ELSE,
 		I_ENDIF,
 		I_MACRO,	// makrodefinicja
 		I_EXITM,
 		I_ENDM,
-		I_START,	// pocz¹tek programu dla symulatora
-		I_SET,		// przypisanie wartoœci
-		I_REPEAT,	// powtórka
+		I_START,	// poczÂ¹tek programu dla symulatora
+		I_SET,		// przypisanie wartoÅ“ci
+		I_REPEAT,	// powtÃ³rka
 		I_ENDR,
 		I_OPT,		// opcje asemblera
 		I_ROM_AREA,	// protected memory area
@@ -211,16 +211,16 @@ public:
 		O_SHL, O_SHR
 	};
 
-	static const TCHAR LOCAL_LABEL_CHAR;	// znak rozpoczynaj¹cy etykietê lokaln¹
-	static const TCHAR MULTIPARAM[];		// wielokropek - dowolna iloœæ parametrów
+	static const TCHAR LOCAL_LABEL_CHAR;	// znak rozpoczynajÂ¹cy etykietÃª lokalnÂ¹
+	static const TCHAR MULTIPARAM[];		// wielokropek - dowolna iloÅ“Ã¦ parametrÃ³w
 
 	enum Msg
 	{
-		WM_USER_GET_NEXT_LINE = WM_USER+4000, // pobranie/udostêpnienie kolejnego wiersza
+		WM_USER_GET_NEXT_LINE = WM_USER+4000, // pobranie/udostÃªpnienie kolejnego wiersza
 		WM_USER_GET_LINE_NO,		// pobranie numeru aktualnego wiersza
-		WM_USER_FIN,				// poinformowanie o zakoñczeniu asemblacji
+		WM_USER_FIN,				// poinformowanie o zakoÃ±czeniu asemblacji
 		WM_USER_GET_TITLE,			// odczyt nazwy dokumentu
-		WM_USER_NEXT_PASS,			// nastêpny przebieg asemblacji
+		WM_USER_NEXT_PASS,			// nastÃªpny przebieg asemblacji
 		WM_USER_ABORT_ASM			// przerwanie asemblacji
 	};
 
@@ -232,8 +232,8 @@ public:
 		SYM_BPT_WRITE,			// przerwanie przy zapisie
 		SYM_BPT_TEMP,			// przerwanie przy wykonaniu
 		SYM_ILLEGAL_CODE,		// napotkana nielegalna instrukcja
-		SYM_STOP,				// program zatrzymany przez u¿ytkownika
-		SYM_FIN,				// program zakoñczony
+		SYM_STOP,				// program zatrzymany przez uÂ¿ytkownika
+		SYM_FIN,				// program zakoÃ±czony
 		SYM_RUN,				// program uruchomiony
 		SYM_INP_WAIT,			// waiting for data input
 		SYM_ILL_WRITE			// protected area writing attempt detected
@@ -246,12 +246,12 @@ public:
 		BPT_READ	= 0x02,		// przerwanie przy odczycie
 		BPT_WRITE	= 0x04,		// przerwanie przy zapisie
 		BPT_MASK	= 0x07,
-		BPT_NO_CODE	= 0x08,		// wiersz nie zawiera kodu - przerwanie nie mo¿e byæ ustawione
+		BPT_NO_CODE	= 0x08,		// wiersz nie zawiera kodu - przerwanie nie moÂ¿e byÃ¦ ustawione
 		BPT_TEMP_EXEC=0x10,		// przerwanie tymczasowe do zatrzymania programu
-		BPT_DISABLED= 0x80		// przerwanie wy³¹czone
+		BPT_DISABLED= 0x80		// przerwanie wyÂ³Â¹czone
 	};
 
-	enum Finish				// sposób zakoñczenia programu
+	enum Finish				// sposÃ³b zakoÃ±czenia programu
 	{
 		FIN_BY_BRK,			// po napotkaniu instrukcji BRK
 		FIN_BY_RTS,			// po napotkaniu RTS przy pustym stosie
@@ -261,10 +261,10 @@ public:
 	enum DeasmFmt				// format deasemblacji
 	{
 		DF_NONE		  = 0x00,
-		DF_ADDRESS	  = 0x01,	// adres przed instrukcj¹
-		DF_CODE_BYTES = 0x02,	// przed instrukcj¹ jej kod i argumenty
-		DF_BRANCH_INFO= 0x04,	// za rozkazami skoków warunkowych info czy skok aktywny
-		DF_LABELS	  = 0x08,	// adresy argumentów poprzedzone liter¹ 'a' lub 'z'
+		DF_ADDRESS	  = 0x01,	// adres przed instrukcjÂ¹
+		DF_CODE_BYTES = 0x02,	// przed instrukcjÂ¹ jej kod i argumenty
+		DF_BRANCH_INFO= 0x04,	// za rozkazami skokÃ³w warunkowych info czy skok aktywny
+		DF_LABELS	  = 0x08,	// adresy argumentÃ³w poprzedzone literÂ¹ 'a' lub 'z'
 		DF_HELP		  = 0x10,	// generate output suitable for dynamic help
 		DF_USE_BRK	  = 0x20,	// generate BRK instead of .DB 0
 		DF_65C02	  = 0x40	// use 65c02 instead of current settings
@@ -290,11 +290,11 @@ protected:
 	static const UINT8 code_to_command_c[];		// j.w. dla 65c02
 	static const UINT8 trans_table[][A_NO_OF_MODES];	// zamiana rozkazu w danym trybie adresowania na kod (65XX)
 	static const UINT8 trans_table_c[][A_NO_OF_MODES];	// zamiana rozkazu w danym trybie adresowania na kod (65C02)
-	static const UINT8 code_cycles[];			// iloœæ cykli dla rozkazu procesora
+	static const UINT8 code_cycles[];			// iloÅ“Ã¦ cykli dla rozkazu procesora
 	static const UINT8 code_cycles_c[];			// j.w. dla 65c02
 
 public:
-	static const UINT8 mode_to_len[];	// zamiana trybu adresowania na d³ugoœæ rozkazu i argumentów
+	static const UINT8 mode_to_len[];	// zamiana trybu adresowania na dÂ³ugoÅ“Ã¦ rozkazu i argumentÃ³w
 
 	const UINT8 (&TransformTable(const bool bProc6502))[C_ILL][A_NO_OF_MODES];
 

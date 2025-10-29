@@ -42,7 +42,7 @@ BEGIN
     CONTROL         "I",IDC_REGS_INT,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_LEFT | BS_FLAT | WS_TABSTOP,157,33,14,10
     CONTROL         "B",IDC_REGS_BRK,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_LEFT | BS_FLAT | WS_TABSTOP,175,33,16,10
     CONTROL         "D",IDC_REGS_DEC,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_LEFT | BS_FLAT | WS_TABSTOP,194,33,16,10
-    PUSHBUTTON      "<- zero",IDC_REGS_CYCLES_CLR,188,4,28,12
+    PUSHBUTTON      "<- 清零",IDC_REGS_CYCLES_CLR,188,4,28,12
     EDITTEXT        IDC_REGS_A_MEM,39,4,77,11,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
     EDITTEXT        IDC_REGS_X_MEM,39,17,77,11,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
     EDITTEXT        IDC_REGS_Y_MEM,39,30,77,11,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
@@ -56,9 +56,9 @@ BEGIN
     LTEXT           "S=",IDC_STATIC,4,48,10,9
     LTEXT           "P=",IDC_STATIC,122,34,10,10
     LTEXT           "PC=",IDC_STATIC,4,64,15,9
-    LTEXT           "Arg:",IDC_STATIC,103,64,13,8
-    LTEXT           "CLK:",IDC_STATIC,125,5,16,8
-    LTEXT           "Stat:",IDC_STATIC,4,82,16,8
+    LTEXT           "参数：",IDC_STATIC,103,64,13,8
+    LTEXT           "时钟：",IDC_STATIC,125,5,16,8
+    LTEXT           "状态：",IDC_STATIC,4,82,16,8
     CONTROL         "",IDC_REGS_STAT,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX,27,82,188,10
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,78,219,1
 END
@@ -189,16 +189,16 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 IDD_ASSEMBLE DIALOGEX 0, 0, 168, 119
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
-CAPTION "Assembling"
+CAPTION "正在汇编"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    LTEXT           "Row:",IDC_STATIC,56,8,28,8
+    LTEXT           "行：",IDC_STATIC,56,8,28,8
     RTEXT           "0",IDC_CURR_ROW,84,8,28,8
-    LTEXT           "Pass:",IDC_STATIC,56,24,32,8
+    LTEXT           "轮次：",IDC_STATIC,56,24,32,8
     RTEXT           "0",IDC_PASS_NO,100,24,12,8
     CONTROL         "Progress1",IDC_ASM_PROGRESS,"msctls_progress32",0x0,35,43,97,8
     EDITTEXT        IDC_DIAL_ASM_ERR,7,40,154,44,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | NOT WS_VISIBLE,WS_EX_NOPARENTNOTIFY
-    DEFPUSHBUTTON   "Cancel",IDCANCEL,56,99,54,14
+    DEFPUSHBUTTON   "取消",IDCANCEL,56,99,54,14
     ICON            IDR_SRC65TYPE,IDC_DIAL_ASM_ICN1,47,66,20,20
     ICON            IDR_MAINFRAME,IDC_DIAL_ASM_ICN3,99,66,20,20
     ICON            IDI_ARROW,IDC_DIAL_ASM_ICN2,73,66,20,20
@@ -206,246 +206,249 @@ END
 
 IDD_ABOUTBOX DIALOG 0, 0, 260, 175
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About"
+CAPTION "关于"
 FONT 8, "MS Sans Serif"
 BEGIN
     CONTROL         IDB_ABOUT,IDC_STATIC,"Static",SS_BITMAP,4,4,77,166
-    CTEXT           "6502 Macroassembler & Simulator",IDC_6502,86,8,168,14,SS_NOPREFIX
+    CTEXT           "6502 宏汇编器与模拟器",IDC_6502,86,8,168,14,SS_NOPREFIX
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,87,23,166,127
-    LTEXT           "Copyright Â© 1996-2002 Michal Kowalski",IDC_STATIC,96,29,127,8
+    LTEXT           "版权所有 © 1996-2002 Michal Kowalski",IDC_STATIC,96,29,127,8
     LTEXT           "http://home.pacbell.net/michal_k/",IDC_LINK,96,40,110,8
-    LTEXT           "Macroassembler and simulator for 650x microprocessor family: 6502, 65c02, 6501",IDC_STATIC,96,51,136,16
-    LTEXT           "version...",IDC_ABOUT_VER,96,70,156,8,SS_NOPREFIX
-    LTEXT           "Syntax coloring editor based on CrystalEdit by Andrei Stcherbatchenko.",IDC_STATIC,96,81,151,16
-    LTEXT           "This application is free. It is provided ""as is"" without express or implied warranty and with no claim as to its suitability for any purpose.",IDC_STATIC,96,100,149,24,SS_NOPREFIX
-    LTEXT           "This application can be freely used, copied and redistributed. It cannot be sold for profit.",IDC_STATIC,96,127,152,16,SS_NOPREFIX
-    DEFPUSHBUTTON   "OK",IDOK,196,155,54,14,WS_GROUP
+    LTEXT           "适用于 650x 微处理器系列（6502、65c02、6501）的宏汇编器与模拟器",IDC_STATIC,96,51,136,16
+    LTEXT           "版本...",IDC_ABOUT_VER,96,70,156,8,SS_NOPREFIX
+    LTEXT           "基于 Andrei Stcherbatchenko 的 CrystalEdit 的语法着色编辑器。",IDC_STATIC,96,81,151,16
+    LTEXT           "本应用免费提供，按原样提供，不作任何明示或暗示的保证，也不对其适用于任何特定用途作出保证。",IDC_STATIC,96,100,149,24,SS_NOPREFIX
+    LTEXT           "本程序可自由使用、复制与再分发，但不得用于盈利性销售。",IDC_STATIC,96,127,152,16,SS_NOPREFIX
+    DEFPUSHBUTTON   "确定",IDOK,196,155,54,14,WS_GROUP
 END
 
 IDD_PROPPAGE_ASSEMBLY DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Assembler"
+CAPTION "汇编器"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Listing",IDC_STATIC,8,4,224,27
-    CONTROL         "&Generate listing",IDC_OPT_ASM_GENERATE_LIST,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,16,15,65,10
+    GROUPBOX        "汇编列表",IDC_STATIC,8,4,224,27
+    CONTROL         "&生成列表",IDC_OPT_ASM_GENERATE_LIST,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,16,15,65,10
     EDITTEXT        IDC_OPT_ASM_FILE_LISTING,84,13,122,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&...",IDC_OPT_ASM_CHOOSE_FILE,212,13,13,13,NOT WS_TABSTOP
-    GROUPBOX        "Assembler Directives",IDC_STATIC,8,35,224,39
-    CONTROL         "&Always prefixed by period '.'",IDC_OPT_ASM_INSTR_DOT,
+    GROUPBOX        "汇编指令",IDC_STATIC,8,35,224,39
+    CONTROL         "&始终以句点 '.' 前缀",IDC_OPT_ASM_INSTR_DOT,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,47,102,10
-    CONTROL         "&Prefixed or not by period '.'",IDC_STATIC,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,16,59,99,10
+    CONTROL         "带或不带句点 '.' 前缀",IDC_STATIC,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,16,59,99,10
     GROUPBOX        "Labels and identifiers",IDC_STATIC,8,77,224,25,WS_GROUP
-    CONTROL         "&Case sensitive",IDC_OPT_ASM_CASE_Y,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,88,61,10
-    CONTROL         "Case &insensitive",IDC_OPT_ASM_CASE_N,"Button",BS_AUTORADIOBUTTON,92,88,67,10
+    GROUPBOX        "标签与标识符",IDC_STATIC,8,77,224,25,WS_GROUP
+    CONTROL         "&区分大小写",IDC_OPT_ASM_CASE_Y,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,88,61,10
+    CONTROL         "不区分大小写",IDC_OPT_ASM_CASE_N,"Button",BS_AUTORADIOBUTTON,92,88,67,10
     GROUPBOX        "Extra byte after BRK instruction",IDC_STATIC,8,106,224,27,WS_GROUP
+    GROUPBOX        "BRK 指令后的额外字节",IDC_STATIC,8,106,224,27,WS_GROUP
     CONTROL         "G&enerate extra byte",IDC_OPT_ASM_GENERATE_BYTE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,16,117,78,10
-    LTEXT           "&Code:",IDC_STATIC,126,117,20,8
+    LTEXT           "&代码：",IDC_STATIC,126,117,20,8
     EDITTEXT        IDC_OPT_ASM_EXTRA_BYTE,148,115,24,12,ES_AUTOHSCROLL
 END
 
 IDD_PROPPAGE_EDITOR DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Editor"
+CAPTION "编辑器"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "&Tab step:",IDC_STATIC,8,9,31,8
+    LTEXT           "制表步长：",IDC_STATIC,8,9,31,8
     EDITTEXT        IDC_OPT_ED_TAB_STEP,48,7,25,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_OPT_ED_TAB_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,68,7,11,10
-    CONTROL         "&Autoindent",IDC_OPT_ED_AUTO_INDENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,24,50,10
-    CONTROL         "&Color syntax",IDC_OPT_ED_COLOR_SYNTAX,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,8,39,54,10
-    CONTROL         "C&heck syntax while typing",IDC_OPT_ED_AUTO_SYNTAX,
+    CONTROL         "自动缩进",IDC_OPT_ED_AUTO_INDENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,24,50,10
+    CONTROL         "语法着色",IDC_OPT_ED_COLOR_SYNTAX,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,8,39,54,10
+    CONTROL         "输入时检查语法",IDC_OPT_ED_AUTO_SYNTAX,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,9,97,10
-    CONTROL         "A&uto capitalize instructions and directives",IDC_OPT_ED_AUTO_UPPER_CASE,
+    CONTROL         "自动将指令和伪指令大写",IDC_OPT_ED_AUTO_UPPER_CASE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,24,145,10
-    CONTROL         "&Open new document on startup",IDC_OPT_ED_NEW_FILE,
+    CONTROL         "启动时打开新文档",IDC_OPT_ED_NEW_FILE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,39,115,10
     GROUPBOX        "Color Syntax",IDC_STATIC,8,56,224,78
-    LTEXT           "&Element",IDC_STATIC,16,70,26,8
+    LTEXT           "元素",IDC_STATIC,16,70,26,8
     COMBOBOX        IDC_OPT_ED_ELEMENT,16,82,56,100,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Co&lor",IDC_STATIC,16,101,17,8
+    LTEXT           "颜色",IDC_STATIC,16,101,17,8
     PUSHBUTTON      "",IDC_OPT_ED_COLOR,39,98,32,14
-    CONTROL         "&Bold",IDC_OPT_ED_BOLD_FONT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,116,30,10
+    CONTROL         "加粗",IDC_OPT_ED_BOLD_FONT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,116,30,10
     CONTROL         "",IDC_OPT_ED_EXAMPLE,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,80,64,147,66
 END
 
 IDD_PROPPAGE_GENERAL DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "General"
+CAPTION "常规"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Processor",IDC_STATIC,8,4,131,52
-    CONTROL         "Basic &6502",IDC_OPT_6502,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,15,51,10
-    CONTROL         "6&5C02, 6501",IDC_OPT_65C02,"Button",BS_AUTORADIOBUTTON,16,27,57,10
-    LTEXT           "&Address bus width:",IDC_STATIC,16,40,60,8
+    GROUPBOX        "处理器",IDC_STATIC,8,4,131,52
+    CONTROL         "基本 &6502",IDC_OPT_6502,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,15,51,10
+    CONTROL         "65C02、6501",IDC_OPT_65C02,"Button",BS_AUTORADIOBUTTON,16,27,57,10
+    LTEXT           "地址总线宽度：",IDC_STATIC,16,40,60,8
     EDITTEXT        IDC_OPT_BUS_WIDTH,87,38,25,12,ES_AUTOHSCROLL | WS_GROUP
     CONTROL         "Spin1",IDC_OPT_BUS_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,107,38,11,14
-    GROUPBOX        "Pointers' colors",IDC_STATIC,8,60,131,68,WS_GROUP
-    LTEXT           "&Current instruction",IDC_STATIC,13,73,58,8
+    GROUPBOX        "指针颜色",IDC_STATIC,8,60,131,68,WS_GROUP
+    LTEXT           "当前指令",IDC_STATIC,13,73,58,8
     PUSHBUTTON      "",IDC_OPT_MARK_PTR_COL,85,70,28,14
-    LTEXT           "&Breakpoint",IDC_STATIC,13,92,35,8
+    LTEXT           "断点",IDC_STATIC,13,92,35,8
     PUSHBUTTON      "",IDC_OPT_MARK_BRKP_COL,85,89,28,14
-    LTEXT           "&Error in line",IDC_STATIC,13,111,46,8
+    LTEXT           "行错误",IDC_STATIC,13,111,46,8
     PUSHBUTTON      "",IDC_OPT_MARK_ERR_COL,85,108,28,14
 END
 
 IDD_PROPPAGE_SYMULATOR DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Simulator"
+CAPTION "模拟器"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Finishing running program by",IDC_OPT_SYM_FIN,8,4,108,49
-    CONTROL         "&BRK instruction",IDC_OPT_SYM_FIN_BRK,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,15,65,10
-    CONTROL         "&RTS instruction",IDC_OPT_SYM_FIN_RTS,"Button",BS_AUTORADIOBUTTON,16,27,65,10
-    CONTROL         "0&xBB byte code",IDC_OPT_SYM_FIN_FF,"Button",BS_AUTORADIOBUTTON,16,39,66,10
+    GROUPBOX        "结束运行程序方式",IDC_OPT_SYM_FIN,8,4,108,49
+    CONTROL         "BRK 指令",IDC_OPT_SYM_FIN_BRK,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,15,65,10
+    CONTROL         "RTS 指令",IDC_OPT_SYM_FIN_RTS,"Button",BS_AUTORADIOBUTTON,16,27,65,10
+    CONTROL         "0xBB 字节代码",IDC_OPT_SYM_FIN_FF,"Button",BS_AUTORADIOBUTTON,16,39,66,10
     GROUPBOX        "In/out memory area",IDC_STATIC,122,4,110,49,WS_GROUP
-    CONTROL         "&Active",IDC_OPT_SYM_IO_ENABLE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,130,15,36,10
-    LTEXT           "&Start addr:",IDC_STATIC,130,29,34,8
+    GROUPBOX        "输入/输出内存区域",IDC_STATIC,122,4,110,49,WS_GROUP
+    CONTROL         "启用",IDC_OPT_SYM_IO_ENABLE,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,130,15,36,10
+    LTEXT           "起始地址：",IDC_STATIC,130,29,34,8
     EDITTEXT        IDC_OPT_SYM_IO_ADDR,170,27,33,12,ES_AUTOHSCROLL
     GROUPBOX        "Input/output window",IDC_STATIC,8,56,224,29,WS_GROUP
-    LTEXT           "&Columns:",IDC_STATIC,16,69,27,8
+    LTEXT           "列数：",IDC_STATIC,16,69,27,8
     EDITTEXT        IDC_OPT_SYM_IO_WND_W,46,67,28,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_OPT_SYM_W_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,64,66,11,14
-    LTEXT           "R&ows",IDC_STATIC,89,68,19,8
+    LTEXT           "行数：",IDC_STATIC,89,68,19,8
     EDITTEXT        IDC_OPT_SYM_IO_WND_H,112,67,28,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_OPT_SYM_H_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,132,66,11,14
     GROUPBOX        "Memory protection",IDC_STATIC,8,88,224,44
-    CONTROL         "&Detect write attempt",IDC_OPT_SYM_PROTECT_MEM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,101,79,10
+    CONTROL         "检测写入尝试",IDC_OPT_SYM_PROTECT_MEM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,101,79,10
     EDITTEXT        IDC_OPT_SYM_PROT_FROM,64,114,33,12,ES_AUTOHSCROLL
-    LTEXT           "&From address",IDC_STATIC,16,116,43,8
-    LTEXT           "&to",IDC_STATIC,104,116,8,8
+    LTEXT           "起始地址",IDC_STATIC,16,116,43,8
+    LTEXT           "至",IDC_STATIC,104,116,8,8
     EDITTEXT        IDC_OPT_SYM_PROT_TO,116,114,33,12,ES_AUTOHSCROLL
 END
 
 IDD_PROPPAGE_VIEW DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Appearance"
+CAPTION "外观"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "&Window:",IDC_STATIC,8,6,29,8
+    LTEXT           "窗口：",IDC_STATIC,8,6,29,8
     LISTBOX         IDC_OPT_VIEW_WND,8,18,76,64,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Example:",IDC_STATIC,92,6,31,8
+    LTEXT           "示例：",IDC_STATIC,92,6,31,8
     CONTROL         "",IDC_OPT_VIEW_EXAMPLE,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | SS_SUNKEN | WS_GROUP,92,18,140,64
-    PUSHBUTTON      "&Font...",IDC_OPT_VIEW_FONT_BTN,8,92,44,14
+    PUSHBUTTON      "字体...",IDC_OPT_VIEW_FONT_BTN,8,92,44,14
     EDITTEXT        IDC_OPT_VIEW_FONT_NAME,64,93,140,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    LTEXT           "&Text color:",IDC_STATIC,8,114,34,8
+    LTEXT           "文本颜色：",IDC_STATIC,8,114,34,8
     PUSHBUTTON      "",IDC_OPT_VIEW_TXT_COL,52,112,28,14
-    LTEXT           "&Background color:",IDC_STATIC,96,114,59,8
+    LTEXT           "背景颜色：",IDC_STATIC,96,114,59,8
     PUSHBUTTON      "",IDC_OPT_VIEW_BKGND_COL,160,112,28,14
 END
 
 IDD_MEMORY_CHG DIALOG 0, 0, 182, 77
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Modify Memory Contents"
+CAPTION "修改内存内容"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "&Address:",IDC_STATIC,8,16,28,8
+    LTEXT           "地址：",IDC_STATIC,8,16,28,8
     EDITTEXT        IDC_MEMORY_ADDR,40,14,36,12,ES_AUTOHSCROLL
-    LTEXT           "&Value:",IDC_STATIC,8,32,21,8
+    LTEXT           "数值：",IDC_STATIC,8,32,21,8
     EDITTEXT        IDC_MEMORY_DATA,40,30,36,12,ES_AUTOHSCROLL
-    GROUPBOX        "Display as",IDC_STATIC,88,4,86,44
-    CONTROL         "&Byte",IDC_MEMORY_BYTE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,96,16,30,10
-    CONTROL         "&Word",IDC_MEMORY_WORD,"Button",BS_AUTORADIOBUTTON,132,16,37,10
-    CONTROL         "&Signed",IDC_MEMORY_SIGNED,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,96,32,38,10
-    DEFPUSHBUTTON   "OK",IDOK,10,58,50,14
-    PUSHBUTTON      "&Modify",ID_MEMORY_CHG,66,58,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,122,58,50,14
+    GROUPBOX        "显示为",IDC_STATIC,88,4,86,44
+    CONTROL         "字节",IDC_MEMORY_BYTE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,96,16,30,10
+    CONTROL         "字",IDC_MEMORY_WORD,"Button",BS_AUTORADIOBUTTON,132,16,37,10
+    CONTROL         "有符号",IDC_MEMORY_SIGNED,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,96,32,38,10
+    DEFPUSHBUTTON   "确定",IDOK,10,58,50,14
+    PUSHBUTTON      "修改",ID_MEMORY_CHG,66,58,50,14
+    PUSHBUTTON      "取消",IDCANCEL,122,58,50,14
 END
 
 IDD_MEMORY_GOTO DIALOG 0, 0, 156, 53
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Display Memory from Address"
+CAPTION "从地址显示内存"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "&Address:",IDC_STATIC,13,20,28,8
+    LTEXT           "地址：",IDC_STATIC,13,20,28,8
     EDITTEXT        IDC_MEMORY_ADDR,44,18,36,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "OK",IDOK,100,10,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,100,28,50,14
+    DEFPUSHBUTTON   "确定",IDOK,100,10,50,14
+    PUSHBUTTON      "取消",IDCANCEL,100,28,50,14
 END
 
 IDD_DEASM_GOTO DIALOG 0, 0, 156, 53
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Disassemble from Address"
+CAPTION "从地址反汇编"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "&Address:",IDC_STATIC,12,20,28,8
+    LTEXT           "地址：",IDC_STATIC,12,20,28,8
     EDITTEXT        IDC_DEASM_ADDR,44,18,36,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "OK",IDOK,100,10,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,100,28,50,14
+    DEFPUSHBUTTON   "确定",IDOK,100,10,50,14
+    PUSHBUTTON      "取消",IDCANCEL,100,28,50,14
 END
 
 IDD_DEASM_SAVE_OPT DIALOG 0, 0, 172, 98
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Code Saving Options"
+CAPTION "代码保存选项"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Code addresses",IDC_STATIC,8,6,100,62
-    LTEXT           "&Begin",IDC_STATIC,14,20,19,8
+    LTEXT           "起始",IDC_STATIC,14,20,19,8
     EDITTEXT        IDC_DEASM_SAVE_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_START,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,12
-    LTEXT           "&End",IDC_STATIC,14,36,14,8
+    LTEXT           "结束",IDC_STATIC,14,36,14,8
     EDITTEXT        IDC_DEASM_SAVE_END,56,34,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_END,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,12
-    LTEXT           "&Length",IDC_STATIC,14,52,28,8
+    LTEXT           "长度",IDC_STATIC,14,52,28,8
     EDITTEXT        IDC_DEASM_SAVE_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_DEASM_SAVE_SPIN_LENGTH,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,12
-    CONTROL         "&Save as data area",IDC_DATA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,74,74,10
-    DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,116,28,50,14
+    CONTROL         "作为数据区保存",IDC_DATA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,74,74,10
+    DEFPUSHBUTTON   "确定",IDOK,116,10,50,14
+    PUSHBUTTON      "取消",IDCANCEL,116,28,50,14
 END
 
 IDD_EDIT_BREAKPOINT DIALOG 0, 0, 184, 95
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Breakpoint"
+CAPTION "断点"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Address",IDC_STATIC,8,10,26,8
+    LTEXT           "地址",IDC_STATIC,8,10,26,8
     EDITTEXT        IDC_ADDR,40,8,40,12,ES_AUTOHSCROLL | WS_DISABLED
-    GROUPBOX        "Breakpoint condition",IDC_STATIC,8,26,81,49
-    CONTROL         "&Execute",IDC_EDIT_BP_EXEC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,36,42,10
-    CONTROL         "&Read from",IDC_EDIT_BP_READ,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,17,49,45,8
-    CONTROL         "&Write to",IDC_EDIT_BP_WRITE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,17,61,41,10
-    CONTROL         "&Disabled",IDC_EDIT_BP_DISABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,79,43,10
-    DEFPUSHBUTTON   "OK",IDOK,128,6,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,128,23,50,14
+    GROUPBOX        "断点条件",IDC_STATIC,8,26,81,49
+    CONTROL         "执行",IDC_EDIT_BP_EXEC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,36,42,10
+    CONTROL         "读取",IDC_EDIT_BP_READ,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,17,49,45,8
+    CONTROL         "写入",IDC_EDIT_BP_WRITE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,17,61,41,10
+    CONTROL         "禁用",IDC_EDIT_BP_DISABLED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,79,43,10
+    DEFPUSHBUTTON   "确定",IDOK,128,6,50,14
+    PUSHBUTTON      "取消",IDCANCEL,128,23,50,14
 END
 
 IDD_LOAD_CODE_OPT DIALOG 0, 0, 150, 78
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Code Loading Options"
+CAPTION "代码加载选项"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Destination Memory",IDC_STATIC,8,4,133,46
-    LTEXT           "&Start Address",IDC_STATIC,16,19,43,8
+    GROUPBOX        "目标内存",IDC_STATIC,8,4,133,46
+    LTEXT           "起始地址",IDC_STATIC,16,19,43,8
     EDITTEXT        IDC_LOAD_CODE_START,63,17,34,12,ES_AUTOHSCROLL
-    CONTROL         "&Clear Whole Memory With",IDC_LOAD_CODE_CLR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,34,98,10
+    CONTROL         "用以下值清空整个内存",IDC_LOAD_CODE_CLR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,34,98,10
     EDITTEXT        IDC_LOAD_CODE_FILL_VALUE,113,32,22,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "OK",IDOK,19,58,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,81,58,50,14
+    DEFPUSHBUTTON   "确定",IDOK,19,58,50,14
+    PUSHBUTTON      "取消",IDCANCEL,81,58,50,14
 END
 
 IDD_LOAD_CODE_OPT_1 DIALOG 0, 0, 144, 77
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Loading code options"
+CAPTION "加载代码选项"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Code destination area",-1,8,4,128,46
-    CONTROL         "&Zero memory",IDC_LOAD_CODE_CLR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,19,57,10
-    DEFPUSHBUTTON   "OK",IDOK,16,58,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,78,58,50,14
+    GROUPBOX        "代码目标区域",-1,8,4,128,46
+    CONTROL         "清零内存",IDC_LOAD_CODE_CLR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,19,57,10
+    DEFPUSHBUTTON   "确定",IDOK,16,58,50,14
+    PUSHBUTTON      "取消",IDCANCEL,78,58,50,14
 END
 
 IDD_PROPPAGE_DEASM DIALOG 0, 0, 240, 140
 STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Disassembler"
+CAPTION "反汇编器"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Colors",IDC_STATIC,8,4,85,50
-    LTEXT           "&Address",IDC_STATIC,13,17,26,8
+    GROUPBOX        "颜色",IDC_STATIC,8,4,85,50
+    LTEXT           "地址",IDC_STATIC,13,17,26,8
     PUSHBUTTON      "",IDC_OPT_DA_ADDR_COL,57,15,28,14
-    LTEXT           "&Code bytes",IDC_STATIC,13,37,36,8
+    LTEXT           "代码字节",IDC_STATIC,13,37,36,8
     PUSHBUTTON      "",IDC_OPT_DA_CODE_COL,57,33,28,14
-    CONTROL         "&Display code bytes",IDC_OPT_DA_CODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,60,75,10
+    CONTROL         "显示代码字节",IDC_OPT_DA_CODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,60,75,10
 END
 
 IDD_SAVE_CODE DIALOG 0, 0, 276, 60
@@ -453,100 +456,100 @@ STYLE DS_SETFONT | DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLI
 FONT 8, "MS Sans Serif"
 BEGIN
     LTEXT           "",IDC_COM_DIAL,0,2,272,38
-    PUSHBUTTON      "Options...",IDC_SAVE_CODE_OPT,222,40,50,14
+    PUSHBUTTON      "选项...",IDC_SAVE_CODE_OPT,222,40,50,14
 END
 
 IDD_SAVE_CODE_OPT_1 DIALOG 0, 0, 172, 97
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Code Saving Options"
+CAPTION "代码保存选项"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Code addresses",IDC_STATIC,8,6,100,62
-    LTEXT           "&Begin",IDC_STATIC,14,20,19,8
+    LTEXT           "起始",IDC_STATIC,14,20,19,8
     EDITTEXT        IDC_SAVE_CODE_OPT_1_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_START,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,12
-    LTEXT           "&End",IDC_STATIC,14,36,14,8
+    LTEXT           "结束",IDC_STATIC,14,36,14,8
     EDITTEXT        IDC_SAVE_CODE_OPT_1_END,56,34,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_END,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,12
-    LTEXT           "&Length",IDC_STATIC,14,52,23,8
+    LTEXT           "长度",IDC_STATIC,14,52,23,8
     EDITTEXT        IDC_SAVE_CODE_OPT_1_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_1_SPIN_LENGTH,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,12
-    LTEXT           "Machine code of given length; pure binary file without any header nor additional information.",IDC_STATIC,12,76,156,18
-    DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,116,28,50,14
+    LTEXT           "指定长度的机器代码；纯二进制文件，不含任何头或额外信息。",IDC_STATIC,12,76,156,18
+    DEFPUSHBUTTON   "确定",IDOK,116,10,50,14
+    PUSHBUTTON      "取消",IDCANCEL,116,28,50,14
 END
 
 IDD_SAVE_CODE_OPT_2 DIALOG 0, 0, 172, 105
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Code Saving Options"
+CAPTION "代码保存选项"
 FONT 8, "MS Sans Serif"
 BEGIN
     GROUPBOX        "Code addresses",IDC_STATIC,8,6,100,62
-    LTEXT           "&Begin",IDC_STATIC,14,20,19,8
+    LTEXT           "起始",IDC_STATIC,14,20,19,8
     EDITTEXT        IDC_SAVE_CODE_OPT_2_START,56,18,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_START,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,18,11,12
-    LTEXT           "&End",IDC_STATIC,14,36,14,8
+    LTEXT           "结束",IDC_STATIC,14,36,14,8
     EDITTEXT        IDC_SAVE_CODE_OPT_2_END,56,34,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_END,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,34,11,12
-    LTEXT           "&Length",IDC_STATIC,14,52,23,8
+    LTEXT           "长度",IDC_STATIC,14,52,23,8
     EDITTEXT        IDC_SAVE_CODE_OPT_2_LENGTH,56,50,44,12,ES_AUTOHSCROLL
     CONTROL         "Spin1",IDC_SAVE_CODE_OPT_2_SPIN_LENGTH,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,92,50,11,12
-    LTEXT           "Machine code of given length; binary file with header containing additional simulator information but no debug data.",IDC_STATIC,12,76,153,24
-    DEFPUSHBUTTON   "OK",IDOK,116,10,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,116,28,50,14
+    LTEXT           "指定长度的机器代码；带头部的二进制文件，头部包含模拟器的附加信息，但不含调试数据。",IDC_STATIC,12,76,153,24
+    DEFPUSHBUTTON   "确定",IDOK,116,10,50,14
+    PUSHBUTTON      "取消",IDCANCEL,116,28,50,14
 END
 
 IDD_INTERRUPTS DIALOG 0, 0, 160, 124
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Interrupts Generator"
+CAPTION "中断生成器"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "Generate &IRQ",IDC_GEN_IRQ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,10,60,10
-    LTEXT           "Request every",IDC_STATIC,38,26,47,8
+    CONTROL         "生成 IRQ (IRQ)",IDC_GEN_IRQ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,10,60,10
+    LTEXT           "请求间隔",IDC_STATIC,38,26,47,8
     EDITTEXT        IDC_IRQ_LAPSE,90,24,32,12,ES_RIGHT | ES_AUTOHSCROLL
     LTEXT           "ms",IDC_STATIC,126,26,10,8
-    CONTROL         "Generate &NMI",IDC_GEN_NMI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,50,61,10
-    LTEXT           "Request every",IDC_STATIC,40,68,47,8
+    CONTROL         "生成 NMI (不可屏蔽中断)",IDC_GEN_NMI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,50,61,10
+    LTEXT           "请求间隔",IDC_STATIC,40,68,47,8
     EDITTEXT        IDC_NMI_LAPSE,92,66,32,12,ES_RIGHT | ES_AUTOHSCROLL
     LTEXT           "ms",IDC_STATIC,128,68,10,8
-    PUSHBUTTON      "Cancel",IDCANCEL,24,102,50,14
-    DEFPUSHBUTTON   "OK",IDOK,84,102,50,14
+    PUSHBUTTON      "取消",IDCANCEL,24,102,50,14
+    DEFPUSHBUTTON   "确定",IDOK,84,102,50,14
 END
 
 IDD_EDIT_FIND DIALOG 30, 73, 236, 62
 STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Find"
+CAPTION "查找"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    LTEXT           "Fi&nd what:",IDC_STATIC,4,8,34,8
+    LTEXT           "查找内容：",IDC_STATIC,4,8,34,8
     EDITTEXT        IDC_EDIT_TEXT,47,7,128,12,ES_AUTOHSCROLL | WS_GROUP
-    CONTROL         "Match &whole word only",IDC_EDIT_WHOLE_WORD,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,4,28,89,10
-    CONTROL         "Match &case",IDC_EDIT_MATCH_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,43,53,10
-    GROUPBOX        "Direction",IDC_STATIC,106,26,69,28,WS_GROUP
-    CONTROL         "&Up",IDC_EDIT_DIRECTION_UP,"Button",BS_AUTORADIOBUTTON | WS_GROUP,111,39,25,10
-    CONTROL         "&Down",IDC_EDIT_DIRECTION_DOWN,"Button",BS_AUTORADIOBUTTON,138,39,35,10
-    DEFPUSHBUTTON   "&Find Next",IDOK,182,5,50,14,WS_GROUP
-    PUSHBUTTON      "Cancel",IDCANCEL,182,23,50,14
+    CONTROL         "仅匹配整词",IDC_EDIT_WHOLE_WORD,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,4,28,89,10
+    CONTROL         "区分大小写",IDC_EDIT_MATCH_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,43,53,10
+    GROUPBOX        "方向",IDC_STATIC,106,26,69,28,WS_GROUP
+    CONTROL         "向上",IDC_EDIT_DIRECTION_UP,"Button",BS_AUTORADIOBUTTON | WS_GROUP,111,39,25,10
+    CONTROL         "向下",IDC_EDIT_DIRECTION_DOWN,"Button",BS_AUTORADIOBUTTON,138,39,35,10
+    DEFPUSHBUTTON   "查找下一个",IDOK,182,5,50,14,WS_GROUP
+    PUSHBUTTON      "取消",IDCANCEL,182,23,50,14
 END
 
 IDD_EDIT_REPLACE DIALOG 36, 44, 230, 88
 STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Replace"
+CAPTION "替换"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    LTEXT           "Fi&nd what:",IDC_STATIC,4,9,34,8
+    LTEXT           "查找内容：",IDC_STATIC,4,9,34,8
     EDITTEXT        IDC_EDIT_TEXT,54,7,114,12,ES_AUTOHSCROLL | WS_GROUP
-    LTEXT           "Re&place with:",IDC_STATIC,4,26,44,8
+    LTEXT           "替换为：",IDC_STATIC,4,26,44,8
     EDITTEXT        IDC_EDIT_REPLACE_WITH,54,24,114,12,ES_AUTOHSCROLL | WS_GROUP
-    CONTROL         "Match &whole word only",IDC_EDIT_WHOLE_WORD,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,5,47,89,10
-    CONTROL         "Match &case",IDC_EDIT_MATCH_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,63,53,10
-    GROUPBOX        "Replace in",IDC_STATIC,96,43,72,37,WS_GROUP
-    CONTROL         "&Selection",IDC_EDIT_SCOPE_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_GROUP,102,54,45,10
-    CONTROL         "Wh&ole file",IDC_EDIT_SCOPE_WHOLE_FILE,"Button",BS_AUTORADIOBUTTON,102,66,47,10
-    DEFPUSHBUTTON   "&Find Next",IDC_EDIT_SKIP,174,4,50,14,WS_GROUP
-    PUSHBUTTON      "&Replace",IDC_EDIT_REPLACE,174,21,50,14
-    PUSHBUTTON      "Replace &All",IDC_EDIT_REPLACE_ALL,174,38,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,174,55,50,14
+    CONTROL         "仅匹配整词",IDC_EDIT_WHOLE_WORD,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,5,47,89,10
+    CONTROL         "区分大小写",IDC_EDIT_MATCH_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,63,53,10
+    GROUPBOX        "替换范围",IDC_STATIC,96,43,72,37,WS_GROUP
+    CONTROL         "选定范围",IDC_EDIT_SCOPE_SELECTION,"Button",BS_AUTORADIOBUTTON | WS_GROUP,102,54,45,10
+    CONTROL         "整个文件",IDC_EDIT_SCOPE_WHOLE_FILE,"Button",BS_AUTORADIOBUTTON,102,66,47,10
+    DEFPUSHBUTTON   "查找下一个",IDC_EDIT_SKIP,174,4,50,14,WS_GROUP
+    PUSHBUTTON      "替换",IDC_EDIT_REPLACE,174,21,50,14
+    PUSHBUTTON      "全部替换",IDC_EDIT_REPLACE_ALL,174,38,50,14
+    PUSHBUTTON      "取消",IDCANCEL,174,55,50,14
 END
 
 
@@ -736,273 +739,273 @@ IDB_CLOSE_TB            BITMAP                  "res\\close_tb.bmp"
 
 IDR_MAINFRAME MENU
 BEGIN
-    POPUP "&File"
+    POPUP "&文件"
     BEGIN
-        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
         MENUITEM SEPARATOR
-        MENUITEM "&Load code...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "Sa&ve code...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "Page set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "&退出",                       ID_APP_EXIT
     END
-    POPUP "&View"
+    POPUP "&查看"
     BEGIN
-        MENUITEM "&Disassembler\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &Registers\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &Memory\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&Zero Page Memory\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &Stack\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "I&nput/output\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&Identifiers\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "Command Log\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-        MENUITEM "St&atusbar",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
     END
-    POPUP "&Simulator"
+    POPUP "&模拟器"
     BEGIN
-        MENUITEM "&Debugger\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&Run\tF5",                    ID_SYM_GO
-        MENUITEM "A&nimate\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "R&estart Program\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&Break\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                    ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&Step Into\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "Step O&ver\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "Run &Till Return\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "Run to &Cursor\tCtrl+F10",    ID_SYM_GO_LINE
-        POPUP "&Interrupts"
+        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        POPUP "&中断"
         BEGIN
-            MENUITEM "&Maskable (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&Nonmaskable (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&Reset (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&Generator...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "S&kip Instruction\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Skip to C&ursor\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "Break&point\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "Br&eakpoint Params...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&Options...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
     END
-    POPUP "&Window"
+    POPUP "&窗口"
     BEGIN
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "Tile &Horizontally",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&Tile Vertically",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
     END
-    POPUP "&Help"
+    POPUP "&帮助"
     BEGIN
-        MENUITEM "&Contents",                   ID_HELP_FINDER
-        MENUITEM "&Dynamic Help\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                   ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&About...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                   ID_APP_ABOUT
     END
 END
 
 IDR_SRC65TYPE MENU
 BEGIN
-    POPUP "&File"
+    POPUP "&文件"
     BEGIN
-        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "&Close\tCtrl+W",              ID_FILE_CLOSE
-        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&关闭\tCtrl+W",              ID_FILE_CLOSE
+        MENUITEM "&保存\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "&另存为...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Load code...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "Sa&ve code...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "Print Previe&w",              ID_FILE_PRINT_PREVIEW
-        MENUITEM "Page Set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&打印...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "打印预览",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "&退出",                       ID_APP_EXIT
     END
-    POPUP "&Edit"
+    POPUP "&编辑"
     BEGIN
-        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
-        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM "&撤销\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&重做\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&Delete\tDel",                ID_EDIT_DELETE
-        MENUITEM "Select A&ll\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM "剪切\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&复制\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&粘贴\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "&删除\tDel",                ID_EDIT_DELETE
+        MENUITEM "全选\tCtrl+A",         ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "&Toggle Bookmark\tCtrl+F2",   ID_EDIT_TOGGLE_BOOKMARK
-        MENUITEM "&Go To Bookmark\tF2",         ID_EDIT_GOTO_NEXT_BOOKMARK
+        MENUITEM "&切换书签\tCtrl+F2",   ID_EDIT_TOGGLE_BOOKMARK
+        MENUITEM "转到书签\tF2",         ID_EDIT_GOTO_NEXT_BOOKMARK
         MENUITEM SEPARATOR
-        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
-        MENUITEM "Find &Next\tCtrl+G",          ID_EDIT_REPEAT
-        MENUITEM "&Replace...\tCtrl+R",         ID_EDIT_REPLACE
+        MENUITEM "&查找...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "查找下一个\tCtrl+G",          ID_EDIT_REPEAT
+        MENUITEM "&替换...\tCtrl+R",         ID_EDIT_REPLACE
         MENUITEM SEPARATOR
-        POPUP "&Advanced"
+        POPUP "&高级"
         BEGIN
-            MENUITEM "&Indent Selection\tTab",      ID_EDIT_TAB
-            MENUITEM "&Outdent Selection\tShift+Tab", ID_EDIT_UNTAB
-            MENUITEM "&View Whitespace\tAlt+Ins",   ID_EDIT_VIEW_TABS
+            MENUITEM "&缩进选中\tTab",      ID_EDIT_TAB
+            MENUITEM "&取消缩进\tShift+Tab", ID_EDIT_UNTAB
+            MENUITEM "&显示空白字符\tAlt+Ins",   ID_EDIT_VIEW_TABS
         END
     END
-    POPUP "&View"
+    POPUP "&查看"
     BEGIN
-        MENUITEM "&Disassembler\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &Registers\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &Memory\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&Zero Page Memory\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &Stack\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "I&nput/output\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&Identifiers\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "Command Log\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-        MENUITEM "St&atusbar",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
     END
-    POPUP "&Simulator"
+    POPUP "&模拟器"
     BEGIN
-        MENUITEM "&Assemble\tF7",               ID_SYM_ASSEMBLE
+        MENUITEM "&汇编\tF7",               ID_SYM_ASSEMBLE
         MENUITEM SEPARATOR
-        MENUITEM "&Debugger\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&Run\tF5",                    ID_SYM_GO
-        MENUITEM "A&nimate\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "R&estart Program\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&Break\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                    ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&Step Into\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "Step O&ver\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "Run &Till Return\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "Run to &Cursor\tCtrl+F10",    ID_SYM_GO_LINE
-        POPUP "&Generate Interrupt"
+        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        POPUP "&生成中断"
         BEGIN
-            MENUITEM "&Maskable (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&Nonmaskable (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&Reset (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&Generator...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "S&kip Instruction\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Skip to C&ursor\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "Break&point\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "Br&eakpoint Params...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&Options...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
     END
-    POPUP "&Window"
+    POPUP "&窗口"
     BEGIN
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "Tile &Horizontally",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&Tile Vertically",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
     END
-    POPUP "&Help"
+    POPUP "&帮助"
     BEGIN
-        MENUITEM "&Contents",                   ID_HELP_FINDER
-        MENUITEM "&Dynamic Help\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                   ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&About...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                   ID_APP_ABOUT
     END
 END
 
 IDR_DEASM65TYPE MENU
 BEGIN
-    POPUP "&File"
+    POPUP "&文件"
     BEGIN
-        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "&Close\tCtrl+W",              ID_FILE_CLOSE
-        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&关闭\tCtrl+W",              ID_FILE_CLOSE
+        MENUITEM "&保存\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "&另存为...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Load code...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "Sa&ve code...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "Print Previe&w",              ID_FILE_PRINT_PREVIEW
-        MENUITEM "Page Set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&打印...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "打印预览",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "&退出",                       ID_APP_EXIT
     END
-    POPUP "&Edit"
+    POPUP "&编辑"
     BEGIN
-        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
-        MENUITEM "Find &Next\tCtrl+G",          ID_EDIT_REPEAT
+        MENUITEM "&查找...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "查找下一个\tCtrl+G",          ID_EDIT_REPEAT
     END
-    POPUP "&View"
+    POPUP "&查看"
     BEGIN
-        MENUITEM "&Disassembler\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &Registers\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &Memory\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&Zero Page Memory\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &Stack\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "I&nput/output\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&Identifiers\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "Command Log\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-        MENUITEM "St&atusbar",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
     END
-    POPUP "&Simulator"
+    POPUP "&模拟器"
     BEGIN
-        MENUITEM "&Assemble\tF7",               ID_SYM_ASSEMBLE
+        MENUITEM "&汇编\tF7",               ID_SYM_ASSEMBLE
         MENUITEM SEPARATOR
-        MENUITEM "&Debugger\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&Run\tF5",                    ID_SYM_GO
-        MENUITEM "A&nimate\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "R&estart Program\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&Break\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                    ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&Step Into\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "Step O&ver\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "Run &Till Return\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "Run to &Cursor\tCtrl+F10",    ID_SYM_GO_LINE
-        POPUP "&Generate Interrupt"
+        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        POPUP "&生成中断"
         BEGIN
-            MENUITEM "&Maskable (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&Nonmaskable (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&Reset (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&Generator...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "S&kip Instruction\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "Skip to C&ursor\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "Break&point\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "Breakpo&int Params...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&Options...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
     END
-    POPUP "&Window"
+    POPUP "&窗口"
     BEGIN
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "Tile &Horizontally",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&Tile Vertically",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
     END
-    POPUP "&Help"
+    POPUP "&帮助"
     BEGIN
-        MENUITEM "&Contents",                   ID_HELP_FINDER
-        MENUITEM "&Dynamic Help\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                   ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&About...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                   ID_APP_ABOUT
     END
 END
 
@@ -1010,11 +1013,11 @@ IDR_POPUP_DEASM6502 MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Display from address...",    ID_DEASM_GOTO
+        MENUITEM "&从地址显示...",    ID_DEASM_GOTO
         MENUITEM SEPARATOR
-        MENUITEM "&Save program...",            ID_FILE_SAVE_AS
+        MENUITEM "&保存程序...",            ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "D&isassembly options...",     ID_DEASM_OPTIONS
+        MENUITEM "反汇编选项...",     ID_DEASM_OPTIONS
     END
 END
 
@@ -1022,14 +1025,14 @@ IDR_POPUP_EDIT MENU
 BEGIN
     POPUP "- POPUP -"
     BEGIN
-        MENUITEM "&Cut",                        ID_EDIT_CUT
-        MENUITEM "C&opy",                       ID_EDIT_COPY
-        MENUITEM "&Paste",                      ID_EDIT_PASTE
+        MENUITEM "剪切",                        ID_EDIT_CUT
+        MENUITEM "复制",                       ID_EDIT_COPY
+        MENUITEM "粘贴",                      ID_EDIT_PASTE
         MENUITEM SEPARATOR
-        MENUITEM "&Toggle breakpoint",          ID_SYM_BREAKPOINT
-        MENUITEM "&Breakpoint parameters...",   ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "切换断点",          ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...",   ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&Editor options...",          ID_EDITOR_OPT
+        MENUITEM "编辑器选项...",          ID_EDITOR_OPT
     END
 END
 
@@ -1037,14 +1040,14 @@ IDR_POPUP_MEMORY MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Display from address...",    ID_MEMORY_GOTO
-        MENUITEM "&Modify memory bytes...",     ID_MEMORY_CHG
+        MENUITEM "&从地址显示...",    ID_MEMORY_GOTO
+        MENUITEM "&修改内存字节...",     ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "M&emory window options...",   ID_MEMORY_OPTIONS
+        MENUITEM "内存窗口选项...",   ID_MEMORY_OPTIONS
         MENUITEM SEPARATOR
-        MENUITEM "D&isplay Hex && Text",        ID_MEMORY_FULL
-        MENUITEM "Display &Hex only",           ID_MEMORY_HEX
-        MENUITEM "Display &Text only",          ID_MEMORY_TEXT
+        MENUITEM "显示十六进制和文本",        ID_MEMORY_FULL
+        MENUITEM "仅显示十六进制",           ID_MEMORY_HEX
+        MENUITEM "仅显示文本",          ID_MEMORY_TEXT
     END
 END
 
@@ -1052,10 +1055,10 @@ IDR_POPUP_ZPMEMORY MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&Display from address...",    ID_MEMORY_GOTO
-        MENUITEM "&Modify memory bytes...",     ID_MEMORY_CHG
+        MENUITEM "&从地址显示...",    ID_MEMORY_GOTO
+        MENUITEM "&修改内存字节...",     ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "M&emory window options...",   ID_MEMORY_OPTIONS
+        MENUITEM "内存窗口选项...",   ID_MEMORY_OPTIONS
     END
 END
 
@@ -1063,7 +1066,7 @@ IDR_POPUP_TERMINAL MENU
 BEGIN
     POPUP "- POPUP -"
     BEGIN
-        MENUITEM "&Paste Text\tIns",            ID_PASTE
+        MENUITEM "粘贴文本\tIns",            ID_PASTE
     END
 END
 

@@ -76,7 +76,7 @@ BOOL CAboutDlg::OnInitDialog()
   m_TitleFont.CreateFontIndirect(&lf);
   m_wndTitle.SetFont(&m_TitleFont);
 
-  m_StaticLink.SubclassDlgItem(IDC_LINK, this, "http://home.pacbell.net/michal_k/");
+  m_StaticLink.SubclassDlgItem(IDC_LINK, this, "https://github.com/3578CN/6502-Simulator");
 
   return true;	// return true unless you set the focus to a control
 		// EXCEPTION: OCX Property Pages should return false

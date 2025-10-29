@@ -1,4 +1,4 @@
-﻿// Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #pragma code_page(65001)
 
@@ -204,21 +204,21 @@ BEGIN
     ICON            IDI_ARROW,IDC_DIAL_ASM_ICN2,73,66,20,20
 END
 
-IDD_ABOUTBOX DIALOG 0, 0, 260, 175
+IDD_ABOUTBOX DIALOGEX 0, 0, 260, 175
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         IDB_ABOUT,IDC_STATIC,"Static",SS_BITMAP,4,4,77,166
     CTEXT           "6502 宏汇编器与模拟器",IDC_6502,86,8,168,14,SS_NOPREFIX
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,87,23,166,127
-    LTEXT           "版权所有 © 1996-2002 Michal Kowalski",IDC_STATIC,96,29,127,8
-    LTEXT           "http://home.pacbell.net/michal_k/",IDC_LINK,96,40,110,8
-    LTEXT           "适用于 650x 微处理器系列（6502、65c02、6501）的宏汇编器与模拟器",IDC_STATIC,96,51,136,16
-    LTEXT           "版本...",IDC_ABOUT_VER,96,70,156,8,SS_NOPREFIX
-    LTEXT           "基于 Andrei Stcherbatchenko 的 CrystalEdit 的语法着色编辑器。",IDC_STATIC,96,81,151,16
-    LTEXT           "本应用免费提供，按原样提供，不作任何明示或暗示的保证，也不对其适用于任何特定用途作出保证。",IDC_STATIC,96,100,149,24,SS_NOPREFIX
-    LTEXT           "本程序可自由使用、复制与再分发，但不得用于盈利性销售。",IDC_STATIC,96,127,152,16,SS_NOPREFIX
+    LTEXT           "© 2025 Lion",IDC_STATIC,92,31,45,8
+    LTEXT           "https://github.com/3578CN/6502-Simulator",IDC_LINK,92,45,161,8
+    LTEXT           "适用于 650x 微处理器系列（6502、65c02、6501）的宏汇编器与模拟器",IDC_STATIC,92,59,158,20
+    LTEXT           "版本...",IDC_ABOUT_VER,92,81,133,8,SS_NOPREFIX
+    LTEXT           "基于 Andrei Stcherbatchenko 的 CrystalEdit 的语法着色编辑器。",IDC_STATIC,92,96,155,16
+    LTEXT           "原作者 Michal Kowalski。",IDC_STATIC,144,31,97,8,SS_NOPREFIX
+    LTEXT           "请遵守开源协议。",IDC_STATIC,92,133,65,8,SS_NOPREFIX
     DEFPUSHBUTTON   "确定",IDOK,196,155,54,14,WS_GROUP
 END
 
@@ -232,8 +232,7 @@ BEGIN
     EDITTEXT        IDC_OPT_ASM_FILE_LISTING,84,13,122,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&...",IDC_OPT_ASM_CHOOSE_FILE,212,13,13,13,NOT WS_TABSTOP
     GROUPBOX        "汇编指令",IDC_STATIC,8,35,224,39
-    CONTROL         "&始终以句点 '.' 前缀",IDC_OPT_ASM_INSTR_DOT,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,47,102,10
+    CONTROL         "&始终以句点 '.' 前缀",IDC_OPT_ASM_INSTR_DOT,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,47,102,10
     CONTROL         "带或不带句点 '.' 前缀",IDC_STATIC,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,16,59,99,10
     GROUPBOX        "标签与标识符",IDC_STATIC,8,77,224,25,WS_GROUP
     CONTROL         "&区分大小写",IDC_OPT_ASM_CASE_Y,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,16,88,61,10
@@ -254,12 +253,9 @@ BEGIN
     CONTROL         "Spin1",IDC_OPT_ED_TAB_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,68,7,11,10
     CONTROL         "自动缩进",IDC_OPT_ED_AUTO_INDENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,24,50,10
     CONTROL         "语法着色",IDC_OPT_ED_COLOR_SYNTAX,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,8,39,54,10
-    CONTROL         "输入时检查语法",IDC_OPT_ED_AUTO_SYNTAX,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,9,97,10
-    CONTROL         "自动将指令和伪指令大写",IDC_OPT_ED_AUTO_UPPER_CASE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,24,145,10
-    CONTROL         "启动时打开新文档",IDC_OPT_ED_NEW_FILE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,39,115,10
+    CONTROL         "输入时检查语法",IDC_OPT_ED_AUTO_SYNTAX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,9,97,10
+    CONTROL         "自动将指令和伪指令大写",IDC_OPT_ED_AUTO_UPPER_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,24,145,10
+    CONTROL         "启动时打开新文档",IDC_OPT_ED_NEW_FILE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,92,39,115,10
     GROUPBOX        "Color Syntax",IDC_STATIC,8,56,224,78
     LTEXT           "元素",IDC_STATIC,16,70,26,8
     COMBOBOX        IDC_OPT_ED_ELEMENT,16,82,56,100,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -738,75 +734,75 @@ IDR_MAINFRAME MENU
 BEGIN
     POPUP "&文件"
     BEGIN
-        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&新建\tCtrl+N",                 ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",              ID_FILE_OPEN
         MENUITEM SEPARATOR
-        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",            ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",            ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&页面设置...",                    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                        ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&退出",                       ID_APP_EXIT
+        MENUITEM "&退出",                         ID_APP_EXIT
     END
     POPUP "&查看"
     BEGIN
-        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",                 ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",            ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",             ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",                ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",             ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",               ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",                 ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",                 ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
-        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                        ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                        ID_VIEW_STATUS_BAR
     END
     POPUP "&模拟器"
     BEGIN
-        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",                    ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&运行\tF5",                    ID_SYM_GO
-        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                     ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",              ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5",      ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",             ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        MENUITEM "&单步进入\tF11",                  ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",                  ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",             ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",             ID_SYM_GO_LINE
         POPUP "&中断"
         BEGIN
-            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I",    ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N",   ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",     ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G",       ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11",            ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11",        ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",                      ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9",             ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",              ID_SYM_OPTIONS
     END
     POPUP "&窗口"
     BEGIN
-        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
-        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                         ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",                        ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",                       ID_WINDOW_ARRANGE
     END
     POPUP "&帮助"
     BEGIN
-        MENUITEM "&目录",                   ID_HELP_FINDER
-        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                         ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",              ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&关于...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                      ID_APP_ABOUT
     END
 END
 
@@ -814,107 +810,107 @@ IDR_SRC65TYPE MENU
 BEGIN
     POPUP "&文件"
     BEGIN
-        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "&关闭\tCtrl+W",              ID_FILE_CLOSE
-        MENUITEM "&保存\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "&另存为...",                 ID_FILE_SAVE_AS
+        MENUITEM "&新建\tCtrl+N",                 ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",              ID_FILE_OPEN
+        MENUITEM "&关闭\tCtrl+W",                 ID_FILE_CLOSE
+        MENUITEM "&保存\tCtrl+S",                 ID_FILE_SAVE
+        MENUITEM "&另存为...",                     ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",            ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",            ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "&打印...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "打印预览",              ID_FILE_PRINT_PREVIEW
-        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&打印...\tCtrl+P",              ID_FILE_PRINT
+        MENUITEM "打印预览",                        ID_FILE_PRINT_PREVIEW
+        MENUITEM "&页面设置...",                    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                        ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&退出",                       ID_APP_EXIT
+        MENUITEM "&退出",                         ID_APP_EXIT
     END
     POPUP "&编辑"
     BEGIN
-        MENUITEM "&撤销\tCtrl+Z",               ID_EDIT_UNDO
-        MENUITEM "&重做\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM "&撤销\tCtrl+Z",                 ID_EDIT_UNDO
+        MENUITEM "&重做\tCtrl+Y",                 ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "剪切\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&复制\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&粘贴\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&删除\tDel",                ID_EDIT_DELETE
-        MENUITEM "全选\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM "剪切\tCtrl+X",                  ID_EDIT_CUT
+        MENUITEM "&复制\tCtrl+C",                 ID_EDIT_COPY
+        MENUITEM "&粘贴\tCtrl+V",                 ID_EDIT_PASTE
+        MENUITEM "&删除\tDel",                    ID_EDIT_DELETE
+        MENUITEM "全选\tCtrl+A",                  ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "&切换书签\tCtrl+F2",   ID_EDIT_TOGGLE_BOOKMARK
-        MENUITEM "转到书签\tF2",         ID_EDIT_GOTO_NEXT_BOOKMARK
+        MENUITEM "&切换书签\tCtrl+F2",              ID_EDIT_TOGGLE_BOOKMARK
+        MENUITEM "转到书签\tF2",                    ID_EDIT_GOTO_NEXT_BOOKMARK
         MENUITEM SEPARATOR
-        MENUITEM "&查找...\tCtrl+F",            ID_EDIT_FIND
-        MENUITEM "查找下一个\tCtrl+G",          ID_EDIT_REPEAT
-        MENUITEM "&替换...\tCtrl+R",         ID_EDIT_REPLACE
+        MENUITEM "&查找...\tCtrl+F",              ID_EDIT_FIND
+        MENUITEM "查找下一个\tCtrl+G",               ID_EDIT_REPEAT
+        MENUITEM "&替换...\tCtrl+R",              ID_EDIT_REPLACE
         MENUITEM SEPARATOR
         POPUP "&高级"
         BEGIN
-            MENUITEM "&缩进选中\tTab",      ID_EDIT_TAB
-            MENUITEM "&取消缩进\tShift+Tab", ID_EDIT_UNTAB
-            MENUITEM "&显示空白字符\tAlt+Ins",   ID_EDIT_VIEW_TABS
+            MENUITEM "&缩进选中\tTab",                  ID_EDIT_TAB
+            MENUITEM "&取消缩进\tShift+Tab",            ID_EDIT_UNTAB
+            MENUITEM "&显示空白字符\tAlt+Ins",            ID_EDIT_VIEW_TABS
         END
     END
     POPUP "&查看"
     BEGIN
-        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",                 ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",            ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",             ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",                ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",             ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",               ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",                 ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",                 ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
-        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                        ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                        ID_VIEW_STATUS_BAR
     END
     POPUP "&模拟器"
     BEGIN
-        MENUITEM "&汇编\tF7",               ID_SYM_ASSEMBLE
+        MENUITEM "&汇编\tF7",                     ID_SYM_ASSEMBLE
         MENUITEM SEPARATOR
-        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",                    ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&运行\tF5",                    ID_SYM_GO
-        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                     ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",              ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5",      ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",             ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        MENUITEM "&单步进入\tF11",                  ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",                  ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",             ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",             ID_SYM_GO_LINE
         POPUP "&生成中断"
         BEGIN
-            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I",    ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N",   ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",     ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G",       ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11",            ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11",        ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",                      ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9",             ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",              ID_SYM_OPTIONS
     END
     POPUP "&窗口"
     BEGIN
-        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
-        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                         ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",                        ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",                       ID_WINDOW_ARRANGE
     END
     POPUP "&帮助"
     BEGIN
-        MENUITEM "&目录",                   ID_HELP_FINDER
-        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                         ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",              ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&关于...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                      ID_APP_ABOUT
     END
 END
 
@@ -922,87 +918,87 @@ IDR_DEASM65TYPE MENU
 BEGIN
     POPUP "&文件"
     BEGIN
-        MENUITEM "&新建\tCtrl+N",                ID_FILE_NEW
-        MENUITEM "&打开...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "&关闭\tCtrl+W",              ID_FILE_CLOSE
-        MENUITEM "&保存\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "&另存为...",                 ID_FILE_SAVE_AS
+        MENUITEM "&新建\tCtrl+N",                 ID_FILE_NEW
+        MENUITEM "&打开...\tCtrl+O",              ID_FILE_OPEN
+        MENUITEM "&关闭\tCtrl+W",                 ID_FILE_CLOSE
+        MENUITEM "&保存\tCtrl+S",                 ID_FILE_SAVE
+        MENUITEM "&另存为...",                     ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&加载代码...\tCtrl+L",       ID_FILE_OPEN_CODE
-        MENUITEM "&保存代码...\tCtrl+K",       ID_FILE_SAVE_CODE
+        MENUITEM "&加载代码...\tCtrl+L",            ID_FILE_OPEN_CODE
+        MENUITEM "&保存代码...\tCtrl+K",            ID_FILE_SAVE_CODE
         MENUITEM SEPARATOR
-        MENUITEM "&打印...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "打印预览",              ID_FILE_PRINT_PREVIEW
-        MENUITEM "&页面设置...",              ID_FILE_PRINT_SETUP
+        MENUITEM "&打印...\tCtrl+P",              ID_FILE_PRINT
+        MENUITEM "打印预览",                        ID_FILE_PRINT_PREVIEW
+        MENUITEM "&页面设置...",                    ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
-        MENUITEM "最近文件",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "最近文件",                        ID_FILE_MRU_FILE1, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&退出",                       ID_APP_EXIT
+        MENUITEM "&退出",                         ID_APP_EXIT
     END
     POPUP "&编辑"
     BEGIN
-        MENUITEM "&查找...\tCtrl+F",            ID_EDIT_FIND
-        MENUITEM "查找下一个\tCtrl+G",          ID_EDIT_REPEAT
+        MENUITEM "&查找...\tCtrl+F",              ID_EDIT_FIND
+        MENUITEM "查找下一个\tCtrl+G",               ID_EDIT_REPEAT
     END
     POPUP "&查看"
     BEGIN
-        MENUITEM "&反汇编\tAlt+0",        ID_VIEW_DEASM
+        MENUITEM "&反汇编\tAlt+0",                 ID_VIEW_DEASM
         MENUITEM SEPARATOR
-        MENUITEM "6502 &寄存器\tAlt+1",      ID_VIEW_REGISTERBAR
-        MENUITEM "6502 &内存\tAlt+2",         ID_VIEW_MEMORY
-        MENUITEM "&零页内存\tAlt+3",    ID_VIEW_ZEROPAGEBAR
-        MENUITEM "6502 &堆栈\tAlt+4",          ID_VIEW_STACK
-        MENUITEM "输&入/输出\tAlt+5",        ID_VIEW_IO_WINDOW
-        MENUITEM "&标识符\tAlt+6",         ID_VIEW_IDENT
-        MENUITEM "命令日志\tAlt+7",          ID_VIEW_LOG
+        MENUITEM "6502 &寄存器\tAlt+1",            ID_VIEW_REGISTERBAR
+        MENUITEM "6502 &内存\tAlt+2",             ID_VIEW_MEMORY
+        MENUITEM "&零页内存\tAlt+3",                ID_VIEW_ZEROPAGEBAR
+        MENUITEM "6502 &堆栈\tAlt+4",             ID_VIEW_STACK
+        MENUITEM "输&入/输出\tAlt+5",               ID_VIEW_IO_WINDOW
+        MENUITEM "&标识符\tAlt+6",                 ID_VIEW_IDENT
+        MENUITEM "命令日志\tAlt+7",                 ID_VIEW_LOG
         MENUITEM SEPARATOR
-        MENUITEM "&工具栏",                    ID_VIEW_TOOLBAR
-        MENUITEM "&状态栏",                  ID_VIEW_STATUS_BAR
+        MENUITEM "&工具栏",                        ID_VIEW_TOOLBAR
+        MENUITEM "&状态栏",                        ID_VIEW_STATUS_BAR
     END
     POPUP "&模拟器"
     BEGIN
-        MENUITEM "&汇编\tF7",               ID_SYM_ASSEMBLE
+        MENUITEM "&汇编\tF7",                     ID_SYM_ASSEMBLE
         MENUITEM SEPARATOR
-        MENUITEM "&调试器\tF6",               ID_SYM_DEBUG
+        MENUITEM "&调试器\tF6",                    ID_SYM_DEBUG
         MENUITEM SEPARATOR
-        MENUITEM "&运行\tF5",                    ID_SYM_GO
-        MENUITEM "&逐步执行\tCtrl+F5",           ID_SYM_ANIMATE
-        MENUITEM "&重新启动程序\tCtrl+Shift+F5", ID_SYM_RESTART
-        MENUITEM "&停止\tCtrl+Break",          ID_SYM_BREAK
+        MENUITEM "&运行\tF5",                     ID_SYM_GO
+        MENUITEM "&逐步执行\tCtrl+F5",              ID_SYM_ANIMATE
+        MENUITEM "&重新启动程序\tCtrl+Shift+F5",      ID_SYM_RESTART
+        MENUITEM "&停止\tCtrl+Break",             ID_SYM_BREAK
         MENUITEM SEPARATOR
-        MENUITEM "&单步进入\tF11",             ID_SYM_STEP_INTO
-        MENUITEM "单步跳&过\tF10",             ID_SYM_STEP_OVER
-        MENUITEM "运行到返回\tCtrl+F11",  ID_SYM_GO_RTS
-        MENUITEM "运行到光标\tCtrl+F10",    ID_SYM_GO_LINE
+        MENUITEM "&单步进入\tF11",                  ID_SYM_STEP_INTO
+        MENUITEM "单步跳&过\tF10",                  ID_SYM_STEP_OVER
+        MENUITEM "运行到返回\tCtrl+F11",             ID_SYM_GO_RTS
+        MENUITEM "运行到光标\tCtrl+F10",             ID_SYM_GO_LINE
         POPUP "&生成中断"
         BEGIN
-            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I", ID_SYM_GEN_IRQ
-            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N", ID_SYM_GEN_NMI
-            MENUITEM "&复位 (RST)\tCtrl+Shift+R",  ID_SYM_GEN_RST
+            MENUITEM "&可屏蔽 (IRQ)\tCtrl+Shift+I",    ID_SYM_GEN_IRQ
+            MENUITEM "&不可屏蔽 (NMI)\tCtrl+Shift+N",   ID_SYM_GEN_NMI
+            MENUITEM "&复位 (RST)\tCtrl+Shift+R",     ID_SYM_GEN_RST
             MENUITEM SEPARATOR
-            MENUITEM "&生成器...\tCtrl+Shift+G", ID_SYM_GEN_INT
+            MENUITEM "&生成器...\tCtrl+Shift+G",       ID_SYM_GEN_INT
         END
         MENUITEM SEPARATOR
-        MENUITEM "&跳过指令\tShift+F11", ID_SYM_SKIP_INSTR
-        MENUITEM "跳到光标\tCtrl+Shift+F11", ID_SYM_SKIP_TO_LINE
+        MENUITEM "&跳过指令\tShift+F11",            ID_SYM_SKIP_INSTR
+        MENUITEM "跳到光标\tCtrl+Shift+F11",        ID_SYM_SKIP_TO_LINE
         MENUITEM SEPARATOR
-        MENUITEM "断点\tF9",             ID_SYM_BREAKPOINT
-        MENUITEM "断点参数...\tAlt+F9", ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "断点\tF9",                      ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...\tAlt+F9",             ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "&选项...\tCtrl+E",         ID_SYM_OPTIONS
+        MENUITEM "&选项...\tCtrl+E",              ID_SYM_OPTIONS
     END
     POPUP "&窗口"
     BEGIN
-        MENUITEM "&层叠",                    ID_WINDOW_CASCADE
-        MENUITEM "水平平铺",          ID_WINDOW_TILE_HORZ
-        MENUITEM "&垂直平铺",            ID_WINDOW_ARRANGE
+        MENUITEM "&层叠",                         ID_WINDOW_CASCADE
+        MENUITEM "水平平铺",                        ID_WINDOW_TILE_HORZ
+        MENUITEM "&垂直平铺",                       ID_WINDOW_ARRANGE
     END
     POPUP "&帮助"
     BEGIN
-        MENUITEM "&目录",                   ID_HELP_FINDER
-        MENUITEM "&动态帮助\tCtrl+F1",      ID_HELP_DYNAMIC
+        MENUITEM "&目录",                         ID_HELP_FINDER
+        MENUITEM "&动态帮助\tCtrl+F1",              ID_HELP_DYNAMIC
         MENUITEM SEPARATOR
-        MENUITEM "&关于...",                   ID_APP_ABOUT
+        MENUITEM "&关于...",                      ID_APP_ABOUT
     END
 END
 
@@ -1010,11 +1006,11 @@ IDR_POPUP_DEASM6502 MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&从地址显示...",    ID_DEASM_GOTO
+        MENUITEM "&从地址显示...",                   ID_DEASM_GOTO
         MENUITEM SEPARATOR
-        MENUITEM "&保存程序...",            ID_FILE_SAVE_AS
+        MENUITEM "&保存程序...",                    ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "反汇编选项...",     ID_DEASM_OPTIONS
+        MENUITEM "反汇编选项...",                    ID_DEASM_OPTIONS
     END
 END
 
@@ -1022,14 +1018,14 @@ IDR_POPUP_EDIT MENU
 BEGIN
     POPUP "- POPUP -"
     BEGIN
-        MENUITEM "剪切",                        ID_EDIT_CUT
-        MENUITEM "复制",                       ID_EDIT_COPY
-        MENUITEM "粘贴",                      ID_EDIT_PASTE
+        MENUITEM "剪切",                          ID_EDIT_CUT
+        MENUITEM "复制",                          ID_EDIT_COPY
+        MENUITEM "粘贴",                          ID_EDIT_PASTE
         MENUITEM SEPARATOR
-        MENUITEM "切换断点",          ID_SYM_BREAKPOINT
-        MENUITEM "断点参数...",   ID_SYM_EDIT_BREAKPOINT
+        MENUITEM "切换断点",                        ID_SYM_BREAKPOINT
+        MENUITEM "断点参数...",                     ID_SYM_EDIT_BREAKPOINT
         MENUITEM SEPARATOR
-        MENUITEM "编辑器选项...",          ID_EDITOR_OPT
+        MENUITEM "编辑器选项...",                    ID_EDITOR_OPT
     END
 END
 
@@ -1037,14 +1033,14 @@ IDR_POPUP_MEMORY MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&从地址显示...",    ID_MEMORY_GOTO
-        MENUITEM "&修改内存字节...",     ID_MEMORY_CHG
+        MENUITEM "&从地址显示...",                   ID_MEMORY_GOTO
+        MENUITEM "&修改内存字节...",                  ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "内存窗口选项...",   ID_MEMORY_OPTIONS
+        MENUITEM "内存窗口选项...",                   ID_MEMORY_OPTIONS
         MENUITEM SEPARATOR
-        MENUITEM "显示十六进制和文本",        ID_MEMORY_FULL
-        MENUITEM "仅显示十六进制",           ID_MEMORY_HEX
-        MENUITEM "仅显示文本",          ID_MEMORY_TEXT
+        MENUITEM "显示十六进制和文本",                   ID_MEMORY_FULL
+        MENUITEM "仅显示十六进制",                     ID_MEMORY_HEX
+        MENUITEM "仅显示文本",                       ID_MEMORY_TEXT
     END
 END
 
@@ -1052,10 +1048,10 @@ IDR_POPUP_ZPMEMORY MENU
 BEGIN
     POPUP "_POPUP_"
     BEGIN
-        MENUITEM "&从地址显示...",    ID_MEMORY_GOTO
-        MENUITEM "&修改内存字节...",     ID_MEMORY_CHG
+        MENUITEM "&从地址显示...",                   ID_MEMORY_GOTO
+        MENUITEM "&修改内存字节...",                  ID_MEMORY_CHG
         MENUITEM SEPARATOR
-        MENUITEM "内存窗口选项...",   ID_MEMORY_OPTIONS
+        MENUITEM "内存窗口选项...",                   ID_MEMORY_OPTIONS
     END
 END
 
@@ -1063,7 +1059,7 @@ IDR_POPUP_TERMINAL MENU
 BEGIN
     POPUP "- POPUP -"
     BEGIN
-        MENUITEM "粘贴文本\tIns",            ID_PASTE
+        MENUITEM "粘贴文本\tIns",                   ID_PASTE
     END
 END
 
@@ -1307,6 +1303,17 @@ BEGIN
 0x7453, 0x6972, 0x676e, 0x0073, 
     IDC_OPT_ED_ELEMENT, 0x403, 10, 0
 0x6553, 0x656c, 0x7463, 0x6f69, 0x006e, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
     0
 END
 

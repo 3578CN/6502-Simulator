@@ -193,10 +193,10 @@ void CDeasm6502Doc::DeassembleSave(CArchive &ar, const CContext &ctx, UINT16 sta
       {
 	UINT16 addr= (UINT16)ctx.mem[ptr+2 & 0xFFFF] << UINT16(8);
 	addr += ctx.mem[ptr+1 & 0xFFFF];
-        if (addr >= start && addr <= end)
-	  info[addr] |= TXT;
-        else
-	  info[addr] |= ABS;
+    if (addr >= start && addr <= end)
+  	info[addr] |= TXT | ABS;
+    else
+  	info[addr] |= ABS;
 	break;
       }
       case A_REL:	// relative

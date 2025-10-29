@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
-// Used by 6502.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 6502.rc 使用
 //
 #define IDR_MANIFEST                    1
 #define IDD_ABOUTBOX                    100
@@ -240,7 +240,6 @@
 #define IDS_STACK                       1580
 #define IDC_SAVE_CODE_OPT               2000
 #define IDC_6502                        2100
-#define IDC_EMAIL                       2101
 #define IDC_ADDR                        2103
 #define IDC_DATA                        2105
 #define IDC_GEN_IRQ                     2107

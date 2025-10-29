@@ -1,4 +1,4 @@
-// Microsoft Visual C++ generated resource script.
+﻿// Microsoft Visual C++ generated resource script.
 //
 #pragma code_page(65001)
 
@@ -1425,299 +1425,299 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_ASM_ERR_26          ".ENDIF directive without pairing .IF"
-    IDS_ASM_ERR_27          ".ELSE directive without pairing .IF"
-    IDS_ASM_ERR_28          "Missing .ENDIF directive"
-    IDS_ASM_ERR_29          "Local label not allowed - global label expected"
-    IDS_ASM_ERR_30          "Missing label"
-    IDS_ASM_ERR_31          "Assembly stopped"
-    IDS_ASM_ERR_32          "Missing .ORG directive--undetermined program begining address"
-    IDS_ASM_ERR_33          "Missing macro name label"
-    IDS_ASM_ERR_34          "Repeated macro parameter name"
-    IDS_ASM_ERR_35          "Nested macrodefiniiton not allowed"
-    IDS_ASM_ERR_36          "Missing .ENDM directive ending macrodefinition"
-    IDS_ASM_ERR_37          "Unrecognized instruction/directive/macro name"
-    IDS_ASM_ERR_38          "Not enough parameters in macro call"
-    IDS_ASM_ERR_39          ".ENDM directive without pairing .MACRO"
-    IDS_ASM_ERR_40          ".EXITM directive outside macrodefinition not allowed"
-    IDS_ASM_ERR_41          "Text expression not allowed"
+    IDS_ASM_ERR_26          ".ENDIF 指令没有对应的 .IF"
+    IDS_ASM_ERR_27          ".ELSE 指令没有对应的 .IF"
+    IDS_ASM_ERR_28          "缺少 .ENDIF 指令"
+    IDS_ASM_ERR_29          "不允许使用局部标签——期望全局标签"
+    IDS_ASM_ERR_30          "缺少标签"
+    IDS_ASM_ERR_31          "汇编已停止"
+    IDS_ASM_ERR_32          "缺少 .ORG 指令——程序起始地址未确定"
+    IDS_ASM_ERR_33          "缺少宏名称标签"
+    IDS_ASM_ERR_34          "重复的宏参数名称"
+    IDS_ASM_ERR_35          "不允许嵌套的宏定义"
+    IDS_ASM_ERR_36          "缺少结束宏定义的 .ENDM 指令"
+    IDS_ASM_ERR_37          "无法识别的指令/伪指令/宏 名称"
+    IDS_ASM_ERR_38          "宏调用参数不足"
+    IDS_ASM_ERR_39          ".ENDM 指令没有对应的 .MACRO"
+    IDS_ASM_ERR_40          ".EXITM 指令在宏定义外不允许"
+    IDS_ASM_ERR_41          "不允许文本表达式"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ASM_ERR_10          "Missing index register X"
-    IDS_ASM_ERR_11          "Missing index register Y"
-    IDS_ASM_ERR_12          "Expected comma ',' or round bracket ')'"
-    IDS_ASM_ERR_13          "Missing round bracket ')'"
-    IDS_ASM_ERR_14          "Expected round bracket '('"
-    IDS_ASM_ERR_15          "Divide by zero in expression"
-    IDS_ASM_ERR_16          "Missing square bracket ']' closing expression"
-    IDS_ASM_ERR_17          "Missing constant value (number, label, function or '*')"
-    IDS_ASM_ERR_18          "Redefinition - label already defined"
-    IDS_ASM_ERR_19          "Indeterminate expression value"
-    IDS_ASM_ERR_20          "Wrapped program counter"
-    IDS_ASM_ERR_21          "Undefined label"
-    IDS_ASM_ERR_22          "Phase error--inconsistent label value between passes"
-    IDS_ASM_ERR_23          "Relative address out of range"
-    IDS_ASM_ERR_24          "Addressing mode not allowed"
-    IDS_ASM_ERR_25          "Missing string"
+    IDS_ASM_ERR_10          "缺少索引寄存器 X"
+    IDS_ASM_ERR_11          "缺少索引寄存器 Y"
+    IDS_ASM_ERR_12          "期望逗号 ',' 或右圆括号 ')'"
+    IDS_ASM_ERR_13          "缺少右圆括号 ')'"
+    IDS_ASM_ERR_14          "期望左圆括号 '('"
+    IDS_ASM_ERR_15          "表达式中除以零"
+    IDS_ASM_ERR_16          "缺少右方括号 ']' 以闭合表达式"
+    IDS_ASM_ERR_17          "缺少常量值（数字、标签、函数或 '*'）"
+    IDS_ASM_ERR_18          "重定义 - 标签已定义"
+    IDS_ASM_ERR_19          "表达式值不确定"
+    IDS_ASM_ERR_20          "程序计数器已回绕"
+    IDS_ASM_ERR_21          "未定义的标签"
+    IDS_ASM_ERR_22          "相位错误——多次传递中标签值不一致"
+    IDS_ASM_ERR_23          "相对地址超出范围"
+    IDS_ASM_ERR_24          "寻址方式不允许"
+    IDS_ASM_ERR_25          "缺少字符串"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ASM_FORM1           "ERROR E%03d: %s. ROW %d, FILE %s"
-    IDS_ASM_FORM2           "ERROR E%03d: %s. FILE %s"
-    IDS_ASM_FORM3           "ERROR E%03d: %s."
-    IDS_ASM_FORM4           "ERROR E%03d: %s '%s'. ROW %d, FILE %s"
-    IDS_ASM_FORM5           "USER DEF ERROR: %s. ROW %d, FILE %s"
-    IDS_ASM_FORM6           "USER DEF ERROR. ROW %d, FILE %s"
-    IDS_ASM_ERR_MSG_FIRST   "No errors encountered"
-    IDS_ASM_ERR_01          "Unexpected data after instruction/label--comment or <CR> expected"
-    IDS_ASM_ERR_02          "Unrecognized data--space or label expected"
-    IDS_ASM_ERR_03          "Out of memory"
-    IDS_ASM_ERR_04          "Error reading file"
-    IDS_ASM_ERR_05          "Number exceeds 16-bit integer range"
-    IDS_ASM_ERR_06          "Value doesn't fit in single byte"
-    IDS_ASM_ERR_07          "Illegal negative value"
-    IDS_ASM_ERR_08          "Illegal data--instruction, comment or <CR> expected"
-    IDS_ASM_ERR_09          "Missing index register (X or Y)"
+    IDS_ASM_FORM1           "错误 E%03d: %s。 行 %d，文件 %s"
+    IDS_ASM_FORM2           "错误 E%03d: %s。 文件 %s"
+    IDS_ASM_FORM3           "错误 E%03d: %s。"
+    IDS_ASM_FORM4           "错误 E%03d: %s '%s'。 行 %d，文件 %s"
+    IDS_ASM_FORM5           "用户定义错误：%s。 行 %d，文件 %s"
+    IDS_ASM_FORM6           "用户定义错误。 行 %d，文件 %s"
+    IDS_ASM_ERR_MSG_FIRST   "未发现错误"
+    IDS_ASM_ERR_01          "指令/标签后出现意外数据——期望注释或换行符 (<CR>)"
+    IDS_ASM_ERR_02          "无法识别的数据——期望空格或标签"
+    IDS_ASM_ERR_03          "内存不足"
+    IDS_ASM_ERR_04          "读取文件出错"
+    IDS_ASM_ERR_05          "数字超出 16 位整数范围"
+    IDS_ASM_ERR_06          "值不能放入单字节"
+    IDS_ASM_ERR_07          "非法的负值"
+    IDS_ASM_ERR_08          "非法数据——期望指令、注释或换行符 (<CR>)"
+    IDS_ASM_ERR_09          "缺少索引寄存器 (X 或 Y)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_SYM_GEN_RST          "Generates reset signal (RST)\nReset 6502 (Ctrl+Shift+R)"
-    ID_SYM_GEN_INT          "Interrupt Generator\nInterrupt Generator (Ctrl+Shift+G)"
-    ID_SYM_SKIP_INSTR       "Skips current instruction\nSkip (Shift+F11)"
-    ID_SYM_SKIP_TO_LINE     "Skips to the line containing the cursor\nSkip to cursor"
-    ID_SYM_BREAK            "Stops running program\nStop (Ctrl+Break)"
-    ID_SYM_RESTART          "Reload and restart program\nRestart (Ctrl+Shift+F5)"
-    ID_SYM_EDIT_BREAKPOINT  "Set breakpoint parameters\nBreakpoint parameters"
-    ID_SYM_ANIMATE          "Execute program step by step\nAnimate (Ctrl+F5)"
+    ID_SYM_GEN_RST          "生成复位信号 (RST)\n复位 6502 (Ctrl+Shift+R)"
+    ID_SYM_GEN_INT          "中断生成器\n中断生成器 (Ctrl+Shift+G)"
+    ID_SYM_SKIP_INSTR       "跳过当前指令\n跳过 (Shift+F11)"
+    ID_SYM_SKIP_TO_LINE     "跳到包含光标的行\n跳到光标"
+    ID_SYM_BREAK            "停止正在运行的程序\n停止 (Ctrl+Break)"
+    ID_SYM_RESTART          "重新加载并重启程序\n重新启动 (Ctrl+Shift+F5)"
+    ID_SYM_EDIT_BREAKPOINT  "设置断点参数\n断点参数"
+    ID_SYM_ANIMATE          "按步执行程序\n逐步执行 (Ctrl+F5)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_SYM_DEBUG            "Debugger mode - program runing & tracing\nDebugger (F6)"
-    ID_SYM_GO               "Runs program\nRun (F5)"
-    ID_SYM_STEP_INTO        "Steps into the next statement\nStep into (F11)"
-    ID_SYM_ASSEMBLE         "Assemble active document\nAssemble (F7)"
-    ID_SYM_OPTIONS          "Change application options"
-    ID_SYM_STEP_OVER        "Steps over the next statement\nStep over (F10)"
-    ID_SYM_GO_RTS           "Runs program till return from subroutine\nRun till return (Ctrl+F11)"
-    ID_SYM_GO_LINE          "Runs program to the line containing the cursor\nRun to cursor (Ctrl+F10)"
-    ID_SYM_DEBUG_STOP       "Exits debugger mode\nExit debugger (Shift+F5)"
-    ID_SYM_BREAKPOINT       "Sets or clears breakpoint\nToggle breakpoint (F9)"
-    ID_SYM_GEN_IRQ          "Generates interrupt request (IRQ)\nGenerate IRQ (Ctrl+Shift+I)"
-    ID_SYM_GEN_NMI          "Generates nonmaskable interrupt request (NMI)\nGenerate NMI (Ctrl+Shift+N)"
+    ID_SYM_DEBUG            "调试器模式 - 程序运行与跟踪\n调试器 (F6)"
+    ID_SYM_GO               "运行程序\n运行 (F5)"
+    ID_SYM_STEP_INTO        "单步进入下一个语句\n单步进入 (F11)"
+    ID_SYM_ASSEMBLE         "汇编活动文档\n汇编 (F7)"
+    ID_SYM_OPTIONS          "更改程序选项"
+    ID_SYM_STEP_OVER        "单步跳过下一个语句\n单步跳过 (F10)"
+    ID_SYM_GO_RTS           "运行程序直到从子程序返回\n运行到返回 (Ctrl+F11)"
+    ID_SYM_GO_LINE          "运行程序到包含光标的行\n运行到光标 (Ctrl+F10)"
+    ID_SYM_DEBUG_STOP       "退出调试模式\n退出调试器 (Shift+F5)"
+    ID_SYM_BREAKPOINT       "设置或清除断点\n切换断点 (F9)"
+    ID_SYM_GEN_IRQ          "生成中断请求 (IRQ)\n生成 IRQ (Ctrl+Shift+I)"
+    ID_SYM_GEN_NMI          "生成不可屏蔽中断请求 (NMI)\n生成 NMI (Ctrl+Shift+N)"
 END
 
 STRINGTABLE
 BEGIN
-    IDC_REGS_CYCLES_CLR     "Clear 6502 ÂµP clock cycles counter\nClear clock cycles counter"
-    IDC_REGS_CYCLES         "Number of 6502 ÂµP clock cycles utilized by traced instructions\nNo of clock cycles"
-    IDS_REGS_S_EMPTY        "- empty stack -"
+    IDC_REGS_CYCLES_CLR     "清除 6502 微处理器 时钟周期计数器\n清除时钟周期计数器"
+    IDC_REGS_CYCLES         "被跟踪指令使用的 6502 微处理器 时钟周期数\n时钟周期数"
+    IDS_REGS_S_EMPTY        "- 空堆栈 -"
 END
 
 STRINGTABLE
 BEGIN
-    IDC_REGS_P              "6502 ÂµP Flags Register\nFlags Register"
-    IDC_REGS_PC             "6502 ÂµP Program Counter Register\nProgram Counter Register"
-    IDC_REGS_A_MEM          "Accumulator as decimal, character & binary\nAccumulator dec/char/bin"
-    IDC_REGS_X_MEM          "X register as decimal, character & binary\nX register dec/char/bin"
-    IDC_REGS_Y_MEM          "Y register as decimal, character & binary\nY register dec/char/bin"
-    IDC_REGS_S_MEM          "Top of 6502 ÂµP stack\nTop of stack"
-    IDC_REGS_INSTR          "Current 6502 ÂµP instruction (pointed by PC)\nCurrent instruction"
-    IDC_REGS_NEG            "Sign flag (Negative) of 6502 ÂµP flags register\nNegative"
-    IDC_REGS_ZERO           "Zero flag (Zero) of 6502 ÂµP flags register\nZero"
-    IDC_REGS_OVER           "Overflow flag (Overflow) of 6502 ÂµP flags register\nOverflow"
-    IDC_REGS_CARRY          "Carry/borrow flag (Carry) of 6502 ÂµP flags register\nCarry"
-    IDC_REGS_INT            "Interrupt mask bit (Interrupt) of 6502 ÂµP flags register\nInterrupt"
-    IDC_REGS_BRK            "Software interrupt flag (Break) of 6502 ÂµP flags register\nBreak"
-    IDC_REGS_DEC            "Decimal calculations flag (Decimal) of 6502 ÂµP flags register\nDecimal"
-    IDC_REGS_INSTR_ARG      "Current instruction argument\nCurrent argument"
-    IDC_REGS_STAT           "Current 6502 ÂµP simulator state\nSimulator state"
+    IDC_REGS_P              "6502 微处理器 标志寄存器\n标志寄存器"
+    IDC_REGS_PC             "6502 微处理器 程序计数器寄存器\n程序计数器寄存器"
+    IDC_REGS_A_MEM          "累加器的十进制/字符/二进制表示\n累加器 (十/字符/二进制)"
+    IDC_REGS_X_MEM          "X 寄存器的十进制/字符/二进制表示\nX 寄存器 (十/字符/二进制)"
+    IDC_REGS_Y_MEM          "Y 寄存器的十进制/字符/二进制表示\nY 寄存器 (十/字符/二进制)"
+    IDC_REGS_S_MEM          "6502 微处理器 堆栈顶\n堆栈顶"
+    IDC_REGS_INSTR          "当前 6502 微处理器 指令（由 PC 指向）\n当前指令"
+    IDC_REGS_NEG            "6502 微处理器 标志寄存器的符号标志 (Negative)\n符号"
+    IDC_REGS_ZERO           "6502 微处理器 标志寄存器的零标志 (Zero)\n零"
+    IDC_REGS_OVER           "6502 微处理器 标志寄存器的溢出标志 (Overflow)\n溢出"
+    IDC_REGS_CARRY          "6502 微处理器 标志寄存器的进位/借位标志 (Carry)\n进位"
+    IDC_REGS_INT            "6502 微处理器 标志寄存器的中断屏蔽位 (Interrupt)\n中断"
+    IDC_REGS_BRK            "6502 微处理器 标志寄存器的软件中断标志 (Break)\nBreak"
+    IDC_REGS_DEC            "6502 微处理器 标志寄存器的十进制运算标志 (Decimal)\n十进制"
+    IDC_REGS_INSTR_ARG      "当前指令参数\n当前参数"
+    IDC_REGS_STAT           "当前 6502 微处理器 模拟器 状态\n模拟器状态"
 END
 
 STRINGTABLE
 BEGIN
-    IDC_REGS_A              "6502 ÂµP Accumulator\nAccumulator"
-    IDC_REGS_X              "6502 ÂµP X Register\nX Register"
-    IDC_REGS_Y              "6502 ÂµP Y Register\nY Register"
-    IDC_REGS_S              "6502 ÂµP Stack Pointer Register\nStack Pointer Register"
+    IDC_REGS_A              "6502 微处理器 累加器\n累加器"
+    IDC_REGS_X              "6502 微处理器 X 寄存器\nX 寄存器"
+    IDC_REGS_Y              "6502 微处理器 Y 寄存器\nY 寄存器"
+    IDC_REGS_S              "6502 微处理器 堆栈指针寄存器\n堆栈指针寄存器"
 END
 
 STRINGTABLE
 BEGIN
-    IDD_REGISTERBAR         "6502 ÂµP Registers & Status"
-    IDD_ZEROPAGEBAR         "Zero Page"
+    IDD_REGISTERBAR         "6502 微处理器 寄存器与状态"
+    IDD_ZEROPAGEBAR         "零页"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SYM_STAT_FIN        "Program finished"
-    IDS_OPTIONS             "Options"
-    IDS_SRC_NO_CODE2        "Current row doesn't contain machine code.\nRun to cursor not possible."
-    IDS_SRC_NO_CODE3        "Current row doesn't contain machine code.\nSkip to cursor not possible."
-    IDS_SRC_DATA            "Current row contains data, not code.\nContinue anyway?"
-    IDS_MAINFRM_PROG_RUNNING "Stop simulator and exit application?"
-    IDS_MSG_HEX_STR         "Please enter four digit hexadecimal number."
-    IDS_IDENT_TITLE         "Identifiers"
-    IDS_IDENT_COL_NAME      "Name"
-    IDS_IDENT_COL_VALUE     "Value"
-    IDS_IDENT_COL_AREA      "Range"
-    IDS_IDENT_GLOBAL        "global"
-    IDS_MEMORY_TITLE        "6502 ÂµP Memory"
-    IDS_IO_WINDOW           "In/Out Window"
-    IDS_SAVE_CODE           "Intel-HEX format (*.65h;*.hex)|*.65h;*.hex|Motorola s-rekord format (*.65m; *.s9)|*.65m;*.s9|Binary image (*.65b)|*.65b|Binary program (*.65p)|*.65p||"
-    IDS_MSG_BAD_DEC_HEX_NUM "Please enter hexadecimal number proceded by '$' or '0x' characters or decimal number."
+    IDS_SYM_STAT_FIN        "程序已完成"
+    IDS_OPTIONS             "选项"
+    IDS_SRC_NO_CODE2        "当前行不包含机器代码。\n无法执行到光标。"
+    IDS_SRC_NO_CODE3        "当前行不包含机器代码。\n无法跳到光标。"
+    IDS_SRC_DATA            "当前行包含数据，而非代码。\n仍然继续？"
+    IDS_MAINFRM_PROG_RUNNING "停止模拟器并退出应用程序？"
+    IDS_MSG_HEX_STR         "请输入四位十六进制数。"
+    IDS_IDENT_TITLE         "标识符"
+    IDS_IDENT_COL_NAME      "名称"
+    IDS_IDENT_COL_VALUE     "值"
+    IDS_IDENT_COL_AREA      "范围"
+    IDS_IDENT_GLOBAL        "全局"
+    IDS_MEMORY_TITLE        "6502 微处理器 内存"
+    IDS_IO_WINDOW           "输入/输出 窗口"
+    IDS_SAVE_CODE           "Intel-HEX 格式 (*.65h;*.hex)|*.65h;*.hex|Motorola S-记录 格式 (*.65m;*.s9)|*.65m;*.s9|二进制镜像 (*.65b)|*.65b|二进制程序 (*.65p)|*.65p||"
+    IDS_MSG_BAD_DEC_HEX_NUM "请输入以 '$' 或 '0x' 前缀的十六进制数，或十进制数。"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ASM_ERR_58          "Constant label (predefined) cannot be redefined"
-    IDS_ASM_ERR_59          "Expected valid range: first value has to be less than or equal to second value"
-    IDS_ASM_ERR_60          "Expected nonzero value"
-    IDS_SRC_NO_CODE         "Current row doesn't contain machine code.\nCannot set breakpoint."
-    IDS_SYM_STAT_STOP       "Program execution stopped"
+    IDS_ASM_ERR_58          "常量标签（预定义）不能被重新定义"
+    IDS_ASM_ERR_59          "期望有效范围：第一个值必须小于或等于第二个值"
+    IDS_ASM_ERR_60          "期望非零值"
+    IDS_SRC_NO_CODE         "当前行不包含机器代码。\n无法设置断点。"
+    IDS_SYM_STAT_STOP       "程序执行已停止"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SYM_STAT_OK         "OK"
-    IDS_SYM_STAT_BPX        "Execution stopped on breakpoint"
-    IDS_SYM_STAT_BPR        "Execution stopped on breakpoint (caused by reading)"
-    IDS_SYM_STAT_BPW        "Execution stopped on breakpoint (caused by writing)"
-    IDS_SYM_STAT_ILL        "Illegal byte code encountered"
-    IDS_SYM_STAT_RUN        "Program is running..."
-    IDS_SYM_STAT_INP_WAIT   "Program is waiting for input data..."
-    IDS_SYM_ILL_WRITE       "Protected area write attempt detected"
+    IDS_SYM_STAT_OK         "确定"
+    IDS_SYM_STAT_BPX        "在断点处停止执行"
+    IDS_SYM_STAT_BPR        "在断点处停止执行（由读取引起）"
+    IDS_SYM_STAT_BPW        "在断点处停止执行（由写入引起）"
+    IDS_SYM_STAT_ILL        "遇到非法字节码"
+    IDS_SYM_STAT_RUN        "程序正在运行..."
+    IDS_SYM_STAT_INP_WAIT   "程序正在等待输入数据..."
+    IDS_SYM_ILL_WRITE       "检测到对受保护区域的写入尝试"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_ASM_THREAD      "Starting assembly thread failed"
-    IDS_DIAL_ASM_OK         "OK"
-    IDS_ROW_COLUMN          "Ln %d, Col %d"
-    IDS_ERR_SYM_THREAD      "Starting simulator thread failed"
+    IDS_ERR_ASM_THREAD      "启动汇编线程失败"
+    IDS_DIAL_ASM_OK         "确定"
+    IDS_ROW_COLUMN          "行 %d, 列 %d"
+    IDS_ERR_SYM_THREAD      "启动模拟器线程失败"
 END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预览"
 END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_SCRESTORE       "Restore the window to normal size"
-    AFX_IDS_SCTASKLIST      "Activate Task List"
-    AFX_IDS_MDICHILD        "Activate this window"
+    AFX_IDS_SCRESTORE       "将窗口恢复为正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务列表"
+    AFX_IDS_MDICHILD        "激活此窗口"
 END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_SCSIZE          "Change the window size"
-    AFX_IDS_SCMOVE          "Change the window position"
-    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
-    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
-    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
-    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
-    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+    AFX_IDS_SCSIZE          "更改窗口大小"
+    AFX_IDS_SCMOVE          "更改窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口最小化为图标"
+    AFX_IDS_SCMAXIMIZE      "将窗口放大到最大"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到上一个文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
 END
 
 STRINGTABLE
 BEGIN
-    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
-    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
-    ID_VIEW_ZEROPAGEBAR     "Show or hide 6502 ÂµP zero page memory window\nToggle zero page memory window (Alt+3)"
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n切换工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+    ID_VIEW_ZEROPAGEBAR     "显示或隐藏 6502 微处理器 零页内存 窗口\n切换零页内存窗口 (Alt+3)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_TOGGLE_BLOCK    "Toggle collapsible block of text"
-    ID_EDIT_COLLAPSE_ALL    "Fold all collapsible text blocks"
-    ID_EDIT_EXPAND_ALL      "Expand all collapsible text blocks"
-    ID_VIEW_REGISTERBAR     "Show or hide 6502 ÂµP registers & status window\nToggle registers window (Alt+1)"
+    ID_EDIT_TOGGLE_BLOCK    "切换可折叠文本块"
+    ID_EDIT_COLLAPSE_ALL    "折叠所有可折叠文本块"
+    ID_EDIT_EXPAND_ALL      "展开所有可折叠文本块"
+    ID_VIEW_REGISTERBAR     "显示或隐藏 6502 微处理器 寄存器与状态 窗口\n切换寄存器窗口 (Alt+1)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_CLEAR           "Erase the selection\nErase (Del)"
-    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
-    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy (Ctrl+C)"
-    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut (Ctrl+X)"
-    ID_EDIT_FIND            "Find the specified text\nFind (Ctrl+F)"
-    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste (Ctrl+V)"
-    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
-    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
-    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All (Ctrl+A)"
-    ID_EDIT_UNDO            "Undo the last action\nUndo (Ctrl+Z)"
-    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+    ID_EDIT_CLEAR           "清除选定内容\n清除 (Del)"
+    ID_EDIT_CLEAR_ALL       "清除所有内容\n全部清除"
+    ID_EDIT_COPY            "复制选定内容到剪贴板\n复制 (Ctrl+C)"
+    ID_EDIT_CUT             "剪切选定内容到剪贴板\n剪切 (Ctrl+X)"
+    ID_EDIT_FIND            "查找指定文本\n查找 (Ctrl+F)"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴 (Ctrl+V)"
+    ID_EDIT_REPEAT          "重复上一个操作\n重复"
+    ID_EDIT_REPLACE         "用不同文本替换指定文本\n替换"
+    ID_EDIT_SELECT_ALL      "选择整个文档\n全选 (Ctrl+A)"
+    ID_EDIT_UNDO            "撤销上一个操作\n撤销 (Ctrl+Z)"
+    ID_EDIT_REDO            "重做刚才撤销的操作\n重做"
 END
 
 STRINGTABLE
 BEGIN
-    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
-    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
-    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
-    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
-    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
-    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+    ID_WINDOW_NEW           "为活动文档打开另一个窗口\n新窗口"
+    ID_WINDOW_ARRANGE       "在窗口底部排列图标\n排列图标"
+    ID_WINDOW_CASCADE       "以重叠方式排列窗口\n层叠窗口"
+    ID_WINDOW_TILE_HORZ     "将窗口水平平铺\n水平平铺"
+    ID_WINDOW_TILE_VERT     "将窗口垂直平铺\n垂直平铺"
+    ID_WINDOW_SPLIT         "将活动窗口拆分为窗格\n拆分"
 END
 
 STRINGTABLE
 BEGIN
-    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
-    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+    ID_NEXT_PANE            "切换到下一个窗口窗格\n下一个窗格"
+    ID_PREV_PANE            "切换回上一个窗口窗格\n上一个窗格"
 END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_MRU_FILE1       "Open this file"
-    ID_FILE_MRU_FILE2       "Open this file"
-    ID_FILE_MRU_FILE3       "Open this file"
-    ID_FILE_MRU_FILE4       "Open this file"
-    ID_FILE_MRU_FILE5       "Open this file"
-    ID_FILE_MRU_FILE6       "Open this file"
-    ID_FILE_MRU_FILE7       "Open this file"
-    ID_FILE_MRU_FILE8       "Open this file"
-    ID_FILE_MRU_FILE9       "Open this file"
-    ID_FILE_MRU_FILE10      "Open this file"
-    ID_FILE_MRU_FILE11      "Open this file"
-    ID_FILE_MRU_FILE12      "Open this file"
-    ID_FILE_MRU_FILE13      "Open this file"
-    ID_FILE_MRU_FILE14      "Open this file"
-    ID_FILE_MRU_FILE15      "Open this file"
-    ID_FILE_MRU_FILE16      "Open this file"
+    ID_FILE_MRU_FILE1       "打开此文件"
+    ID_FILE_MRU_FILE2       "打开此文件"
+    ID_FILE_MRU_FILE3       "打开此文件"
+    ID_FILE_MRU_FILE4       "打开此文件"
+    ID_FILE_MRU_FILE5       "打开此文件"
+    ID_FILE_MRU_FILE6       "打开此文件"
+    ID_FILE_MRU_FILE7       "打开此文件"
+    ID_FILE_MRU_FILE8       "打开此文件"
+    ID_FILE_MRU_FILE9       "打开此文件"
+    ID_FILE_MRU_FILE10      "打开此文件"
+    ID_FILE_MRU_FILE11      "打开此文件"
+    ID_FILE_MRU_FILE12      "打开此文件"
+    ID_FILE_MRU_FILE13      "打开此文件"
+    ID_FILE_MRU_FILE14      "打开此文件"
+    ID_FILE_MRU_FILE15      "打开此文件"
+    ID_FILE_MRU_FILE16      "打开此文件"
 END
 
 STRINGTABLE
 BEGIN
-    ID_APP_ABOUT            "Displays the application information and copyright\nAbout..."
-    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
-    ID_HELP_INDEX           "List Help topics\nHelp Index"
-    ID_HELP_FINDER          "List Help topics\nHelp Topics"
-    ID_HELP_USING           "Display instructions about how to use help\nHelp"
-    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
-    ID_HELP                 "Display help for current task or command\nHelp"
+    ID_APP_ABOUT            "显示应用程序信息与版权\n关于..."
+    ID_APP_EXIT             "退出应用程序；会提示保存文档\n退出"
+    ID_HELP_INDEX           "列出帮助主题\n帮助索引"
+    ID_HELP_FINDER          "列出帮助主题\n帮助目录"
+    ID_HELP_USING           "显示如何使用帮助的说明\n帮助"
+    ID_CONTEXT_HELP         "显示被单击控件、菜单及窗口的帮助\n帮助"
+    ID_HELP                 "显示当前任务或命令的帮助\n帮助"
 END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_SAVE_CODE       "Save machine code"
-    ID_FILE_OPEN_CODE       "Load machine code"
+    ID_FILE_SAVE_CODE       "保存机器代码"
+    ID_FILE_OPEN_CODE       "加载机器代码"
 END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_NEW             "Create a new document\nNew (Ctrl+N)"
-    ID_FILE_OPEN            "Open an existing document\nOpen (Ctrl+O)"
-    ID_FILE_CLOSE           "Close the active document\nClose (Ctrl+W)"
-    ID_FILE_SAVE            "Save the active document\nSave (Ctrl+S)"
-    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
-    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
-    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
-    ID_FILE_PRINT           "Print the active document\nPrint (Ctrl+P)"
-    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_NEW             "创建新文档\n新建 (Ctrl+N)"
+    ID_FILE_OPEN            "打开已有文档\n打开 (Ctrl+O)"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭 (Ctrl+W)"
+    ID_FILE_SAVE            "保存活动文档\n保存 (Ctrl+S)"
+    ID_FILE_SAVE_AS         "以新名称保存活动文档\n另存为"
+    ID_FILE_PAGE_SETUP      "更改打印选项\n页面设置"
+    ID_FILE_PRINT_SETUP     "更改打印机和打印选项\n打印设置"
+    ID_FILE_PRINT           "打印活动文档\n打印 (Ctrl+P)"
+    ID_FILE_PRINT_PREVIEW   "显示整页预览\n打印预览"
 END
 
 STRINGTABLE
@@ -1732,62 +1732,62 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_APP_TITLE       "6502 Simulator"
-    AFX_IDS_IDLEMESSAGE     "Ready"
-    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+    AFX_IDS_APP_TITLE       "6502 模拟器"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+    AFX_IDS_HELPMODEMESSAGE "选择一个对象以获取帮助"
 END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "6502 Simulator"
-    IDR_SRC65TYPE           "6502 Simulator\n\nSrc65\n6502 source files (*.65s;*.asm)\n.65s;*.asm\nM6502.Source\n6502 source text"
-    IDR_DEASM65TYPE         "6502 Simulator\nDisassembly \n\n6502 source files (*.65s)\n.65s\nM6502.Code\n6502 machine code"
+    IDR_MAINFRAME           "6502 模拟器"
+    IDR_SRC65TYPE           "6502 模拟器\n\nSrc65\n6502 源文件 (*.65s;*.asm)\n.65s;*.asm\nM6502.Source\n6502 源代码文本"
+    IDR_DEASM65TYPE         "6502 模拟器\n反汇编\n\n6502 源文件 (*.65s)\n.65s\nM6502.Code\n6502 机器代码"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_MENU_UNDO_FORMAT    "&Undo %s\tCtrl+Z"
-    IDS_MENU_REDO_FORMAT    "&Redo %s\tCtrl+Y"
-    IDS_MENU_UNDO_DEFAULT   "&Undo\tCtrl+Z"
-    IDS_MENU_REDO_DEFAULT   "&Redo\tCtrl+Z"
-    IDS_EDITOP_UNKNOWN      "Unknown"
-    IDS_EDITOP_PASTE        "Paste"
-    IDS_EDITOP_DELSELECTION "Delete Selection"
-    IDS_EDITOP_CUT          "Cut"
-    IDS_EDITOP_DELETE       "Delete"
+    IDS_MENU_UNDO_FORMAT    "&撤销 %s\tCtrl+Z"
+    IDS_MENU_REDO_FORMAT    "&重做 %s\tCtrl+Y"
+    IDS_MENU_UNDO_DEFAULT   "&撤销\tCtrl+Z"
+    IDS_MENU_REDO_DEFAULT   "&重做\tCtrl+Y"
+    IDS_EDITOP_UNKNOWN      "未知"
+    IDS_EDITOP_PASTE        "粘贴"
+    IDS_EDITOP_DELSELECTION "删除选区"
+    IDS_EDITOP_CUT          "剪切"
+    IDS_EDITOP_DELETE       "删除"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_EDITOP_TYPING       "Typing"
-    IDS_EDITOP_BACKSPACE    "Backspace"
-    IDS_EDITOP_INDENT       "Indent"
-    IDS_EDITOP_DRAGDROP     "Drag And Drop"
-    IDS_EDITOP_REPLACE      "Replace"
-    IDS_EDITOP_AUTOINDENT   "Auto Indent"
+    IDS_EDITOP_TYPING       "输入"
+    IDS_EDITOP_BACKSPACE    "退格"
+    IDS_EDITOP_INDENT       "缩进"
+    IDS_EDITOP_DRAGDROP     "拖放"
+    IDS_EDITOP_REPLACE      "替换"
+    IDS_EDITOP_AUTOINDENT   "自动缩进"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_VIEW_TABS       "Show or hide tab and space characters"
-    IDS_EDIT_TEXT_NOT_FOUND "Cannot find string""%s"""
+    ID_EDIT_VIEW_TABS       "显示或隐藏制表符和空格字符"
+    IDS_EDIT_TEXT_NOT_FOUND "无法找到字符串""%s"""
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_FIND_PREVIOUS   "Find the previous occurrence of the specified text\nFind Previous"
+    ID_EDIT_FIND_PREVIOUS   "查找指定文本的上一个出现位置\n查找上一个"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_TOGGLE_BOOKMARK "Toggle bookmark"
+    ID_EDIT_TOGGLE_BOOKMARK "切换书签"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_DELETE          "Erase the selection\nErase (Del)"
-    ID_EDIT_TAB             "Shift selected text to the next tab stop"
-    ID_EDIT_UNTAB           "Shift selected text to the previous tab stop"
+    ID_EDIT_DELETE          "清除选定内容\n清除 (Del)"
+    ID_EDIT_TAB             "将选中文本向下一个制表位缩进"
+    ID_EDIT_UNTAB           "将选中文本向上一个制表位取消缩进"
 END
 
 STRINGTABLE
@@ -1797,7 +1797,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_DYNAMIC_HELP        "Dynamic Help"
+    IDS_DYNAMIC_HELP        "动态帮助"
 END
 
 #endif    // 英语(美国) resources

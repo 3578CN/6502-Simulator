@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+ï»¿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -46,15 +46,15 @@ void CMotorolaSRecord::SaveHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
     {
       int sum= 0;				// suma kontrolna
       int lim= min(i+STEP-1, end);
-	// pocz¹tek wiersza: iloœæ danych, adres (hi, lo), zero
-      int cnt= i+STEP<=end ? STEP : end-i+1;	// iloœæ bajtów do wys³ania (w wierszu)
+	// poczÂ¹tek wiersza: iloÅ“Ã¦ danych, adres (hi, lo), zero
+      int cnt= i+STEP<=end ? STEP : end-i+1;	// iloÅ“Ã¦ bajtÃ³w do wysÂ³ania (w wierszu)
       ptr = buf + wsprintf(buf,_T("S1%02X%02X%02X"),cnt+3,(i>>8)&0xFF,i&0xFF);
       sum += cnt+3 + ((i>>8)&0xFF) + (i&0xFF);
       for (int j=i; j<=lim; j++)
       {
         ptr += wsprintf(ptr,_T("%02X"),mem[j]);
 	sum += mem[j];
-      }		// suma wszystkich bajtów w wierszu musi byæ równa zeru
+      }		// suma wszystkich bajtÃ³w w wierszu musi byÃ¦ rÃ³wna zeru
       ptr += wsprintf(ptr,_T("%02X\r\n"),~sum & 0xFF);	// wygenerowanie bajtu kontrolnego
       archive.Write(buf,sizeof(TCHAR)*(ptr-buf));
     }
@@ -166,7 +166,7 @@ void CMotorolaSRecord::LoadHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
     if (!archive.ReadString(buf,sizeof buf))
       break;
 
-    if (_tcsclen(buf) == sizeof(buf)-1)		// za d³ugi wiersz?
+    if (_tcsclen(buf) == sizeof(buf)-1)		// za dÂ³ugi wiersz?
       CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row);
 
     const TCHAR *ptr= buf;
@@ -174,7 +174,7 @@ void CMotorolaSRecord::LoadHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
       throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
     UINT info= *ptr++;		// bajt informacyjny
     UINT sum= 0;		// zmienna do liczenia sumy kontrolnej
-    UINT cnt= geth(ptr,sum);	// iloœæ bajtów danych
+    UINT cnt= geth(ptr,sum);	// iloÅ“Ã¦ bajtÃ³w danych
     if (cnt < 3)		// nierozpoznany format?
       throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
     cnt -= 3;
@@ -189,12 +189,12 @@ void CMotorolaSRecord::LoadHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
 	  area.SetStart(addr);
 	for (UINT i=0; i<cnt; i++)
 	{
-	  if (addr > 0xFFFF)	// za du¿y adres?
+	  if (addr > 0xFFFF)	// za duÂ¿y adres?
 	    throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
 	  mem[addr++] = (UINT8)geth(ptr,sum);
 	}
 	geth(ptr,sum);		// bajt sumy kontrolnej
-	if (sum != 0xFF)	// b³¹d sumy kontrolnej
+	if (sum != 0xFF)	// bÂ³Â¹d sumy kontrolnej
 	  throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_CHKSUM,row));
 	if (cnt)
 	  area.SetEnd(addr-1);
@@ -205,14 +205,14 @@ void CMotorolaSRecord::LoadHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
 	if (cnt)	// nieoczekiwane dane?
 	  throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
 	geth(ptr,sum);		// bajt sumy kontrolnej
-	if (sum != 0xFF)	// b³¹d sumy kontrolnej?
+	if (sum != 0xFF)	// bÂ³Â¹d sumy kontrolnej?
 	  throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_CHKSUM,row));
-	if (addr > 0xFFFF)	// za du¿y adres?
+	if (addr > 0xFFFF)	// za duÂ¿y adres?
 	  throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
 	prog_start = (int)addr;
 	break;
 
-      default:		// nieznana wartoœæ
+      default:		// nieznana wartoÅ“Ã¦
 	throw (new CMotorolaSRecordException(CMotorolaSRecordException::E_FORMAT,row));
     }
   }
@@ -231,13 +231,13 @@ void CMotorolaSRecord::LoadHexFormat(CArchive &archive, COutputMem &mem, CMarkAr
   wsprintf(num,_T("%u"),row);
   switch (error)
   {
-    case E_BAD_FORMAT:		// b³êdny format pliku
+    case E_BAD_FORMAT:		// bÂ³Ãªdny format pliku
       msg.LoadString(IDS_INTEL_HEX_ERR_2);
       break;
-    case E_CHKSUM:		// b³¹d sumy kontrolnej
+    case E_CHKSUM:		// bÂ³Â¹d sumy kontrolnej
       AfxFormatString1(msg,IDS_INTEL_HEX_ERR_1,num);
       break;
-    case E_FORMAT:		// b³êdny format danych
+    case E_FORMAT:		// bÂ³Ãªdny format danych
       AfxFormatString1(msg,IDS_INTEL_HEX_ERR_3,num);
       break;
     default:

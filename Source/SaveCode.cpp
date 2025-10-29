@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+﻿/*-----------------------------------------------------------------------------
 	6502 Macroassembler and Simulator
 
 Copyright (C) 1995-2003 Michal Kowalski
@@ -176,7 +176,7 @@ void CSaveCode::SaveCode()		// zapisanie kodu wynikowego
 
   try
   {
-//    file.SetLength(0);	// obcinamy koniec, je�li jest
+//    file.SetLength(0);	// obcinamy koniec, jeœli jest
 
     CString ext= GetFileExt();
     CString extensions;
@@ -198,7 +198,7 @@ void CSaveCode::SaveCode()		// zapisanie kodu wynikowego
       case 15:	// 65p
 	m_nPos = 3;
 	break;
-    }	// je�li nierozpoznane rozszerzenie, u�ywamy typu wybranego w pude�ku dialogowym
+    }	// jeœli nierozpoznane rozszerzenie, u¿ywamy typu wybranego w pude³ku dialogowym
 
     CArchive archive(&file,CArchive::store,1024*8);
 
@@ -265,6 +265,11 @@ void CSaveCode::EnableOptions(bool bRedraw /*= TRUE*/)
 {
   CWnd *pBtn= GetDlgItem(IDC_SAVE_CODE_OPT);
   m_nPos = m_ofn.nFilterIndex - 1;
+
+  // 检查控件指针及窗口句柄是否有效，防止在控件尚未创建时访问空指针导致崩溃
+  if (pBtn == NULL || !::IsWindow(pBtn->GetSafeHwnd()))
+    return;
+
   if (m_nPos < 2)
   {
     if (pBtn->ModifyStyle(0,WS_DISABLED) && bRedraw)

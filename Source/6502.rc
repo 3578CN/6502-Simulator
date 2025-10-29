@@ -1321,32 +1321,32 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_DISASM_FORMAT1      "; Program disassembly from $%04X to $%04X \t%s\r\n"
-    IDS_DISASM_FORMAT2      "\r\n; Labels encoding:\r\n;   znn - zero page addresses\r\n ;   annnn - absolute addresses\r\n;   ennnn - relative branches addresses\r\n\r\n"
-    ID_HELP_DYNAMIC         "Toggle context sensitive dynamic help window\nDynamic Help"
+    IDS_DISASM_FORMAT1      "; 程序反汇编 从 $%04X 到 $%04X \t%s\r\n"
+    IDS_DISASM_FORMAT2      "\r\n; 标签编码:\r\n;   znn - 零页地址\r\n;   annnn - 绝对地址\r\n;   ennnn - 相对分支地址\r\n\r\n"
+    ID_HELP_DYNAMIC         "切换上下文相关的动态帮助窗口\n动态帮助"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_TOOLBAR             "Standard"
-    ID_VIEW_STACK           "Show or hide 6502 ÂµP stack memory window\nToggle Stack Window (Alt+4)"
-    ID_VIEW_LOG             "Show or hide command log window\nToggle Log Window (Alt+7)"
+    IDS_TOOLBAR             "标准"
+    ID_VIEW_STACK           "显示或隐藏 6502 微处理器 堆栈内存窗口\n切换堆栈窗口 (Alt+4)"
+    ID_VIEW_LOG             "显示或隐藏命令日志窗口\n切换日志窗口 (Alt+7)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_MEMORY_GOTO          "Sets 6502 ÂµP memory display begining address"
-    ID_MEMORY_OPTIONS       "Sets 6502 ÂµP memory window options"
-    ID_MEMORY_CHG           "Modify 6502 ÂµP memory bytes"
-    ID_MEMORY_FULL          "Display memory as hexadecimal and text dump"
-    ID_MEMORY_HEX           "Display memory as hexadecimal dump"
-    ID_MEMORY_TEXT          "Display memory as text dump"
+    ID_MEMORY_GOTO          "设置 6502 微处理器 内存显示起始地址"
+    ID_MEMORY_OPTIONS       "设置 6502 微处理器 内存窗口选项"
+    ID_MEMORY_CHG           "修改 6502 微处理器 内存字节"
+    ID_MEMORY_FULL          "以十六进制和文本方式显示内存"
+    ID_MEMORY_HEX           "以十六进制显示内存"
+    ID_MEMORY_TEXT          "以文本形式显示内存"
 END
 
 STRINGTABLE
 BEGIN
-    ID_DEASM_GOTO           "Sets disassemble program display begining address"
-    ID_DEASM_OPTIONS        "Sets disassembler options"
+    ID_DEASM_GOTO           "设置反汇编显示起始地址"
+    ID_DEASM_OPTIONS        "设置反汇编器选项"
 END
 
 STRINGTABLE
@@ -1358,69 +1358,69 @@ BEGIN
     IDS_OPT_VIEW_EXAMPLE_4  "1000  20 01 EA  > \001Ãª<\n1003  BF 20 04  >Â¿ \004<\n1006  0F 41 F7  >\017AÃ·<\n1009  EA 97 70  >Ãªâ€”p<\n100C  77 71 D8  >wqÃ˜<\n100F  A2 66 A0  >Â¢fÂ <\n1012  33 18 A9  >3\030Â©<\n1015  FF 85 80  >Ã¿â€¦ <\n"
     IDS_OPT_VIEW_EXAMPLE_5  "81  00 ' '  2F00  00 00 00 00 00\n82  2F '/'  052F  00 00 00 00 00\n83  05 '.'  C505  00 00 00 00 00\n84  C5 'Ã…'  58C5  FF 00 BF C6 58\n85  58 'X'  0058  00 00 00 00 00\n86  00 ' '  0000  00 00 00 00 00\n87  00 ' '  0000  00 00 00 00 00\n88  00 ' '  0000  00 00 00 00 00"
     IDS_OPT_VIEW_EXAMPLE_6  "1FF  06 '.'  0006  00 00 00 00\n1FE  04 '.'  0604  06 00 00 20\n1FD  06 '.'  0406  00 00 00 00\n1FC  09 '.'  0609  06 60 EA 85\n1FB  06 '.'  0906  00 00 00 00\n1FA  11 '.'  0611  06 98 60 A0\n1F9  00 ' '  1100  00 00 00 00\n"
-    IDS_OPT_VIEW_LIST       "Editor;Simulator I/O;Disassembler;6502 ÂµP Memory;Zero Page Memory;6502 ÂµP Stack;"
+    IDS_OPT_VIEW_LIST       "编辑器;模拟器 I/O;反汇编器;6502 微处理器 内存;零页内存;6502 微处理器 堆栈;"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_MOTOROLA_S_ERR_3    "Unknown data format; line %1"
+    IDS_MOTOROLA_S_ERR_3    "未知数据格式；行 %1"
     IDS_MOTOROLA_S_ERR_4    "x"
-    IDS_ZMEMORY_TITLE       "6502 ÂµP Zero Page"
-    IDS_ABOUT_VER           "Version Number: %d.%d.%d"
-    IDS_STACK               "6502 ÂµP Stack"
+    IDS_ZMEMORY_TITLE       "6502 微处理器 零页"
+    IDS_ABOUT_VER           "版本号：%d.%d.%d"
+    IDS_STACK               "6502 微处理器 堆栈"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SAVE_CODE_ERR_1     "Error opening ""%1"" file to write: %2"
-    IDS_SAVE_CODE_ERR_2     "Error writing to ""%1"" file: %2"
-    IDS_LOAD_CODE           "Intel-HEX format (*.65h;*.hex)|*.65h;*.hex|Motorola s-rekord format (*.65m; *.s9)|*.65m;*.s9|Binary image (*.65b)|*.65b|Binary program (*.65p)|*.65p|Atari binary program (*.xex)|*.xex|All files (*.*)|*.*||"
-    IDS_LOAD_CODE_ERR_1     "Error opening ""%1"" file to read: %2"
-    IDS_LOAD_CODE_ERR_2     "Error reading from ""%1"" file: %2"
-    IDS_LOAD_CODE_DLG       "Load machine code"
-    IDS_SAVE_CODE_DLG       "Save machine code as"
-    IDS_INTEL_HEX_ERR_1     "Checksum error at row %1"
-    IDS_INTEL_HEX_ERR_2     "Bad file format"
-    IDS_INTEL_HEX_ERR_3     "Unknown data format at row %1"
+    IDS_SAVE_CODE_ERR_1     "打开 ""%1"" 文件进行写入时出错：%2"
+    IDS_SAVE_CODE_ERR_2     "写入文件 ""%1"" 时出错：%2"
+    IDS_LOAD_CODE           "Intel-HEX 格式 (*.65h;*.hex)|*.65h;*.hex|Motorola S-记录 格式 (*.65m;*.s9)|*.65m;*.s9|二进制镜像 (*.65b)|*.65b|二进制程序 (*.65p)|*.65p|Atari 二进制程序 (*.xex)|*.xex|所有文件 (*.*)|*.*||"
+    IDS_LOAD_CODE_ERR_1     "打开文件 ""%1"" 读取时出错：%2"
+    IDS_LOAD_CODE_ERR_2     "从文件 ""%1"" 读取时出错：%2"
+    IDS_LOAD_CODE_DLG       "加载机器代码"
+    IDS_SAVE_CODE_DLG       "另存机器代码为"
+    IDS_INTEL_HEX_ERR_1     "校验和错误，行 %1"
+    IDS_INTEL_HEX_ERR_2     "文件格式错误"
+    IDS_INTEL_HEX_ERR_3     "第 %1 行未知的数据格式"
     IDS_INTEL_HEX_ERR_4     "x"
     IDS_CODE_EXTENSIONS     "65h;hex;65m;s9 ;65b;65p;com;"
-    IDS_STOP_DEBUG          "Assemble stops running simulator.\nExit debugger to assemble the program?"
-    IDS_ASM_OPT_LIST_FILES  "Listings (*.lst) |*.lst|All files (*.*) |*.*||"
-    IDS_MOTOROLA_S_ERR_1    "Checksum error at row %1"
-    IDS_MOTOROLA_S_ERR_2    "Bad file format"
+    IDS_STOP_DEBUG          "汇编会停止正在运行的模拟器。\n退出调试器以汇编程序吗？"
+    IDS_ASM_OPT_LIST_FILES  "列表文件 (*.lst)|*.lst|所有文件 (*.*)|*.*||"
+    IDS_MOTOROLA_S_ERR_1    "校验和错误，行 %1"
+    IDS_MOTOROLA_S_ERR_2    "文件格式错误"
 END
 
 STRINGTABLE
 BEGIN
-    ID_VIEW_DEASM           "Open new Disassembly window with machine code\nNew Disassembly window (Alt+0)"
-    ID_VIEW_IDENT           "Show or hide source code identifiers window\nToggle Identifiers Window (Alt+5)"
-    ID_VIEW_MEMORY          "Show or hide 6502 ÂµP memory window\nToggle 6502 Memory Window (Alt+2)"
-    ID_VIEW_IO_WINDOW       "Show or hide In/Out simulator window\nToggle In/Out Window (Alt+6)"
+    ID_VIEW_DEASM           "打开新的反汇编窗口\n新反汇编窗口 (Alt+0)"
+    ID_VIEW_IDENT           "显示或隐藏源代码标识符窗口\n切换标识符窗口 (Alt+5)"
+    ID_VIEW_MEMORY          "显示或隐藏 6502 微处理器 内存窗口\n切换 6502 内存窗口 (Alt+2)"
+    ID_VIEW_IO_WINDOW       "显示或隐藏 输入/输出 模拟器窗口\n切换输入/输出窗口 (Alt+6)"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDITOR_OPT           "Change editor options"
+    ID_EDITOR_OPT           "更改编辑器选项"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ASM_ERR_42          "Parameter referenced with dollar char '$' has no text value"
-    IDS_ASM_ERR_43          "Referenced parameter not exist--param number out of range"
-    IDS_ASM_ERR_44          "Undetermined expression value in macro parameter number"
-    IDS_ASM_ERR_45          "Local label not allowed for macrodefiniiton name"
-    IDS_ASM_ERR_46          "After '%' char macro parameter number is expected"
-    IDS_ASM_ERR_47          "Label not allowed for directive"
-    IDS_ASM_ERR_48          "Wrong repeat number - expected value in range from 0 to 65535"
-    IDS_ASM_ERR_49          ".ENDR directive without pairing .REPEAT"
-    IDS_ASM_ERR_50          ".INCLUDE directive not allowed in macro/repeat"
-    IDS_ASM_ERR_51          "String to long--maximal length: 255 characters"
-    IDS_ASM_ERR_52          "Wrong bit number--expected value from 0 to 7"
-    IDS_ASM_ERR_53          "Missing required option name"
-    IDS_ASM_ERR_54          "Unrecognized option name"
-    IDS_ASM_ERR_55          "Input line exeeds 1024 characters limit"
-    IDS_ASM_ERR_56          "Missing macro parameter name"
-    IDS_ASM_ERR_57          "Indirect postindexed addressing mode requires byte operand"
+    IDS_ASM_ERR_42          "使用 $ 引用的参数没有文本值"
+    IDS_ASM_ERR_43          "引用的参数不存在——参数编号超出范围"
+    IDS_ASM_ERR_44          "宏参数编号中的表达式值不确定"
+    IDS_ASM_ERR_45          "宏定义名称不允许使用局部标签"
+    IDS_ASM_ERR_46          "在 '%' 后应为宏参数编号"
+    IDS_ASM_ERR_47          "指令不允许使用标签"
+    IDS_ASM_ERR_48          "重复次数不正确——期望值范围为 0 到 65535"
+    IDS_ASM_ERR_49          ".ENDR 指令没有对应的 .REPEAT"
+    IDS_ASM_ERR_50          ".INCLUDE 指令在宏/重复中不允许"
+    IDS_ASM_ERR_51          "字符串过长——最大长度：255 字符"
+    IDS_ASM_ERR_52          "位编号错误——期望值范围为 0 到 7"
+    IDS_ASM_ERR_53          "缺少必需的选项名称"
+    IDS_ASM_ERR_54          "无法识别的选项名称"
+    IDS_ASM_ERR_55          "输入行超过 1024 字符限制"
+    IDS_ASM_ERR_56          "缺少宏参数名称"
+    IDS_ASM_ERR_57          "间接后索引寻址模式需要字节操作数"
 END
 
 STRINGTABLE
